@@ -57,3 +57,19 @@ candidatos del 28 sept y se añaden 300 nuevos (ganadores de los últimos 30 dí
   (mochila, collar LED, alfombrilla de arenero), coherente con el barrido de España.
 - El producto de medicube que se planteó (PDRN Pink Collagen Multi Balm) se descarta: es de una marca registrada
   que vende la propia marca en TikTok Shop, Ulta y su web.
+
+### Sector Belleza, Salud y Cuidado Personal (EE. UU.)
+
+- `python3 usa/f1_bel.py` (une `bel_raw.jsonl.gz` con el barrido general → `f1_bel.json`) →
+  `python3 usa/score_us.py f1_bel.json judg_bel.tsv D_bel.json`.
+- Fuente: los 458 ganadores de AutoDS en «Beauty & Personal Care» (todas las páginas) + 117 de búsqueda en «Health &
+  Wellness» y «Tools & Accessories» con envío < 11 días. Sin productos de cabello (a petición) ni ingeribles.
+- En esta categoría solo 94 ganadores llegan en ≤ 10 días; se admiten 11 días en 3 finalistas verificados (penalizados
+  en la nota) y se descartan los de 12-13 días.
+- Cosmética tópica (cremas, sérums, bálsamos) de China: descartada por MoCRA (registro de instalación, listado de
+  producto y responsable en EE. UU. en la etiqueta).
+- Resultado: **1 producto supera 38,9 $ por pedido**: masajeador de cuello y hombros inalámbrico (almacén US, 29,36 $,
+  4,9★ con 1.391 reseñas; PVP 79,99 $, MC 39,53 $ con 1 ud. y 44,76 $ con la 2.ª al 50 %). Le siguen el masajeador de
+  rodilla (37,54 $), el masajeador facial de microcorriente (37,06 $, 4,9★ con 2.729 reseñas), los parches de silicona
+  antiarrugas (33,95 $) y las ventosas eléctricas (31,25 $).
+- Nicho recomendado: **«spa en casa»** (masaje + herramientas faciales sin cosmética), con temporada de regalos Q4.

@@ -1,12 +1,86 @@
 {
- "67a2d17e3d8f63df398f2b3b": {"c": 6.87, "s": 1.99, "nota": "Talla M (media de colores), almacén CN; competencia 47-63 $"},
- "68517d5221ca106bae88e508": {"c": 14.2, "s": 0, "nota": "Rosa/blanco roto 14,18-14,22 $ (negro 18,11 $), CN, envío gratis; competencia 25-95 $"},
- "6754c0bc18be72b6d463ec00": {"c": 5.19, "s": 1.99, "nota": "Negro, almacén US; competencia 13-17 $ (VEVOR 2 uds. 16,90 $)"},
- "696e2a47cc9f880001d31921": {"c": 6.24, "s": 1.99, "nota": "Única variante, almacén US; competencia 20-28 $"},
- "08c3ed914ae88508e5f7deed": {"c": 8.56, "s": 1.99, "nota": "Grande con imanes, almacén US; competencia 19-43 $"},
- "682c4537309d9ee5bff53b33": {"c": 17.64, "s": 0, "nota": "Modelo X13 (FCC), almacén US, envío gratis; competencia 36-60 $"},
- "ec580e7494b0ac96b2edafeb": {"c": 2.44, "s": 1.99, "nota": "Media de tonos, CN; competencia 24-60 $"},
- "690f4f5166994000016c4206": {"c": 3.71, "s": 1.99, "nota": "1000 g de fuerza, CN; competencia 23-35 $ (2 uds.)"},
- "69cec2b389e77f0001986370": {"c": 3.94, "s": 1.99, "nota": "25x60 cm, CN; competencia 10-15 $"},
- "65992dd64019e2b45bae60f7": {"c": 2.55, "s": 1.99, "nota": "Collar LED talla M, CN (es collar, no correa); competencia 15-20 $"}
+ "67a2d17e3d8f63df398f2b3b": {
+  "c": 6.87,
+  "s": 1.99,
+  "nota": "Talla M (media de colores), almacén CN; competencia 47-63 $"
+ },
+ "68517d5221ca106bae88e508": {
+  "c": 14.2,
+  "s": 0,
+  "nota": "Rosa/blanco roto 14,18-14,22 $ (negro 18,11 $), CN, envío gratis; competencia 25-95 $"
+ },
+ "6754c0bc18be72b6d463ec00": {
+  "c": 5.19,
+  "s": 1.99,
+  "nota": "Negro, almacén US; competencia 13-17 $ (VEVOR 2 uds. 16,90 $)"
+ },
+ "696e2a47cc9f880001d31921": {
+  "c": 6.24,
+  "s": 1.99,
+  "nota": "Única variante, almacén US; competencia 20-28 $"
+ },
+ "08c3ed914ae88508e5f7deed": {
+  "c": 8.56,
+  "s": 1.99,
+  "nota": "Grande con imanes, almacén US; competencia 19-43 $"
+ },
+ "682c4537309d9ee5bff53b33": {
+  "c": 17.64,
+  "s": 0,
+  "nota": "Modelo X13 (FCC), almacén US, envío gratis; competencia 36-60 $"
+ },
+ "ec580e7494b0ac96b2edafeb": {
+  "c": 2.44,
+  "s": 1.99,
+  "nota": "Media de tonos, CN; competencia 24-60 $"
+ },
+ "690f4f5166994000016c4206": {
+  "c": 3.71,
+  "s": 1.99,
+  "nota": "1000 g de fuerza, CN; competencia 23-35 $ (2 uds.)"
+ },
+ "69cec2b389e77f0001986370": {
+  "c": 3.94,
+  "s": 1.99,
+  "nota": "25x60 cm, CN; competencia 10-15 $"
+ },
+ "65992dd64019e2b45bae60f7": {
+  "c": 2.55,
+  "s": 1.99,
+  "nota": "Collar LED talla M, CN (es collar, no correa); competencia 15-20 $"
+ },
+ "69f591d1c2129f0001e7b233": {
+  "c": 40.0,
+  "s": 0,
+  "days": 11,
+  "nota": "Blanco, almacén US, envío gratis (11 días); 4,6★ (18 reseñas); competencia 66-139 $"
+ },
+ "69a7241bc0d4f00001617cc4": {
+  "c": 13.41,
+  "s": 0,
+  "nota": "Rojo, almacén US, envío gratis; 4,9★ (142); competencia 38-50 $"
+ },
+ "6754a6b047119827ddf53538": {
+  "c": 3.23,
+  "s": 1.99,
+  "days": 11,
+  "nota": "Set A2, almacén ALL (origen CN), 11 días; 4,8★ (36); competencia 18-36 $"
+ },
+ "67521a09fb23301a3dfafe3d": {
+  "c": 5.27,
+  "s": 1.99,
+  "orders": 5000,
+  "nota": "Rojo, almacén US; 4,9★ (2.729 reseñas), 5.000 pedidos"
+ },
+ "68bd4dd9d5dea5eb0b719c3b": {
+  "c": 29.36,
+  "s": 0,
+  "orders": 5000,
+  "nota": "20 W marrón, almacén US, envío gratis; 4,9★ (1.391), 5.000 pedidos (26 W: 39-43 $)"
+ },
+ "6792f45f9368a7c22bff87f6": {
+  "c": 9.46,
+  "s": 4.57,
+  "nota": "Modelo C con pantalla, almacén US, 10-13 días; sin reseñas"
+ }
 }
