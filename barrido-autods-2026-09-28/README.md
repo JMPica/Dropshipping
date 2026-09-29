@@ -37,3 +37,23 @@ Carpeta `espana/`. Se descarta CJ Dropshipping: se trabaja solo con AutoDS en re
 - Resultado (`D_es.json`, `score_es.py`): **ninguno llega a 35 € por pedido**. Mejor: mochila portaperros, 19,41 € (2.ª al 50 %). Margen mediano: 2,57 €. ROAS de equilibrio mediano: 6,4.
 - Nicho recomendado: **Mascotas** (mochila portaperros, cama plátano para gatos y peluca de león como contenido y complemento).
 - Dashboard: `radar/radar.html` (versión anterior en el historial de git).
+
+## Actualización 29 sept (tarde): mercado EE. UU.
+
+Carpeta `usa/`. Tienda Lume orientada a EE. UU.: la región de AutoDS ya estaba en US, así que se reutilizan los 1.770
+candidatos del 28 sept y se añaden 300 nuevos (ganadores de los últimos 30 días y productos en almacén US).
+
+- Pipeline: `python3 usa/f1_us.py` (filtro duro; genera `f1_us.json` y `f1_quedan.tsv`) → `python3 usa/score_us.py`
+  (lee `judg_us.tsv` y `verificados.json`; genera `D_us.json`).
+- 2.031 productos → 731 llegan en ≤ 10 días → 490 pasan los vetos de EE. UU. (marca, armas/tabaco, adulto,
+  salud/ingeribles FDA, juguete/bebé CPSC, consumible) → 73 finalistas con juicio manual → 10 con coste de variante verificado.
+- Fórmula (USD): MC = PVP − coste puesto − (4,5 % PVP + 0,30 $) − 9 % PVP. Sin IVA (exportación). Objetivo: 38,9 $ (= 35 €).
+- Arancel CN → EE. UU. sin de minimis: **supuesto** de 40 % del valor + 1 $ por paquete (tras la sentencia del Supremo
+  de feb. 2026 sobre IEEPA quedan las tarifas de la Sección 301). Almacén US = 0 $. Verificar en el checkout de AliExpress.
+- Resultado: **solo 1 producto llega a 38,9 $ por pedido**: cortapuntas abiertas del pelo (69,99 $, MC 39,36 $ con 1 ud.,
+  49,75 $ con la 2.ª al 50 %). Le siguen la mochila portaperros (33,85 $), la bandolera antirrobo (33,80 $) y el
+  detector de cámaras ocultas (29,28 $, almacén US).
+- Nicho con mejor nota media: **Belleza/cabello** (cortapuntas + flequillo postizo de clip). Alternativa: **Mascotas**
+  (mochila, collar LED, alfombrilla de arenero), coherente con el barrido de España.
+- El producto de medicube que se planteó (PDRN Pink Collagen Multi Balm) se descarta: es de una marca registrada
+  que vende la propia marca en TikTok Shop, Ulta y su web.
