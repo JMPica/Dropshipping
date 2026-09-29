@@ -1,0 +1,51 @@
+id|name|sub|PVP|pack|prob|demo|tienda|riesgo|nota_riesgo|gancho|cost|ship|days|orders|verif
+699ebf88180986000199fac0|Cepillo térmico rizador 32 mm|Cabello|44.99|0|4|5|3|0|Eléctrico: pedir CE y enchufe UE (verificado en la variante UE). Stock UE bajo (9 uds).|Ondas de peluquería en 10 minutos, sin secador ni quemaduras|13.91|0|9|453|1
+6754a9caf0633adfaaf8129a|Recortador de puntas abiertas|Cabello|49.99|0|5|5|5|0|Batería de litio: pedir CE.|Elimina las puntas abiertas sin perder ni un centímetro de largo|14.61|0|10|2000|1
+69e8acaedbe6c70001b7b94c|Mini plancha inalámbrica recargable|Cabello|44.99|0|4|4|3|0|Batería de litio: pedir CE.|Retoca el pelo en el coche o la oficina, sin cable|15.3|0|12|2000|1
+6751f16f7ad041aac76addb7|Cepillo secador 3 en 1 (LISAPRO)|Cabello|59.99|0|4|4|2|1|Eléctrico 1000 W: CE obligatorio. Categoría con marcas conocidas (Revlon, Dyson): nunca compararlo por nombre.|Secado y volumen de peluquería en un solo paso|20.97|0|9|700|1
+6803218f93ef755c35d6e65a|Cepillo térmico doble PTC|Cabello|44.99|0|4|5|3|0|Eléctrico: pedir CE y enchufe UE.|Rizos y volumen mientras te cepillas|||||0
+15ac4532db2eb9b58ffb6842|Rizador sin calor tipo pulpo (2 uds)|Cabello|24.99|1|4|5|3|0|—|Rizos mientras duermes, sin calor y sin dañar el pelo|||||0
+675238c631ada8ccfc00acee|Varillas rizadoras sin calor (12 uds)|Cabello|19.99|1|3|4|3|0|—|Ondas al agua sin plancha|7.77|1.75|12|44|1
+2cfe11e3fba6fcc0ca5a15c8|Gorro de seda de morera para dormir|Cabello|24.99|1|3|2|3|0|Comprobar que es seda real (etiquetado textil).|Levántate sin encrespamiento ni nudos|||||0
+69e5fbba8f40da0001e9841b|Flequillo de pelo natural con clip|Cabello|29.99|0|3|5|4|1|Tonos: riesgo de devoluciones por color.|Flequillo nuevo en 5 segundos, sin tijeras|||||0
+4ec48c8fbd18e737111ed1b0|Flequillo sintético con clip|Cabello|19.99|1|3|5|3|1|Tonos y brillo sintético: devoluciones.|Cambia de look sin cortarte el pelo|||||0
+69a5d8edc90dbc0001360058|Peine eléctrico de masaje del cuero cabelludo|Cabello|39.99|0|3|3|4|0|Eléctrico: pedir CE. Sin prometer crecimiento del pelo.|Masaje de peluquería en casa en 5 minutos|||||0
+69f6ca9cd9df720001ca625f|Cepillo 3D para definir rizos|Cabello|19.99|1|3|4|4|0|—|Rizos definidos sin encrespamiento|||||0
+69e8ab1151e9060001908065|Peine texturizador en Z (volumen de raíz)|Cabello|16.99|1|3|4|4|0|—|Volumen en la raíz en 30 segundos|||||0
+6751fce3dd61c419ac9f0a8a|Juego de peines antiestáticos|Cabello|16.99|1|2|2|1|0|Se encuentra en bazares.|—|||||0
+6752317fc7fba45cee564190|Cepillo autolimpiable|Cabello|24.99|1|2|4|2|0|Muy visto en Amazon.|Limpia el cepillo con un clic|||||0
+69e8a66651e906000190805e|Peine elevador giratorio autolimpiable|Cabello|22.99|1|2|4|3|0|—|Peina y limpia en un gesto|||||0
+678643d2cc8c40d9d587adde|Moño postizo desenfadado|Cabello|16.99|1|2|4|3|1|Tonos: devoluciones por color.|Moño perfecto en 10 segundos|||||0
+6754a73af043472c6f9e3940|Parches de silicona reutilizables para frente y entrecejo|Rostro|24.99|1|4|4|4|1|Meta restringe promesas antiedad: hablar de 'marcas al dormir', no de arrugas.|Despierta sin la marca del entrecejo|||||0
+693cece2005c8c0001afa551|Pestañas magnéticas con aplicador (sin pegamento)|Rostro|24.99|1|3|5|3|0|—|Pestañas en 10 segundos, sin pegamento|||||0
+69d4317a9311970001a7b5dd|Rizador de pestañas térmico recargable|Rostro|19.99|1|3|4|2|0|Batería: pedir CE. En Primor por ~15 €.|Pestañas rizadas todo el día sin pinza|||||0
+6754a44ec19610ba41bf5ea5|Espátula ultrasónica de limpieza facial|Rostro|34.99|0|3|5|2|1|Solo 'limpieza de poros': sin promesas de acné ni LED terapéutico.|Limpieza de poros como en cabina, en casa|9.72|0|11|9|1
+6763f2df996f543acf52cae1|Rodillo de hielo 2 en 1 para rostro|Rostro|24.99|1|3|3|3|0|—|Cara despierta en 2 minutos por la mañana|6.61|1.75|12|1|1
+67d846d78baee755f83b3148|Masajeador de ojos con calor y presión de aire|Rostro|39.99|0|3|3|4|1|Eléctrico: CE. Sin prometer eliminar ojeras.|10 minutos de desconexión para ojos cansados de pantalla|||||0
+669e2d5d7c0bfc0293750872|Masajeador de ojos con luz roja y EMS|Rostro|59.99|0|3|3|4|2|EMS + luz roja: alegaciones casi médicas.|—|||||0
+69d769f850fc31000119762d|Afeitadora mini recargable resistente al agua|Depilación|39.99|0|4|3|2|1|Anunciar zona íntima tiene restricciones en Meta; enfocar en piernas y axilas.|Piel suave sin cortes ni irritación|||||0
+69f33e7681e69d000161188e|Maquinilla facial y de axilas para mujer|Depilación|19.99|1|3|3|1|0|Se encuentra en supermercados.|—|||||0
+6950fff25687740001f0dbc0|Cortapelos de cuerpo transparente|Depilación|29.99|0|3|3|1|0|Muy competido.|—|||||0
+3c91503fa0e1ebe0cf894697|Kit de manicura de 16 piezas|Uñas|19.99|1|2|2|1|0|Producto de bazar.|—|||||0
+1d3485b2244f376014cc9ac3|Imán para uñas efecto ojo de gato|Uñas|12.99|1|2|4|4|0|Necesita esmalte de gel (no incluido).|—|||||0
+7cf554ae18a2754849a6d67d|Camilla de estiramiento cervical|Bienestar|29.99|0|4|4|3|1|No prometer curar dolor: hablar de 'soltar tensión'.|10 minutos para soltar el cuello después de la oficina|||||0
+67dbed9a40dff452bc46842b|Almohada cervical con presión de dedos|Bienestar|29.99|0|4|3|3|1|Sin alegaciones de dolor.|Masaje de cuello mientras descansas|||||0
+678bd875522913addbbb5131|Dispositivo de tracción cervical|Bienestar|34.99|0|4|3|3|2|Se vende con alegaciones médicas (dolor crónico, alineación).|—|||||0
+6837e1c93b539b2c213167af|Diadema con auriculares para dormir|Descanso|24.99|1|3|3|2|0|Bluetooth: marcado CE/RED.|Duerme con tu música sin que te molesten los cascos|||||0
+7bc2e1d53b968b81a96d822f|Antifaz 3D con auriculares Bluetooth|Descanso|34.99|0|3|3|3|0|Bluetooth: marcado CE/RED.|Oscuridad total y tu música para dormir|||||0
+04aaf8deda270677fd4694ea|Calcetines de silicona para talones agrietados|Pies|19.99|1|4|4|3|1|Si el gel libera aceite es cosmético (CPNP): pedir ficha.|Talones suaves mientras duermes|||||0
+697deba174fa6e000195904e|Tabla de acupresión para pies|Bienestar|24.99|0|2|2|3|1|Sin alegaciones de salud.|—|||||0
+34ddea64c52db1f2cac3d784|Rodillo de madera para masaje de manos|Bienestar|19.99|1|2|2|3|0|—|—|||||0
+696ff87caeaa740001c9131c|Rodillo doble para masaje de pies|Pies|19.99|1|2|2|3|0|—|—|||||0
+32d8d8a9705a4eec03613327|Rodillo de madera para la planta del pie|Pies|19.99|1|3|2|3|1|No mencionar fascitis plantar.|—|||||0
+c7974fb9b280678b695c65b2|Mini masajeador cervical EMS|Bienestar|34.99|0|3|4|4|1|EMS: evitar alegaciones terapéuticas. CE.|Masaje de cuello en cualquier sitio|||||0
+69d4bb8ae1f17b00012b3885|Almohadilla de silicona para frotar la espalda en la ducha|Baño|22.99|1|3|4|4|0|—|Frota tu espalda sin ayuda|||||0
+6978ba9f176218000195a532|Cepillo de silicona para la espalda|Baño|16.99|1|3|3|2|0|—|—|||||0
+69eebd557de1af00010d9a81|Esponja africana exfoliante (2 uds)|Baño|19.99|1|3|4|4|0|—|La esponja que usan en África para una piel lisa|||||0
+6834215180c87e8d1b720cdf|Esterilla de masaje de pies con piedras|Pies|29.99|0|2|2|3|0|—|—|||||0
+f31bc327c1ba729f9b881315|Esterilla EMS para pies|Pies|44.99|0|3|3|3|2|EMS + 'circulación': alegaciones sanitarias.|—|||||0
+69e3544691e9e70001c10790|Clip nasal magnético antirronquidos|Descanso|14.99|1|4|2|3|2|Antirronquidos = producto sanitario.|—|||||0
+6834962b76828f2b3237dd53|Calcetines de acupresión|Pies|14.99|1|2|2|3|1|—|—|||||0
+693bdd37a5612a0001542267|Cepillo de dientes automático en U|Higiene bucal|39.99|0|3|4|3|0|Recargable: CE.|Dientes limpios en 30 segundos|||||0
+6754ac236e5348bbe54f2af8|Cepillo de dientes en U para niños|Higiene bucal|19.99|1|3|4|3|0|Recargable: CE; juguete no.|Se acabaron las peleas para lavarse los dientes|||||0
+66e2f786a1d4d62ffa2e7395|Irrigador bucal portátil|Higiene bucal|59.99|0|3|3|1|0|En Lidl y Amazon por 30 €.|—|||||0

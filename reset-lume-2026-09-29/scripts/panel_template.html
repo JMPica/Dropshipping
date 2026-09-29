@@ -1,0 +1,326 @@
+<title>Radar Lume · Belleza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: mesa de trabajo de Lume. Veredicto arriba, embudo y nicho en medio, tabla operable abajo. */
+:root{
+  --papel:#faf8f4; --papel-2:#f0ece4; --tinta:#161513; --tinta-2:#57544d; --tinta-3:#8a857b;
+  --linea:#e2ddd2; --ambar:#8f5713; --ambar-suave:#f3e6d3; --verde:#2f6b4f; --verde-suave:#dcebe2;
+  --aviso:#9a6a00; --aviso-suave:#f7ecc9; --riesgo:#a4382b; --riesgo-suave:#f6ddd8;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-data:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --papel:#171614; --papel-2:#211f1c; --tinta:#f1ede5; --tinta-2:#b9b3a7; --tinta-3:#8a857b;
+  --linea:#34312c; --ambar:#e0a45a; --ambar-suave:#3a2c1a; --verde:#7cc3a0; --verde-suave:#1d3228;
+  --aviso:#e6c36a; --aviso-suave:#3a3118; --riesgo:#ec8a7c; --riesgo-suave:#3d221e; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --papel:#171614; --papel-2:#211f1c; --tinta:#f1ede5; --tinta-2:#b9b3a7; --tinta-3:#8a857b;
+  --linea:#34312c; --ambar:#e0a45a; --ambar-suave:#3a2c1a; --verde:#7cc3a0; --verde-suave:#1d3228;
+  --aviso:#e6c36a; --aviso-suave:#3a3118; --riesgo:#ec8a7c; --riesgo-suave:#3d221e; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--papel);color:var(--tinta);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:28px 64px;display:flex;flex-direction:column;gap:40px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(28px,4.4vw,44px);line-height:1.05;font-weight:700}
+h2{font-size:22px;font-weight:700}
+h3{font-size:17px;font-weight:700}
+p{margin:0}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2);font-weight:600}
+.num{font-family:var(--f-data);font-variant-numeric:tabular-nums}
+.muted{color:var(--tinta-2)}
+a{color:var(--ambar)}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,tr:focus-visible{outline:2px solid var(--ambar);outline-offset:2px}
+
+header{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:32px;align-items:end}
+header .lede{font-size:17px;color:var(--tinta-2);max-width:62ch;margin-top:12px}
+.funnel{display:flex;flex-direction:column;gap:6px}
+.fstep{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;font-size:13px}
+.fbar{height:8px;border-radius:4px;background:var(--papel-2);position:relative;overflow:hidden;grid-column:1/-1}
+.fbar i{position:absolute;inset:0 auto 0 0;background:var(--tinta);border-radius:4px}
+.fstep:last-child .fbar i{background:var(--ambar)}
+
+.veredicto{border-top:2px solid var(--tinta);padding-top:20px;display:flex;flex-direction:column;gap:20px}
+.vhead{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:baseline}
+.picks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pick{background:var(--papel-2);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.pick .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.pick .role{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ambar);font-weight:600}
+.pick .score{font-family:var(--f-display);font-size:30px;font-weight:700;line-height:1}
+.pick .hook{font-size:14px;color:var(--tinta-2)}
+.kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border-top:1px solid var(--linea);padding-top:10px}
+.kv div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.kv span{font-size:11px;color:var(--tinta-2);letter-spacing:.04em;text-transform:uppercase}
+.kv b{font-family:var(--f-data);font-weight:500;font-size:15px;font-variant-numeric:tabular-nums}
+
+.dos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px}
+.panel{display:flex;flex-direction:column;gap:14px;min-width:0}
+.chart{display:flex;flex-direction:column;gap:8px}
+.crow{display:grid;grid-template-columns:110px minmax(0,1fr) 88px;gap:10px;align-items:center;font-size:13px;position:relative}
+.crow .track{height:18px;position:relative}
+.crow .bar{position:absolute;left:0;top:0;bottom:0;background:var(--tinta-3);border-radius:0 4px 4px 0}
+.crow.win .bar{background:var(--ambar)}
+.crow .grid{position:absolute;top:-2px;bottom:-2px;width:1px;background:var(--linea)}
+.crow .val{text-align:right;font-family:var(--f-data);font-variant-numeric:tabular-nums;font-size:12px;color:var(--tinta-2)}
+.crow:hover .bar{filter:brightness(1.1)}
+.axis{display:grid;grid-template-columns:110px minmax(0,1fr) 88px;gap:10px;font-size:11px;color:var(--tinta-3)}
+.axis .ticks{position:relative;height:14px}
+.axis .ticks span{position:absolute;transform:translateX(-50%)}
+.tip{position:fixed;pointer-events:none;background:var(--tinta);color:var(--papel);font-size:12px;padding:6px 8px;border-radius:6px;z-index:10;max-width:260px}
+.rules{display:flex;flex-direction:column;gap:10px;font-size:14px}
+.rule{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;padding-block:10px;border-bottom:1px solid var(--linea)}
+.rule:last-child{border-bottom:0}
+.rule .k{font-weight:600}
+.old{text-decoration:line-through;color:var(--tinta-3)}
+
+.genios{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.genio{border-left:2px solid var(--linea);padding-left:14px;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.genio b{font-family:var(--f-display);font-size:16px}
+
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.controls label{font-size:12px;color:var(--tinta-2);display:flex;flex-direction:column;gap:4px}
+select,input[type=search]{font:inherit;font-size:14px;background:var(--papel);color:var(--tinta);border:1px solid var(--linea);border-radius:8px;padding:7px 10px;min-width:0}
+input[type=search]{width:220px;max-width:100%}
+.chk{flex-direction:row!important;align-items:center;gap:6px!important;font-size:13px!important;color:var(--tinta)!important;padding-top:16px}
+.count{margin-left:auto;font-size:13px;color:var(--tinta-2)}
+.tablewrap{overflow-x:auto;border-top:2px solid var(--tinta)}
+table{border-collapse:collapse;width:100%;min-width:980px;font-size:13.5px}
+th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-2);font-weight:600;text-align:right;padding:10px 8px;border-bottom:1px solid var(--linea);white-space:nowrap;position:sticky;top:0;background:var(--papel)}
+th.l,td.l{text-align:left}
+th button{all:unset;cursor:pointer}
+th button:hover{color:var(--tinta)}
+th[aria-sort] button::after{content:" ↓";color:var(--ambar)}
+th[aria-sort=ascending] button::after{content:" ↑"}
+td{padding:9px 8px;border-bottom:1px solid var(--linea);text-align:right;white-space:nowrap;vertical-align:middle;font-family:var(--f-data);font-variant-numeric:tabular-nums;font-size:13px}
+td.name{font-family:var(--f-body);font-size:14px;min-width:260px;white-space:normal}
+td.name b{font-weight:600}
+td.name .sub{display:flex;gap:6px;flex-wrap:wrap;margin-top:3px}
+tbody tr.row{cursor:pointer}
+tbody tr.row:hover{background:var(--papel-2)}
+.chip{display:inline-flex;align-items:center;gap:4px;font-family:var(--f-body);font-size:11px;font-weight:600;padding:1px 7px;border-radius:99px;background:var(--papel-2);color:var(--tinta-2);white-space:nowrap}
+.chip.ok{background:var(--verde-suave);color:var(--verde)}
+.chip.warn{background:var(--aviso-suave);color:var(--aviso)}
+.chip.bad{background:var(--riesgo-suave);color:var(--riesgo)}
+.chip.star{background:var(--ambar-suave);color:var(--ambar)}
+.meter{display:flex;align-items:center;gap:8px;justify-content:flex-end}
+.meter .m{width:56px;height:6px;background:var(--papel-2);border-radius:3px;position:relative;overflow:hidden}
+.meter .m i{position:absolute;inset:0 auto 0 0;background:var(--tinta);border-radius:3px}
+tr.top3 .meter .m i{background:var(--ambar)}
+.neg{color:var(--riesgo)}
+tr.detail td{white-space:normal;background:var(--papel-2);text-align:left;font-family:var(--f-body);font-size:14px;padding:16px}
+.dgrid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px}
+.parts{display:flex;flex-direction:column;gap:5px}
+.part{display:grid;grid-template-columns:120px minmax(0,1fr) 44px;gap:8px;align-items:center;font-size:12.5px}
+.part .t{height:6px;background:var(--papel);border-radius:3px;position:relative}
+.part .t i{position:absolute;inset:0 auto 0 0;background:var(--tinta-2);border-radius:3px}
+.part .t i.n{background:var(--riesgo)}
+.part span:last-child{font-family:var(--f-data);text-align:right}
+.dinfo{display:flex;flex-direction:column;gap:8px}
+.foot{font-size:13px;color:var(--tinta-2);display:flex;flex-direction:column;gap:8px;max-width:80ch}
+.foot code{font-family:var(--f-data);font-size:12px;background:var(--papel-2);padding:1px 5px;border-radius:4px}
+@media (max-width:860px){
+  header,.dos{grid-template-columns:1fr}
+  .picks,.genios{grid-template-columns:1fr}
+  .dgrid{grid-template-columns:1fr}
+  .count{margin-left:0;width:100%}
+}
+@media (max-width:480px){.wrap{padding-inline:16px}.crow,.axis{grid-template-columns:84px minmax(0,1fr) 70px}.rule{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){.fbar i,.crow .bar{transition:width .5s ease}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <p class="eyebrow">Lume · reset del 29 sept 2026 · catálogo AutoDS región España</p>
+      <h1>Cabello es el nicho. Tres productos para testear.</h1>
+      <p class="lede">He explorado el catálogo de AutoDS con tus cinco filtros de Adrián y los números reales de España: IVA, envío, arancel, pasarela y devoluciones. Los 50 mejores de salud, belleza y cuidado personal están abajo, ordenables y filtrables.</p>
+    </div>
+    <div class="funnel" id="funnel" aria-label="Embudo del barrido"></div>
+  </header>
+
+  <section class="veredicto" aria-labelledby="v-h">
+    <div class="vhead">
+      <h2 id="v-h">Test recomendado: una tienda de cabello, tres ángulos</h2>
+      <p class="muted" style="font-size:14px">Presupuesto: 3 × 150 € (25 €/día × 6 días), dentro de tu tope de 40 €/día en Meta.</p>
+    </div>
+    <div class="picks" id="picks"></div>
+  </section>
+
+  <section class="dos">
+    <div class="panel" aria-labelledby="n-h">
+      <p class="eyebrow">Por qué este nicho</p>
+      <h2 id="n-h">Nota media de los 3 mejores por subnicho</h2>
+      <div class="chart" id="chart" role="img" aria-label="Nota media de los tres mejores productos por subnicho"></div>
+      <p class="muted" style="font-size:13px">Cabello tiene 17 de los 50 finalistas, la nota más alta y el mejor margen por pedido. Es también el caso de Adrián: su cepillo térmico 3 en 1 a 49,99 €.</p>
+    </div>
+    <div class="panel" aria-labelledby="r-h">
+      <p class="eyebrow">Qué cambia con el reset</p>
+      <h2 id="r-h">El bloqueo venía de una regla imposible</h2>
+      <div class="rules">
+        <div class="rule"><span class="k">Margen mínimo</span><span><span class="old">35 € por pedido</span> → <b>15 € por pedido</b> con la oferta. El cepillo de Adrián (49,99 € y 21 € de coste) deja unos 14,50 € por pedido en España con IVA. Pedíamos más del doble que su caso de éxito.</span></div>
+        <div class="rule"><span class="k">Múltiplo</span><span>×3 sobre el coste puesto en España como ideal y ×2 como mínimo, igual que en su método.</span></div>
+        <div class="rule"><span class="k">Nicho</span><span>Belleza y cuidado personal <b>sin fórmulas</b>: herramientas y accesorios. Las cremas y sérums necesitan notificación CPNP y persona responsable en la UE, así que quedan fuera del piloto.</span></div>
+        <div class="rule"><span class="k">Envío</span><span>Máximo 12 días a España con AliExpress Choice. Por encima de 12, se descarta.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="g-h">
+    <p class="eyebrow">Sala de genios</p>
+    <h2 id="g-h">Cómo convertir el cabello en una oferta</h2>
+    <div class="genios">
+      <div class="genio"><b>Hormozi · oferta</b><span>El sueño es "pelo de peluquería sin ir a la peluquería". Sube la probabilidad con garantía de 30 días y baja el esfuerzo con un tutorial de 60 s. En el recortador, la 2.ª unidad al 50 % "para tu madre o tu hermana" sube el margen de 17,86 a 21,12 €.</span></div>
+      <div class="genio"><b>Sutherland · percepción</b><span>Lume suena a luz y brillo: encaja con el cabello sin renombrar nada. Ancla con el pack arriba del selector y di el plazo de entrega en la ficha, no en la letra pequeña. Un nombre propio para cada herramienta ("Lume Puntas", "Lume Onda") cambia el precio aceptable.</span></div>
+      <div class="genio"><b>Economía unitaria · frío</b><span>Con 21 € de margen y un ROAS de equilibrio de 3,6, el CPA tiene que quedar por debajo de 21 €. A 25 €/día necesitas más de una venta diaria para no perder. Si a los 6 días no hay añadidos al carrito, se mata.</span></div>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="t-h">
+    <p class="eyebrow">Top 50</p>
+    <h2 id="t-h">Todos los finalistas</h2>
+    <div class="controls">
+      <label for="f-q">Buscar<input type="search" id="f-q" placeholder="plancha, pestañas…"></label>
+      <label for="f-sub">Subnicho<select id="f-sub"><option value="">Todos</option></select></label>
+      <label for="f-comp">Competencia<select id="f-comp"><option value="">Todas</option><option>Baja</option><option>Media</option><option>Alta</option></select></label>
+      <label for="f-risk">Riesgo legal y Meta<select id="f-risk"><option value="">Todos</option><option value="0">Bajo</option><option value="1">Medio</option><option value="2">Alto</option></select></label>
+      <label class="chk" for="f-15"><input type="checkbox" id="f-15"> Margen ≥ 15 €</label>
+      <span class="count" id="count"></span>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr>
+          <th class="l" data-k="rank"><button>#</button></th>
+          <th class="l" data-k="name"><button>Producto</button></th>
+          <th data-k="score" aria-sort="descending"><button>Nota</button></th>
+          <th data-k="land"><button>Coste puesto</button></th>
+          <th data-k="pvp"><button>PVP</button></th>
+          <th data-k="mult"><button>Múltiplo</button></th>
+          <th data-k="mco"><button>Margen/pedido</button></th>
+          <th data-k="roas"><button>ROAS equil.</button></th>
+          <th data-k="days"><button>Envío</button></th>
+          <th data-k="orders"><button>Pedidos</button></th>
+          <th class="l" data-k="complbl"><button>Competencia</button></th>
+        </tr></thead>
+        <tbody id="tb"></tbody>
+      </table>
+    </div>
+    <p class="muted" style="font-size:13px">Pulsa una fila para ver el desglose de la nota, la oferta, el gancho y el enlace al producto en AutoDS.</p>
+  </section>
+
+  <section class="foot" aria-labelledby="m-h">
+    <h3 id="m-h" style="color:var(--tinta)">Cómo está calculado</h3>
+    <p><b>Coste puesto</b> = variante que se vendería + envío AutoDS a España + 3 € de arancel UE por paquete desde China (supuesto). Los productos marcados "verificado" se han revisado uno a uno: variante con enchufe UE, plazo real y pedidos en AliExpress.</p>
+    <p><b>Margen por pedido</b> = PVP/1,21 − coste puesto − pasarela (2,1 % + 0,30 €) − 9 % de provisión de devoluciones. Se muestra la mejor oferta entre 1 unidad, 2.ª al 50 % y pack 3x2. <b>ROAS de equilibrio</b> = ticket / margen.</p>
+    <p><b>Nota (0-100)</b>: margen 25 · múltiplo ×3 10 · problema y efecto WOW 20 · ventas y engagement 20 · competencia y ausencia en tiendas 10 · plazo 10 · menos penalizaciones (eléctrico −3, riesgo medio −4, alto −8, múltiplo por debajo de ×2 −8).</p>
+    <p><b>Competencia</b>: saturación de AutoDS combinada con mi juicio sobre si se vende en supermercados, Primor o Amazon a bajo precio. <b>Pedidos</b> = pedidos del proveedor en AliExpress según AutoDS, no ventas de tiendas competidoras.</p>
+    <p>No es asesoría legal ni fiscal. Datos del 29 sept 2026: los precios de AliExpress cambian cada semana.</p>
+  </section>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+const D = __DATA__;
+const F = __FUNNEL__;
+const eur = v => v==null ? "—" : v.toLocaleString("es-ES",{minimumFractionDigits:2,maximumFractionDigits:2})+" €";
+const n1 = v => v==null ? "—" : v.toLocaleString("es-ES",{minimumFractionDigits:1,maximumFractionDigits:1});
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const RISK = ["Bajo","Medio","Alto"], RCLS = ["ok","warn","bad"], CCLS = {Baja:"ok",Media:"warn",Alta:"bad"};
+
+// Embudo
+(function(){
+  const max = F[0][1], el = document.getElementById("funnel");
+  el.innerHTML = F.map(([k,v])=>`<div class="fstep"><span>${esc(k)}</span><span class="num">${v.toLocaleString("es-ES",{useGrouping:"always"})}</span><div class="fbar"><i style="width:${Math.max(1.5,v/max*100)}%"></i></div></div>`).join("");
+})();
+
+// Selección para testear
+(function(){
+  const PICK = [["6754a9caf0633adfaaf8129a","Producto principal"],["699ebf88180986000199fac0","Segundo ángulo"],["15ac4532db2eb9b58ffb6842","Entrada barata y pack"]];
+  const WHY = {
+    "6754a9caf0633adfaaf8129a":"2.000 pedidos, 4,5★ con 491 opiniones, anuncios activos en TikTok y no se vende en tiendas físicas. Competidores lo venden a 47-123 $.",
+    "699ebf88180986000199fac0":"El formato de Adrián: cepillo térmico. Variante con enchufe UE a 13,91 € y 9 días de envío gratis. Vigilar stock (9 uds en la variante UE).",
+    "15ac4532db2eb9b58ffb6842":"Rizos sin calor mientras duermes: muy viral y demostrable en vídeo POV. Funciona como pack 3x2 y como complemento en el carrito de los otros dos. Coste de la variante aún por verificar."
+  };
+  document.getElementById("picks").innerHTML = PICK.map(([id,role])=>{
+    const r = D.find(x=>x.id===id);
+    return `<article class="pick"><div class="top"><span class="role">${role}</span><span class="score" aria-label="Nota">${n1(r.score)}</span></div>
+      <h3>${esc(r.name)}</h3><p class="hook">“${esc(r.gancho)}”</p><p style="font-size:13.5px">${WHY[id]}</p>
+      <div class="kv"><div><span>PVP</span><b>${eur(r.pvp)}</b></div><div><span>Margen</span><b>${eur(r.mco)}</b></div><div><span>Envío</span><b>${r.days} días</b></div></div>
+      <p style="font-size:12.5px" class="muted">Mejor oferta: ${esc(r.offer)} · coste puesto ${eur(r.land)} · <a href="${r.link}" target="_blank" rel="noopener">ver en AutoDS</a></p></article>`;
+  }).join("");
+})();
+
+// Gráfico por subnicho
+(function(){
+  const g = {};
+  D.forEach(r=>{(g[r.sub]=g[r.sub]||[]).push(r)});
+  const rows = Object.entries(g).map(([k,v])=>{v.sort((a,b)=>b.score-a.score);const t=v.slice(0,3);
+    return {k,n:v.length,avg:t.reduce((s,x)=>s+x.score,0)/t.length,mc:t.reduce((s,x)=>s+x.mco,0)/t.length}}).sort((a,b)=>b.avg-a.avg);
+  const MAX = 80, ticks=[0,20,40,60,80];
+  const el = document.getElementById("chart");
+  el.innerHTML = rows.map((r,i)=>`<div class="crow ${i===0?"win":""}" data-tip="${esc(r.k)}: nota media ${n1(r.avg)} · margen medio ${eur(r.mc)} · ${r.n} finalistas">
+      <span>${esc(r.k)}</span><div class="track">${ticks.slice(1).map(t=>`<span class="grid" style="left:${t/MAX*100}%"></span>`).join("")}<span class="bar" style="width:${r.avg/MAX*100}%"></span></div>
+      <span class="val">${n1(r.avg)} · ${r.n} uds</span></div>`).join("")
+    + `<div class="axis"><span></span><div class="ticks">${ticks.map(t=>`<span style="left:${t/MAX*100}%">${t}</span>`).join("")}</div><span></span></div>`;
+  const tip = document.getElementById("tip");
+  el.querySelectorAll(".crow").forEach(c=>{
+    c.addEventListener("mousemove",e=>{tip.textContent=c.dataset.tip;tip.hidden=false;tip.style.left=Math.min(e.clientX+12,innerWidth-270)+"px";tip.style.top=(e.clientY+14)+"px"});
+    c.addEventListener("mouseleave",()=>tip.hidden=true);
+  });
+})();
+
+// Tabla
+const TOP3 = new Set(["6754a9caf0633adfaaf8129a","699ebf88180986000199fac0","15ac4532db2eb9b58ffb6842"]);
+const subs = [...new Set(D.map(r=>r.sub))].sort();
+const fs = document.getElementById("f-sub");
+subs.forEach(s=>fs.insertAdjacentHTML("beforeend",`<option>${esc(s)}</option>`));
+let sortK="score", sortDir=-1, open=null;
+const store = {get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const saved = store.get("lume-sub"); if(saved!==null && subs.includes(saved)) fs.value=saved;
+
+function partsHTML(p){
+  const L={margen:["Margen",25],multiplo:["Múltiplo ×3",10],problema:["Problema y WOW",20],ventas:["Ventas",20],competencia:["Competencia",10],envio:["Plazo",10],penal:["Penalización",8]};
+  return Object.entries(L).map(([k,[lbl,max]])=>{const v=p[k];const w=Math.min(100,Math.abs(v)/max*100);
+    return `<div class="part"><span>${lbl}</span><span class="t"><i class="${v<0?"n":""}" style="width:${w}%"></i></span><span>${n1(v)}</span></div>`}).join("");
+}
+function render(){
+  const q=document.getElementById("f-q").value.trim().toLowerCase(), sub=fs.value, comp=document.getElementById("f-comp").value,
+        risk=document.getElementById("f-risk").value, m15=document.getElementById("f-15").checked;
+  let rows=D.filter(r=>(!q||(r.name+" "+r.title).toLowerCase().includes(q))&&(!sub||r.sub===sub)&&(!comp||r.complbl===comp)&&(risk===""||String(r.riesgo)===risk)&&(!m15||r.mco>=15));
+  rows.sort((a,b)=>{const x=a[sortK],y=b[sortK];if(x==null)return 1;if(y==null)return -1;return (typeof x==="string"?x.localeCompare(y,"es"):x-y)*sortDir});
+  document.getElementById("count").textContent=`${rows.length} de ${D.length} productos`;
+  document.getElementById("tb").innerHTML = rows.map(r=>{
+    const chips=[`<span class="chip">${esc(r.sub)}</span>`,`<span class="chip ${RCLS[r.riesgo]}">Riesgo ${RISK[r.riesgo].toLowerCase()}</span>`];
+    if(TOP3.has(r.id)) chips.unshift(`<span class="chip star">Para testear</span>`);
+    if(r.ver) chips.push(`<span class="chip ok">Verificado</span>`);
+    if(r.elec) chips.push(`<span class="chip">Eléctrico</span>`);
+    const tr=`<tr class="row ${TOP3.has(r.id)?"top3":""}" tabindex="0" data-id="${r.id}" aria-expanded="${open===r.id}">
+      <td class="l">${r.rank}</td>
+      <td class="name l"><b>${esc(r.name)}</b><div class="sub">${chips.join("")}</div></td>
+      <td><div class="meter"><span>${n1(r.score)}</span><span class="m"><i style="width:${r.score}%"></i></span></div></td>
+      <td>${eur(r.land)}</td><td>${eur(r.pvp)}</td><td class="${r.mult<2?"neg":""}">×${n1(r.mult)}</td>
+      <td class="${r.mco<0?"neg":""}">${eur(r.mco)}</td><td>${r.roas==null?"—":n1(r.roas)}</td><td>${r.days} d</td>
+      <td>${r.orders.toLocaleString("es-ES",{useGrouping:"always"})}</td><td class="l"><span class="chip ${CCLS[r.complbl]}">${r.complbl}</span></td></tr>`;
+    const det = open!==r.id ? "" : `<tr class="detail"><td colspan="11"><div class="dgrid">
+      <div class="dinfo"><h3>${esc(r.name)}</h3><p class="muted" style="font-size:13px">${esc(r.title)}</p>
+      ${r.gancho?`<p><b>Gancho:</b> “${esc(r.gancho)}”</p>`:""}
+      <p><b>Mejor oferta:</b> ${esc(r.offer)} · ticket ${eur(r.aov)} · margen ${eur(r.mco)} (1 unidad: ${eur(r.mc1)})</p>
+      <p><b>Coste:</b> producto ${eur(r.cost)} + envío ${eur(r.ship)} + arancel ${eur(r.duty)} = ${eur(r.land)}</p>
+      <p><b>Riesgo:</b> ${esc(r.nota)}</p>
+      ${r.flags.length?`<p><b>Pendiente de verificar:</b> ${esc(r.flags.join(" · "))}</p>`:""}
+      <p><a href="${r.link}" target="_blank" rel="noopener">Abrir en AutoDS</a> · saturación AutoDS ${r.sat}/100 · engagement ${r.eng}/100</p></div>
+      <div class="parts"><p class="eyebrow">Desglose de la nota · ${n1(r.score)}</p>${partsHTML(r.parts)}</div></div></td></tr>`;
+    return tr+det;
+  }).join("");
+  document.querySelectorAll("th[data-k]").forEach(th=>{th.dataset.k===sortK?th.setAttribute("aria-sort",sortDir<0?"descending":"ascending"):th.removeAttribute("aria-sort")});
+}
+document.querySelectorAll("th[data-k] button").forEach(b=>b.addEventListener("click",()=>{const k=b.parentElement.dataset.k;
+  if(sortK===k)sortDir*=-1;else{sortK=k;sortDir=["rank","land","days","roas","name","complbl"].includes(k)?1:-1}render()}));
+["f-q","f-sub","f-comp","f-risk","f-15"].forEach(id=>document.getElementById(id).addEventListener("input",()=>{if(id==="f-sub")store.set("lume-sub",fs.value);render()}));
+const tb=document.getElementById("tb");
+const toggle=tr=>{if(!tr)return;open=open===tr.dataset.id?null:tr.dataset.id;render()};
+tb.addEventListener("click",e=>{if(e.target.closest("a"))return;toggle(e.target.closest("tr.row"))});
+tb.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){const tr=e.target.closest("tr.row");if(tr){e.preventDefault();toggle(tr)}}});
+render();
+</script>
