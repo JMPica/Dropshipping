@@ -1,0 +1,151 @@
+{{ 'lu-styles.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'lu-scripts.js' | asset_url }}" defer></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer></script>
+
+{%- liquid
+  assign producto = section.settings.producto
+  if producto == blank
+    assign producto = collections.all.products.first
+  endif
+  if producto != blank
+    assign variante = producto.selected_or_first_available_variant
+  endif
+-%}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.color_fondo }};
+    color: {{ section.settings.color_texto }};
+  }
+  #shopify-section-{{ section.id }} .lu-destacado__caja { background: {{ section.settings.color_caja }}; }
+  #shopify-section-{{ section.id }} .lu-h2 { font-size: {{ section.settings.heading_size }}px; }
+  #shopify-section-{{ section.id }} .lu-body,
+  #shopify-section-{{ section.id }} .lu-lista-check { font-size: {{ section.settings.body_size }}px; }
+  #shopify-section-{{ section.id }} .lu-destacado__texto { text-align: {{ section.settings.text_align }}; }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .lu-h2 { font-size: {{ section.settings.heading_size | times: 0.72 | round }}px; }
+  }
+{% endstyle %}
+
+<section class="lu-section lu-destacado" id="destacado-{{ section.id }}">
+  <div class="lu-container">
+    <div class="lu-destacado__caja lu-reveal">
+      <div class="lu-destacado__visual">
+        <a class="lu-media" href="{% if producto != blank %}{{ producto.url }}{% else %}#{% endif %}" style="display:block">
+          {%- if section.settings.imagen != blank -%}
+            {%- render 'lu-imagen', imagen: section.settings.imagen, ancho: 1400 -%}
+          {%- elsif producto.featured_media != blank -%}
+            {{ producto.featured_media | image_url: width: 1400 | image_tag: widths: '400, 700, 1000, 1400', sizes: '(min-width: 990px) 50vw, 100vw', loading: 'lazy' }}
+          {%- else -%}
+            {%- render 'lu-hueco', nota: 'Aquí saldrá la foto de tu producto estrella' -%}
+          {%- endif -%}
+        </a>
+      </div>
+
+      <div class="lu-destacado__texto">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="lu-eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h2 class="lu-h2">
+          {%- if section.settings.titulo != blank -%}
+            {{ section.settings.titulo }}
+          {%- elsif producto != blank -%}
+            {{ producto.title }}
+          {%- else -%}
+            Tu producto estrella
+          {%- endif -%}
+        </h2>
+
+        {%- if producto != blank -%}
+          <div class="lu-precio">
+            <span class="lu-precio__actual">{{ variante.price | money }}</span>
+            {%- if variante.compare_at_price > variante.price -%}
+              <s class="lu-precio__antes">{{ variante.compare_at_price | money }}</s>
+              {%- assign pct = variante.compare_at_price | minus: variante.price | times: 100 | divided_by: variante.compare_at_price -%}
+              <span class="lu-etiqueta">-{{ pct }} %</span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.oferta != blank -%}
+          <p style="margin: 16px 0 0"><span class="lu-etiqueta lu-etiqueta--suave">{% render 'lu-icono', nombre: 'regalo' %}{{ section.settings.oferta }}</span></p>
+        {%- endif -%}
+
+        {%- if section.settings.texto != blank -%}
+          <p class="lu-body" style="margin-top: 20px">{{ section.settings.texto | newline_to_br }}</p>
+        {%- endif -%}
+
+        {%- assign puntos = section.settings.puntos | newline_to_br | split: '<br />' -%}
+        {%- if section.settings.puntos != blank -%}
+          <ul class="lu-lista-check">
+            {%- for p in puntos -%}
+              {%- assign linea = p | strip -%}
+              {%- if linea != blank -%}
+                <li>{% render 'lu-icono', nombre: 'check' %}<span>{{ linea }}</span></li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        <div class="lu-destacado__acciones">
+          {%- if producto != blank and section.settings.mostrar_comprar and variante.available -%}
+            <product-form class="product-form" data-section-id="{{ section.id }}">
+              <div class="product-form__error-message-wrapper lu-error" role="alert" hidden>
+                <span class="product-form__error-message"></span>
+              </div>
+              {%- form 'product', producto, id: 'lu-destacado-form', novalidate: 'novalidate' -%}
+                <input type="hidden" name="id" value="{{ variante.id }}" class="product-variant-id">
+                <button type="submit" name="add" class="lu-btn product-form__submit">
+                  <span>{{ section.settings.boton_comprar }}</span>
+                  {%- render 'loading-spinner' -%}
+                </button>
+              {%- endform -%}
+            </product-form>
+          {%- endif -%}
+          {%- if section.settings.boton_ver != blank -%}
+            <a class="lu-btn lu-btn--claro" href="{% if producto != blank %}{{ producto.url }}{% else %}{{ routes.all_products_collection_url }}{% endif %}">
+              <span>{{ section.settings.boton_ver }}</span>{% render 'lu-icono', nombre: 'flecha' %}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lume – Producto destacado",
+  "tag": "div",
+  "settings": [
+    { "type": "product", "id": "producto", "label": "Producto", "info": "Si lo dejas vacío, se muestra el primer producto de la tienda." },
+    { "type": "image_picker", "id": "imagen", "label": "Imagen propia (opcional)", "info": "Si no pones ninguna, se usa la foto principal del producto." },
+    { "type": "header", "content": "Textos" },
+    { "type": "text", "id": "eyebrow", "label": "Texto pequeño superior", "default": "El favorito de Lume" },
+    { "type": "text", "id": "titulo", "label": "Título (vacío = nombre del producto)" },
+    { "type": "text", "id": "oferta", "label": "Etiqueta de oferta", "default": "2.ª unidad al 50 %", "info": "Déjala vacía si no hay oferta. Recuerda crear el descuento en Shopify." },
+    { "type": "textarea", "id": "texto", "label": "Texto", "default": "Pensado para que cuidar tu pelo sea fácil, rápido y sin salir de casa." },
+    { "type": "textarea", "id": "puntos", "label": "Ventajas (una por línea)", "default": "Resultados visibles desde el primer uso\nFácil de usar, sin experiencia\nCompacto: cabe en cualquier neceser" },
+    { "type": "header", "content": "Botones" },
+    { "type": "checkbox", "id": "mostrar_comprar", "label": "Mostrar botón de añadir al carrito", "default": true },
+    { "type": "text", "id": "boton_comprar", "label": "Texto del botón de compra", "default": "Añadir al carrito" },
+    { "type": "text", "id": "boton_ver", "label": "Texto del botón de ver producto", "default": "Ver detalles" },
+    { "type": "header", "content": "Tipografía" },
+    { "type": "select", "id": "text_align", "label": "Alineación", "default": "left", "options": [
+      { "value": "left", "label": "Izquierda" }, { "value": "center", "label": "Centro" }, { "value": "right", "label": "Derecha" }
+    ] },
+    { "type": "range", "id": "heading_size", "label": "Tamaño del título (px)", "min": 24, "max": 80, "step": 2, "unit": "px", "default": 48 },
+    { "type": "range", "id": "body_size", "label": "Tamaño del texto (px)", "min": 13, "max": 24, "step": 1, "unit": "px", "default": 17 },
+    { "type": "header", "content": "Colores" },
+    { "type": "color", "id": "color_fondo", "label": "Fondo de la sección", "default": "#F6EFE7" },
+    { "type": "color", "id": "color_caja", "label": "Fondo de la caja", "default": "#ECDFCF" },
+    { "type": "color", "id": "color_texto", "label": "Texto", "default": "#2A1F1A" },
+    { "type": "header", "content": "Espaciado" },
+    { "type": "range", "id": "padding_top", "label": "Espacio superior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding_bottom", "label": "Espacio inferior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 48 }
+  ],
+  "presets": [{ "name": "Lume – Producto destacado" }]
+}
+{% endschema %}

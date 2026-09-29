@@ -1,0 +1,70 @@
+{{ 'lu-styles.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'lu-scripts.js' | asset_url }}" defer></script>
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.color_fondo }};
+    color: {{ section.settings.color_texto }};
+  }
+  #shopify-section-{{ section.id }} .lu-h2 { font-size: {{ section.settings.heading_size }}px; line-height: 1.2; }
+  #shopify-section-{{ section.id }} .lu-body { font-size: {{ section.settings.body_size }}px; }
+  #shopify-section-{{ section.id }} .lu-manifiesto__texto { text-align: {{ section.settings.text_align }}; }
+  #shopify-section-{{ section.id }} .lu-media { border-radius: {{ section.settings.radio }}px; }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .lu-h2 { font-size: {{ section.settings.heading_size | times: 0.7 | round }}px; }
+  }
+{% endstyle %}
+
+<section class="lu-section lu-manifiesto">
+  <div class="lu-container">
+    <div class="lu-manifiesto__texto{% if section.settings.text_align == 'center' %} lu-center{% endif %}">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="lu-eyebrow lu-reveal">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="lu-h2 lu-reveal" style="--lu-i: 1">{{ section.settings.titulo }}</h2>
+      {%- if section.settings.texto != blank -%}
+        <div class="lu-body lu-reveal" style="--lu-i: 2; margin-top: 24px">{{ section.settings.texto }}</div>
+      {%- endif -%}
+      {%- if section.settings.firma != blank -%}
+        <p class="lu-manifiesto__firma lu-reveal" style="--lu-i: 3">{{ section.settings.firma }}</p>
+      {%- endif -%}
+    </div>
+    {%- if section.settings.mostrar_imagen -%}
+      <div class="lu-media lu-reveal" style="--lu-i: 2">
+        {%- render 'lu-imagen', imagen: section.settings.imagen, ancho: 2000, sizes: '100vw', nota: 'Foto panorámica de ambiente' -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lume – Nuestra idea",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Texto pequeño superior", "default": "Nuestra idea" },
+    { "type": "inline_richtext", "id": "titulo", "label": "Frase principal", "default": "Creemos en las <em>pequeñas cosas</em> que mejoran tu día: una herramienta bien pensada, cinco minutos para ti y un pelo que te hace sentir bien." },
+    { "type": "richtext", "id": "texto", "label": "Texto" },
+    { "type": "text", "id": "firma", "label": "Firma", "default": "— El equipo de Lume" },
+    { "type": "header", "content": "Imagen" },
+    { "type": "checkbox", "id": "mostrar_imagen", "label": "Mostrar imagen panorámica", "default": false },
+    { "type": "image_picker", "id": "imagen", "label": "Imagen panorámica" },
+    { "type": "range", "id": "radio", "label": "Redondeo de esquinas (px)", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 28 },
+    { "type": "header", "content": "Tipografía" },
+    { "type": "select", "id": "text_align", "label": "Alineación", "default": "center", "options": [
+      { "value": "left", "label": "Izquierda" }, { "value": "center", "label": "Centro" }, { "value": "right", "label": "Derecha" }
+    ] },
+    { "type": "range", "id": "heading_size", "label": "Tamaño de la frase (px)", "min": 22, "max": 72, "step": 2, "unit": "px", "default": 42 },
+    { "type": "range", "id": "body_size", "label": "Tamaño del texto (px)", "min": 13, "max": 24, "step": 1, "unit": "px", "default": 17 },
+    { "type": "header", "content": "Colores" },
+    { "type": "color", "id": "color_fondo", "label": "Fondo", "default": "#FFFCF8" },
+    { "type": "color", "id": "color_texto", "label": "Texto", "default": "#2A1F1A" },
+    { "type": "header", "content": "Espaciado" },
+    { "type": "range", "id": "padding_top", "label": "Espacio superior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 112 },
+    { "type": "range", "id": "padding_bottom", "label": "Espacio inferior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 112 }
+  ],
+  "presets": [{ "name": "Lume – Nuestra idea" }]
+}
+{% endschema %}

@@ -1,0 +1,85 @@
+{
+  "sections": {
+    "hero": {
+      "type": "lu-hero",
+      "settings": {
+        "eyebrow": "Sobre Lume",
+        "titulo": "Pequeñas cosas que <em>mejoran tu día</em>",
+        "texto": "Lume nace en España con una idea sencilla: reunir herramientas prácticas para cuidar el pelo en casa y quedarnos solo con las que de verdad merecen la pena.",
+        "boton_1": "Ver productos",
+        "boton_2": "",
+        "sello_grande": "",
+        "sello_texto": "",
+        "heading_size": 64
+      }
+    },
+    "manifiesto": {
+      "type": "lu-manifiesto",
+      "settings": {
+        "eyebrow": "Lo que nos importa",
+        "titulo": "Menos cosas, <em>mejor elegidas</em>. Cada producto de Lume tiene que resolver un problema real de tu rutina.",
+        "color_fondo": "#FFFCF8"
+      }
+    },
+    "beneficios": {
+      "type": "lu-beneficios",
+      "blocks": {
+        "beneficio-1": {
+          "type": "beneficio",
+          "settings": {
+            "icono": "reloj",
+            "titulo": "Resultados en minutos",
+            "texto": "Rutinas cortas que encajan en una mañana con prisas."
+          }
+        },
+        "beneficio-2": {
+          "type": "beneficio",
+          "settings": {
+            "icono": "casa",
+            "titulo": "Desde tu casa",
+            "texto": "Mantén tu pelo cuidado entre visita y visita a la peluquería."
+          }
+        },
+        "beneficio-3": {
+          "type": "beneficio",
+          "settings": {
+            "icono": "mano",
+            "titulo": "Fácil de verdad",
+            "texto": "Sin experiencia ni trucos: si sabes peinarte, sabes usarlo."
+          }
+        },
+        "beneficio-4": {
+          "type": "beneficio",
+          "settings": {
+            "icono": "escudo",
+            "titulo": "Compra tranquila",
+            "texto": "Pago seguro, envío con seguimiento y 14 días para devolver."
+          }
+        }
+      },
+      "block_order": [
+        "beneficio-1",
+        "beneficio-2",
+        "beneficio-3",
+        "beneficio-4"
+      ],
+      "settings": {
+        "eyebrow": "Nuestra promesa",
+        "titulo": "Así trabajamos",
+        "imagen_derecha": true
+      }
+    },
+    "cta": {
+      "type": "lu-cta",
+      "settings": {
+        "padding_top": 0
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "manifiesto",
+    "beneficios",
+    "cta"
+  ]
+}

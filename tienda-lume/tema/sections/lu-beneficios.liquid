@@ -1,0 +1,116 @@
+{{ 'lu-styles.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'lu-scripts.js' | asset_url }}" defer></script>
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.color_fondo }};
+    color: {{ section.settings.color_texto }};
+  }
+  #shopify-section-{{ section.id }} .lu-h2 { font-size: {{ section.settings.heading_size }}px; }
+  #shopify-section-{{ section.id }} .lu-beneficio .lu-h3 { font-size: {{ section.settings.item_titulo_size }}px; }
+  #shopify-section-{{ section.id }} .lu-body { font-size: {{ section.settings.body_size }}px; }
+  #shopify-section-{{ section.id }} .lu-escena__texto { text-align: {{ section.settings.text_align }}; }
+  #shopify-section-{{ section.id }} .lu-escena__fija .lu-media { border-radius: {{ section.settings.radio }}px; }
+  #shopify-section-{{ section.id }} .lu-icono { width: {{ section.settings.icono_size }}px; height: {{ section.settings.icono_size }}px; }
+  #shopify-section-{{ section.id }} .lu-beneficio { grid-template-columns: {{ section.settings.icono_size }}px 1fr; }
+  {%- if section.settings.imagen_derecha -%}
+    #shopify-section-{{ section.id }} .lu-escena__fija { order: 2; }
+  {%- endif -%}
+  @media (max-width: 989px) {
+    #shopify-section-{{ section.id }} .lu-escena__fija { order: 0; }
+  }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .lu-h2 { font-size: {{ section.settings.heading_size | times: 0.72 | round }}px; }
+  }
+{% endstyle %}
+
+<section class="lu-section lu-beneficios">
+  <div class="lu-container lu-escena">
+    <div class="lu-escena__fija lu-reveal">
+      <div class="lu-media">
+        {%- render 'lu-imagen', imagen: section.settings.imagen, ancho: 1400, nota: 'Foto de ambiente o del producto en uso' -%}
+      </div>
+    </div>
+    <div class="lu-escena__texto">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="lu-eyebrow lu-reveal">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="lu-h2 lu-reveal" style="--lu-i: 1">{{ section.settings.titulo }}</h2>
+      {%- if section.settings.texto != blank -%}
+        <p class="lu-body lu-reveal" style="--lu-i: 2; margin-top: 18px">{{ section.settings.texto | newline_to_br }}</p>
+      {%- endif -%}
+      <div class="lu-escena__lista">
+        {%- for block in section.blocks -%}
+          <div class="lu-beneficio lu-reveal" style="--lu-i: {{ forloop.index0 | modulo: 3 }}" {{ block.shopify_attributes }}>
+            <span class="lu-icono">{% render 'lu-icono', nombre: block.settings.icono %}</span>
+            <div>
+              <h3 class="lu-h3">{{ block.settings.titulo }}</h3>
+              <p class="lu-body">{{ block.settings.texto | newline_to_br }}</p>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lume – Beneficios",
+  "tag": "div",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "image_picker", "id": "imagen", "label": "Imagen fija", "info": "Se queda quieta mientras los beneficios pasan a su lado (en ordenador)." },
+    { "type": "checkbox", "id": "imagen_derecha", "label": "Imagen a la derecha", "default": false },
+    { "type": "range", "id": "radio", "label": "Redondeo de esquinas (px)", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 28 },
+    { "type": "header", "content": "Textos" },
+    { "type": "text", "id": "eyebrow", "label": "Texto pequeño superior", "default": "Por qué Lume" },
+    { "type": "inline_richtext", "id": "titulo", "label": "Título", "default": "Menos tiempo en el baño. <em>Más tiempo para ti.</em>" },
+    { "type": "textarea", "id": "texto", "label": "Texto" },
+    { "type": "header", "content": "Tipografía e iconos" },
+    { "type": "select", "id": "text_align", "label": "Alineación", "default": "left", "options": [
+      { "value": "left", "label": "Izquierda" }, { "value": "center", "label": "Centro" }, { "value": "right", "label": "Derecha" }
+    ] },
+    { "type": "range", "id": "heading_size", "label": "Tamaño del título (px)", "min": 24, "max": 80, "step": 2, "unit": "px", "default": 52 },
+    { "type": "range", "id": "item_titulo_size", "label": "Tamaño del título de cada beneficio (px)", "min": 16, "max": 36, "step": 1, "unit": "px", "default": 23 },
+    { "type": "range", "id": "body_size", "label": "Tamaño del texto (px)", "min": 13, "max": 22, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "icono_size", "label": "Tamaño de los iconos (px)", "min": 36, "max": 80, "step": 2, "unit": "px", "default": 56 },
+    { "type": "header", "content": "Colores" },
+    { "type": "color", "id": "color_fondo", "label": "Fondo", "default": "#F6EFE7" },
+    { "type": "color", "id": "color_texto", "label": "Texto", "default": "#2A1F1A" },
+    { "type": "header", "content": "Espaciado" },
+    { "type": "range", "id": "padding_top", "label": "Espacio superior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "label": "Espacio inferior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    {
+      "type": "beneficio",
+      "name": "Beneficio",
+      "settings": [
+        { "type": "select", "id": "icono", "label": "Icono", "default": "check", "options": [
+          { "value": "check", "label": "Check" }, { "value": "reloj", "label": "Reloj" }, { "value": "casa", "label": "Casa" },
+          { "value": "tijeras", "label": "Tijeras" }, { "value": "gota", "label": "Gota" }, { "value": "hoja", "label": "Hoja" },
+          { "value": "chispa", "label": "Brillo" }, { "value": "corazon", "label": "Corazón" }, { "value": "mano", "label": "Mano" },
+          { "value": "escudo", "label": "Escudo" }, { "value": "estrella", "label": "Estrella" }, { "value": "regalo", "label": "Regalo" },
+          { "value": "envio", "label": "Envío" }, { "value": "devolucion", "label": "Devolución" }, { "value": "etiqueta", "label": "Etiqueta" }
+        ] },
+        { "type": "text", "id": "titulo", "label": "Título", "default": "Beneficio" },
+        { "type": "textarea", "id": "texto", "label": "Texto", "default": "Describe el beneficio en una o dos frases." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lume – Beneficios",
+      "blocks": [
+        { "type": "beneficio", "settings": { "icono": "reloj", "titulo": "Resultados en minutos", "texto": "Rutinas cortas que encajan en una mañana con prisas." } },
+        { "type": "beneficio", "settings": { "icono": "casa", "titulo": "Desde tu casa", "texto": "Mantén tu pelo cuidado entre visita y visita a la peluquería." } },
+        { "type": "beneficio", "settings": { "icono": "mano", "titulo": "Fácil de verdad", "texto": "Sin experiencia ni trucos: si sabes peinarte, sabes usarlo." } },
+        { "type": "beneficio", "settings": { "icono": "escudo", "titulo": "Compra tranquila", "texto": "Pago seguro, envío con seguimiento y 14 días para devolver." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

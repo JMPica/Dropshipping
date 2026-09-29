@@ -1,0 +1,140 @@
+{{ 'lu-styles.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'lu-scripts.js' | asset_url }}" defer></script>
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.color_fondo }};
+    color: {{ section.settings.color_texto }};
+  }
+  #shopify-section-{{ section.id }} .lu-h1 { font-size: {{ section.settings.heading_size }}px; }
+  #shopify-section-{{ section.id }} .lu-body { font-size: {{ section.settings.body_size }}px; }
+  #shopify-section-{{ section.id }} .lu-hero__texto { text-align: {{ section.settings.text_align }}; }
+  #shopify-section-{{ section.id }} .lu-hero__visual .lu-media { border-radius: {{ section.settings.radio }}px; }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top | times: 0.6 | round }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.6 | round }}px;
+    }
+    #shopify-section-{{ section.id }} .lu-h1 { font-size: {{ section.settings.heading_size | times: 0.66 | round }}px; }
+  }
+{% endstyle %}
+
+<section class="lu-section lu-hero{% if section.settings.imagen_derecha == false %} lu-hero--invertido{% endif %}">
+  <div class="lu-container lu-hero__grid">
+    <div class="lu-hero__texto{% if section.settings.text_align == 'center' %} lu-center{% endif %}">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="lu-eyebrow lu-reveal">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="lu-h1 lu-reveal" style="--lu-i: 1">{{ section.settings.titulo }}</h2>
+      {%- if section.settings.texto != blank -%}
+        <p class="lu-body lu-reveal" style="--lu-i: 2">{{ section.settings.texto | newline_to_br }}</p>
+      {%- endif -%}
+      {%- if section.settings.boton_1 != blank or section.settings.boton_2 != blank -%}
+        <div class="lu-hero__acciones lu-reveal" style="--lu-i: 3">
+          {%- if section.settings.boton_1 != blank -%}
+            <a class="lu-btn" href="{{ section.settings.boton_1_url | default: routes.all_products_collection_url }}">
+              <span>{{ section.settings.boton_1 }}</span>{% render 'lu-icono', nombre: 'flecha' %}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.boton_2 != blank -%}
+            <a class="lu-btn lu-btn--claro" href="{{ section.settings.boton_2_url | default: '#como-funciona' }}">
+              <span>{{ section.settings.boton_2 }}</span>
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+      {%- if section.settings.garantia_1 != blank or section.settings.garantia_2 != blank or section.settings.garantia_3 != blank -%}
+        <ul class="lu-garantias lu-reveal" style="--lu-i: 4">
+          {%- if section.settings.garantia_1 != blank -%}
+            <li>{% render 'lu-icono', nombre: section.settings.garantia_1_icono %}{{ section.settings.garantia_1 }}</li>
+          {%- endif -%}
+          {%- if section.settings.garantia_2 != blank -%}
+            <li>{% render 'lu-icono', nombre: section.settings.garantia_2_icono %}{{ section.settings.garantia_2 }}</li>
+          {%- endif -%}
+          {%- if section.settings.garantia_3 != blank -%}
+            <li>{% render 'lu-icono', nombre: section.settings.garantia_3_icono %}{{ section.settings.garantia_3 }}</li>
+          {%- endif -%}
+        </ul>
+      {%- endif -%}
+    </div>
+
+    <div class="lu-hero__visual lu-reveal" style="--lu-i: 1">
+      <div data-lu-parallax="{{ section.settings.parallax }}">
+        <div class="lu-media">
+          {%- render 'lu-imagen',
+            imagen: section.settings.imagen,
+            eager: true,
+            ancho: 1800,
+            nota: 'Añade la foto principal desde el editor',
+            alt: section.settings.titulo
+          -%}
+        </div>
+      </div>
+      {%- if section.settings.sello_grande != blank or section.settings.sello_texto != blank -%}
+        <div class="lu-hero__sello">
+          <span><strong>{{ section.settings.sello_grande }}</strong>{{ section.settings.sello_texto }}</span>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lume – Portada (hero)",
+  "tag": "div",
+  "class": "lu-wrap",
+  "settings": [
+    { "type": "header", "content": "Textos" },
+    { "type": "text", "id": "eyebrow", "label": "Texto pequeño superior", "default": "Cuidado del cabello en casa" },
+    { "type": "inline_richtext", "id": "titulo", "label": "Título", "info": "Pon una palabra en cursiva para resaltarla en color ámbar.", "default": "Pelo bonito, <em>sin complicarte</em> la vida." },
+    { "type": "textarea", "id": "texto", "label": "Texto", "default": "Herramientas sencillas para cuidar tu pelo en casa, en minutos. Pequeñas cosas que mejoran tu día." },
+    { "type": "header", "content": "Botones" },
+    { "type": "text", "id": "boton_1", "label": "Botón principal – texto", "default": "Descubrir" },
+    { "type": "url", "id": "boton_1_url", "label": "Botón principal – enlace", "info": "Si lo dejas vacío, lleva a todos los productos." },
+    { "type": "text", "id": "boton_2", "label": "Botón secundario – texto", "default": "Cómo funciona" },
+    { "type": "url", "id": "boton_2_url", "label": "Botón secundario – enlace", "info": "Vacío = baja hasta la sección «Cómo funciona»." },
+    { "type": "header", "content": "Garantías bajo los botones" },
+    { "type": "text", "id": "garantia_1", "label": "Garantía 1", "default": "Envío con seguimiento" },
+    { "type": "select", "id": "garantia_1_icono", "label": "Icono 1", "default": "envio", "options": [
+      { "value": "envio", "label": "Envío" }, { "value": "devolucion", "label": "Devolución" }, { "value": "seguro", "label": "Candado" },
+      { "value": "check", "label": "Check" }, { "value": "estrella", "label": "Estrella" }, { "value": "escudo", "label": "Escudo" },
+      { "value": "reloj", "label": "Reloj" }, { "value": "corazon", "label": "Corazón" }, { "value": "regalo", "label": "Regalo" }
+    ] },
+    { "type": "text", "id": "garantia_2", "label": "Garantía 2", "default": "14 días para devolver" },
+    { "type": "select", "id": "garantia_2_icono", "label": "Icono 2", "default": "devolucion", "options": [
+      { "value": "envio", "label": "Envío" }, { "value": "devolucion", "label": "Devolución" }, { "value": "seguro", "label": "Candado" },
+      { "value": "check", "label": "Check" }, { "value": "estrella", "label": "Estrella" }, { "value": "escudo", "label": "Escudo" },
+      { "value": "reloj", "label": "Reloj" }, { "value": "corazon", "label": "Corazón" }, { "value": "regalo", "label": "Regalo" }
+    ] },
+    { "type": "text", "id": "garantia_3", "label": "Garantía 3", "default": "Pago 100 % seguro" },
+    { "type": "select", "id": "garantia_3_icono", "label": "Icono 3", "default": "seguro", "options": [
+      { "value": "envio", "label": "Envío" }, { "value": "devolucion", "label": "Devolución" }, { "value": "seguro", "label": "Candado" },
+      { "value": "check", "label": "Check" }, { "value": "estrella", "label": "Estrella" }, { "value": "escudo", "label": "Escudo" },
+      { "value": "reloj", "label": "Reloj" }, { "value": "corazon", "label": "Corazón" }, { "value": "regalo", "label": "Regalo" }
+    ] },
+    { "type": "header", "content": "Imagen" },
+    { "type": "image_picker", "id": "imagen", "label": "Imagen principal", "info": "Vertical (4:5) queda mejor. Mientras no pongas una, se ve un fondo de marca." },
+    { "type": "checkbox", "id": "imagen_derecha", "label": "Imagen a la derecha", "default": true },
+    { "type": "range", "id": "radio", "label": "Redondeo de esquinas (px)", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 28 },
+    { "type": "range", "id": "parallax", "label": "Movimiento al hacer scroll", "min": 0, "max": 100, "step": 10, "unit": "%", "default": 40 },
+    { "type": "text", "id": "sello_grande", "label": "Sello redondo – texto grande", "default": "Nuevo" },
+    { "type": "text", "id": "sello_texto", "label": "Sello redondo – texto pequeño", "default": "en España" },
+    { "type": "header", "content": "Tipografía" },
+    { "type": "select", "id": "text_align", "label": "Alineación", "default": "left", "options": [
+      { "value": "left", "label": "Izquierda" }, { "value": "center", "label": "Centro" }, { "value": "right", "label": "Derecha" }
+    ] },
+    { "type": "range", "id": "heading_size", "label": "Tamaño del título (px)", "min": 32, "max": 110, "step": 2, "unit": "px", "default": 76 },
+    { "type": "range", "id": "body_size", "label": "Tamaño del texto (px)", "min": 13, "max": 26, "step": 1, "unit": "px", "default": 19 },
+    { "type": "header", "content": "Colores" },
+    { "type": "color", "id": "color_fondo", "label": "Fondo", "default": "#F6EFE7" },
+    { "type": "color", "id": "color_texto", "label": "Texto", "default": "#2A1F1A" },
+    { "type": "header", "content": "Espaciado" },
+    { "type": "range", "id": "padding_top", "label": "Espacio superior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 64 },
+    { "type": "range", "id": "padding_bottom", "label": "Espacio inferior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 }
+  ],
+  "presets": [{ "name": "Lume – Portada (hero)" }]
+}
+{% endschema %}

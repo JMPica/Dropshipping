@@ -1,0 +1,229 @@
+{
+  "sections": {
+    "hero": {
+      "type": "lu-hero",
+      "settings": {}
+    },
+    "cinta": {
+      "type": "lu-marquesina",
+      "blocks": {
+        "frase-1": {
+          "type": "frase",
+          "settings": {
+            "texto": "Cuida tu pelo en casa"
+          }
+        },
+        "frase-2": {
+          "type": "frase",
+          "settings": {
+            "texto": "Resultados en minutos"
+          }
+        },
+        "frase-3": {
+          "type": "frase",
+          "settings": {
+            "texto": "Envío con seguimiento"
+          }
+        },
+        "frase-4": {
+          "type": "frase",
+          "settings": {
+            "texto": "14 días para devolver"
+          }
+        },
+        "frase-5": {
+          "type": "frase",
+          "settings": {
+            "texto": "Pago 100 % seguro"
+          }
+        }
+      },
+      "block_order": [
+        "frase-1",
+        "frase-2",
+        "frase-3",
+        "frase-4",
+        "frase-5"
+      ],
+      "settings": {}
+    },
+    "destacado": {
+      "type": "lu-destacado",
+      "settings": {
+        "oferta": ""
+      }
+    },
+    "beneficios": {
+      "type": "lu-beneficios",
+      "blocks": {
+        "beneficio-1": {
+          "type": "beneficio",
+          "settings": {
+            "icono": "reloj",
+            "titulo": "Resultados en minutos",
+            "texto": "Rutinas cortas que encajan en una mañana con prisas."
+          }
+        },
+        "beneficio-2": {
+          "type": "beneficio",
+          "settings": {
+            "icono": "casa",
+            "titulo": "Desde tu casa",
+            "texto": "Mantén tu pelo cuidado entre visita y visita a la peluquería."
+          }
+        },
+        "beneficio-3": {
+          "type": "beneficio",
+          "settings": {
+            "icono": "mano",
+            "titulo": "Fácil de verdad",
+            "texto": "Sin experiencia ni trucos: si sabes peinarte, sabes usarlo."
+          }
+        },
+        "beneficio-4": {
+          "type": "beneficio",
+          "settings": {
+            "icono": "escudo",
+            "titulo": "Compra tranquila",
+            "texto": "Pago seguro, envío con seguimiento y 14 días para devolver."
+          }
+        }
+      },
+      "block_order": [
+        "beneficio-1",
+        "beneficio-2",
+        "beneficio-3",
+        "beneficio-4"
+      ],
+      "settings": {}
+    },
+    "pasos": {
+      "type": "lu-pasos",
+      "blocks": {
+        "paso-1": {
+          "type": "paso",
+          "settings": {
+            "titulo": "Elige",
+            "texto": "Escoge la herramienta que encaja con tu pelo y tu rutina."
+          }
+        },
+        "paso-2": {
+          "type": "paso",
+          "settings": {
+            "titulo": "Úsala en casa",
+            "texto": "Sin cita ni experiencia: unos minutos delante del espejo."
+          }
+        },
+        "paso-3": {
+          "type": "paso",
+          "settings": {
+            "titulo": "Disfruta el resultado",
+            "texto": "Un pelo más cuidado, cada día, sin esfuerzo."
+          }
+        }
+      },
+      "block_order": [
+        "paso-1",
+        "paso-2",
+        "paso-3"
+      ],
+      "settings": {
+        "color_fondo": "#ECDFCF",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "comparador": {
+      "type": "lu-comparador",
+      "settings": {
+        "color_fondo": "#F6EFE7"
+      }
+    },
+    "esenciales": {
+      "type": "lu-esenciales",
+      "settings": {
+        "color_fondo": "#FFFCF8"
+      }
+    },
+    "manifiesto": {
+      "type": "lu-manifiesto",
+      "settings": {
+        "color_fondo": "#F6EFE7"
+      }
+    },
+    "faq": {
+      "type": "lu-faq",
+      "blocks": {
+        "pregunta-1": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Cuánto tarda en llegar mi pedido?",
+            "respuesta": "<p>Preparamos tu pedido en 1-2 días laborables y te enviamos el número de seguimiento por email. La entrega en España peninsular suele tardar entre 7 y 12 días laborables.</p>"
+          }
+        },
+        "pregunta-2": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Cuánto cuesta el envío?",
+            "respuesta": "<p>Verás el coste exacto antes de pagar, en el carrito. Nunca hay cargos sorpresa ni aduanas que pagar al recibirlo.</p>"
+          }
+        },
+        "pregunta-3": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Puedo devolverlo si no me convence?",
+            "respuesta": "<p>Sí. Tienes 14 días naturales desde que lo recibes para devolverlo sin dar explicaciones. Escríbenos y te indicamos cómo hacerlo.</p>"
+          }
+        },
+        "pregunta-4": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Qué formas de pago aceptáis?",
+            "respuesta": "<p>Tarjeta de crédito o débito y los métodos que ves al pagar. El pago es 100 % seguro y nunca vemos los datos de tu tarjeta.</p>"
+          }
+        },
+        "pregunta-5": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Tiene garantía?",
+            "respuesta": "<p>Sí, todos nuestros productos tienen la garantía legal de 3 años frente a defectos de fabricación.</p>"
+          }
+        },
+        "pregunta-6": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Cómo contacto con vosotros?",
+            "respuesta": "<p>Escríbenos desde la página de contacto y te respondemos en menos de 24 horas laborables.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "pregunta-1",
+        "pregunta-2",
+        "pregunta-3",
+        "pregunta-4",
+        "pregunta-5",
+        "pregunta-6"
+      ],
+      "settings": {
+        "boton_url": "shopify://pages/contact"
+      }
+    },
+    "cta": {
+      "type": "lu-cta",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "cinta",
+    "destacado",
+    "beneficios",
+    "pasos",
+    "comparador",
+    "esenciales",
+    "manifiesto",
+    "faq",
+    "cta"
+  ]
+}

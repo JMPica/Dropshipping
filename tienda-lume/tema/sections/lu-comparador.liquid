@@ -1,0 +1,103 @@
+{{ 'lu-styles.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'lu-scripts.js' | asset_url }}" defer></script>
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.color_fondo }};
+    color: {{ section.settings.color_texto }};
+  }
+  #shopify-section-{{ section.id }} .lu-h2 { font-size: {{ section.settings.heading_size }}px; }
+  #shopify-section-{{ section.id }} .lu-body { font-size: {{ section.settings.body_size }}px; }
+  #shopify-section-{{ section.id }} .lu-comparador__texto { text-align: {{ section.settings.text_align }}; }
+  #shopify-section-{{ section.id }} .lu-comparador__marco { aspect-ratio: {{ section.settings.proporcion }}; border-radius: {{ section.settings.radio }}px; }
+  {%- if section.settings.imagen_izquierda -%}
+    #shopify-section-{{ section.id }} .lu-comparador__visual { order: -1; }
+    #shopify-section-{{ section.id }} .lu-comparador__grid { grid-template-columns: 1.1fr 0.9fr; }
+  {%- endif -%}
+  @media (max-width: 989px) {
+    #shopify-section-{{ section.id }} .lu-comparador__grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .lu-h2 { font-size: {{ section.settings.heading_size | times: 0.72 | round }}px; }
+  }
+{% endstyle %}
+
+<section class="lu-section lu-comparador">
+  <div class="lu-container lu-comparador__grid">
+    <div class="lu-comparador__texto{% if section.settings.text_align == 'center' %} lu-center{% endif %}">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="lu-eyebrow lu-reveal">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="lu-h2 lu-reveal" style="--lu-i: 1">{{ section.settings.titulo }}</h2>
+      {%- if section.settings.texto != blank -%}
+        <p class="lu-body lu-reveal" style="--lu-i: 2; margin-top: 18px">{{ section.settings.texto | newline_to_br }}</p>
+      {%- endif -%}
+      {%- if section.settings.boton != blank -%}
+        <div class="lu-hero__acciones lu-reveal" style="--lu-i: 3">
+          <a class="lu-btn" href="{{ section.settings.boton_url | default: routes.all_products_collection_url }}"><span>{{ section.settings.boton }}</span>{% render 'lu-icono', nombre: 'flecha' %}</a>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="lu-comparador__visual lu-reveal" style="--lu-i: 1">
+      <div class="lu-comparador__marco" style="--lu-pos: {{ section.settings.posicion }}%">
+        <div class="lu-comparador__capa lu-comparador__capa--despues">
+          {%- render 'lu-imagen', imagen: section.settings.imagen_despues, ancho: 1600, nota: 'Foto «después»' -%}
+        </div>
+        <div class="lu-comparador__capa lu-comparador__capa--antes">
+          {%- render 'lu-imagen', imagen: section.settings.imagen_antes, ancho: 1600, nota: 'Foto «antes»' -%}
+        </div>
+        {%- if section.settings.etiqueta_antes != blank -%}
+          <span class="lu-comparador__etiqueta lu-comparador__etiqueta--antes">{{ section.settings.etiqueta_antes }}</span>
+        {%- endif -%}
+        {%- if section.settings.etiqueta_despues != blank -%}
+          <span class="lu-comparador__etiqueta lu-comparador__etiqueta--despues">{{ section.settings.etiqueta_despues }}</span>
+        {%- endif -%}
+        <span class="lu-comparador__asa">{% render 'lu-icono', nombre: 'flechas' %}</span>
+        <input class="lu-comparador__rango" type="range" min="0" max="100" value="{{ section.settings.posicion }}" aria-label="{{ section.settings.etiqueta_control | escape }}">
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lume – Antes y después",
+  "tag": "div",
+  "settings": [
+    { "type": "header", "content": "Imágenes" },
+    { "type": "image_picker", "id": "imagen_antes", "label": "Imagen «antes»" },
+    { "type": "image_picker", "id": "imagen_despues", "label": "Imagen «después»", "info": "Usa dos fotos del mismo encuadre y tamaño." },
+    { "type": "text", "id": "etiqueta_antes", "label": "Etiqueta «antes»", "default": "Antes" },
+    { "type": "text", "id": "etiqueta_despues", "label": "Etiqueta «después»", "default": "Después" },
+    { "type": "text", "id": "etiqueta_control", "label": "Descripción del deslizador (accesibilidad)", "default": "Desliza para comparar antes y después" },
+    { "type": "range", "id": "posicion", "label": "Posición inicial de la línea", "min": 10, "max": 90, "step": 5, "unit": "%", "default": 50 },
+    { "type": "select", "id": "proporcion", "label": "Forma del comparador", "default": "4 / 3", "options": [
+      { "value": "1 / 1", "label": "Cuadrada" }, { "value": "4 / 3", "label": "Horizontal" }, { "value": "4 / 5", "label": "Vertical" }, { "value": "16 / 9", "label": "Panorámica" }
+    ] },
+    { "type": "range", "id": "radio", "label": "Redondeo de esquinas (px)", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 22 },
+    { "type": "checkbox", "id": "imagen_izquierda", "label": "Comparador a la izquierda", "default": false },
+    { "type": "header", "content": "Textos" },
+    { "type": "text", "id": "eyebrow", "label": "Texto pequeño superior", "default": "La diferencia se ve" },
+    { "type": "inline_richtext", "id": "titulo", "label": "Título", "default": "Desliza y <em>compruébalo</em>" },
+    { "type": "textarea", "id": "texto", "label": "Texto", "default": "Mueve la línea para ver el cambio con tus propios ojos." },
+    { "type": "text", "id": "boton", "label": "Texto del botón", "default": "Lo quiero" },
+    { "type": "url", "id": "boton_url", "label": "Enlace del botón" },
+    { "type": "header", "content": "Tipografía" },
+    { "type": "select", "id": "text_align", "label": "Alineación", "default": "left", "options": [
+      { "value": "left", "label": "Izquierda" }, { "value": "center", "label": "Centro" }, { "value": "right", "label": "Derecha" }
+    ] },
+    { "type": "range", "id": "heading_size", "label": "Tamaño del título (px)", "min": 24, "max": 80, "step": 2, "unit": "px", "default": 52 },
+    { "type": "range", "id": "body_size", "label": "Tamaño del texto (px)", "min": 13, "max": 24, "step": 1, "unit": "px", "default": 17 },
+    { "type": "header", "content": "Colores" },
+    { "type": "color", "id": "color_fondo", "label": "Fondo", "default": "#ECDFCF" },
+    { "type": "color", "id": "color_texto", "label": "Texto", "default": "#2A1F1A" },
+    { "type": "header", "content": "Espaciado" },
+    { "type": "range", "id": "padding_top", "label": "Espacio superior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "label": "Espacio inferior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 }
+  ],
+  "presets": [{ "name": "Lume – Antes y después" }]
+}
+{% endschema %}
