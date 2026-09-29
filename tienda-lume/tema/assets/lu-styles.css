@@ -5,23 +5,23 @@
    ========================================================================== */
 
 :root {
-  --lu-crema: #f6efe7;
-  --lu-arena: #ecdfcf;
-  --lu-blanco: #fffcf8;
-  --lu-cacao: #2a1f1a;
-  --lu-cacao-suave: #5c4a40;
-  --lu-ambar: #c4702c;
-  --lu-miel: #e9b87c;
-  --lu-linea: rgba(42, 31, 26, 0.12);
-  --lu-fuente-titulo: var(--font-heading-family, 'Playfair Display', Georgia, serif);
-  --lu-fuente-texto: var(--font-body-family, 'DM Sans', -apple-system, sans-serif);
+  --lu-crema: #f9f8f4;
+  --lu-arena: #f1ebe1;
+  --lu-blanco: #ffffff;
+  --lu-cacao: #161513;
+  --lu-cacao-suave: #55504a;
+  --lu-ambar: #905714;
+  --lu-miel: #ead8c0;
+  --lu-linea: rgba(22, 21, 19, 0.12);
+  --lu-fuente-titulo: var(--font-heading-family, 'Inter', 'Helvetica Neue', Arial, sans-serif);
+  --lu-fuente-texto: var(--font-body-family, 'Inter', -apple-system, sans-serif);
   --lu-radio: 22px;
   --lu-radio-sm: 14px;
   --lu-margen: 24px;
   --lu-ancho: 1240px;
   --lu-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --lu-sombra: 0 18px 50px -24px rgba(42, 31, 26, 0.35);
-  --lu-sombra-hover: 0 28px 60px -22px rgba(42, 31, 26, 0.45);
+  --lu-sombra: 0 18px 50px -24px rgba(22, 21, 19, 0.35);
+  --lu-sombra-hover: 0 28px 60px -22px rgba(22, 21, 19, 0.45);
 }
 
 /* ---- Base de sección (ROOT PADDING FIX: el relleno vive en el envoltorio) ---- */
@@ -65,15 +65,15 @@
 .lu-h2,
 .lu-h3 {
   font-family: var(--lu-fuente-titulo);
-  font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -0.015em;
+  font-weight: var(--font-heading-weight, 700);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
   margin: 0;
   color: inherit;
 }
 .lu-h1 em,
-.lu-h2 em { font-style: italic; color: var(--lu-ambar); }
-.lu-h3 { line-height: 1.2; }
+.lu-h2 em { font-style: normal; color: var(--lu-ambar); }
+.lu-h3 { line-height: 1.2; letter-spacing: -0.02em; }
 .lu-body { line-height: 1.65; margin: 0; color: var(--lu-cacao-suave); }
 .lu-body p { margin: 0 0 0.8em; }
 .lu-body p:last-child { margin-bottom: 0; }
@@ -159,17 +159,18 @@
   display: grid;
   place-items: center;
   background:
-    radial-gradient(60% 55% at 70% 30%, rgba(233, 184, 124, 0.75), transparent 70%),
-    radial-gradient(50% 50% at 25% 80%, rgba(196, 112, 44, 0.28), transparent 70%),
-    linear-gradient(160deg, #f3e6d6 0%, #e6d3bd 100%);
+    radial-gradient(60% 55% at 70% 25%, rgba(255, 255, 255, 0.9), transparent 70%),
+    radial-gradient(50% 50% at 25% 85%, rgba(234, 216, 192, 0.9), transparent 70%),
+    linear-gradient(160deg, #f4efe7 0%, #eadfce 100%);
 }
 .lu-hueco__marca {
-  font-family: var(--lu-fuente-titulo);
-  font-size: clamp(80px, 14vw, 180px);
-  line-height: 1;
-  color: rgba(255, 252, 248, 0.85);
-  text-shadow: 0 20px 60px rgba(196, 112, 44, 0.35);
-  user-select: none;
+  display: block;
+  width: clamp(90px, 16vw, 170px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--lu-ambar) 0 48%, var(--lu-miel) 49% 100%);
+  box-shadow: 0 24px 60px -20px rgba(144, 87, 20, 0.45);
+  font-size: 0;
 }
 .lu-hueco__nota {
   position: absolute;
@@ -177,7 +178,7 @@
   bottom: 14px;
   font-size: 12px;
   letter-spacing: 0.06em;
-  color: rgba(42, 31, 26, 0.55);
+  color: rgba(22, 21, 19, 0.55);
 }
 
 /* ---- Reveals al hacer scroll ---- */
@@ -229,8 +230,8 @@
 .lu-hero__sello strong {
   display: block;
   font-family: var(--lu-fuente-titulo);
-  font-weight: 400;
-  font-size: 26px;
+  font-weight: var(--font-heading-weight, 700);
+  font-size: 24px;
   letter-spacing: 0;
   color: var(--lu-miel);
 }
@@ -268,7 +269,8 @@
   align-items: center;
   white-space: nowrap;
   font-family: var(--lu-fuente-titulo);
-  font-style: italic;
+  font-weight: var(--font-heading-weight, 700);
+  letter-spacing: -0.02em;
 }
 .lu-marquesina__sep { display: inline-block; margin: 0 28px; color: var(--lu-miel); font-style: normal; }
 @keyframes lu-marquesina {
@@ -305,7 +307,7 @@
   font-weight: 600;
   letter-spacing: 0.04em;
 }
-.lu-etiqueta--suave { background: rgba(196, 112, 44, 0.12); color: var(--lu-ambar); }
+.lu-etiqueta--suave { background: rgba(144, 87, 20, 0.12); color: var(--lu-ambar); }
 .lu-lista-check { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 12px; }
 .lu-lista-check li { display: flex; gap: 12px; align-items: flex-start; line-height: 1.5; }
 .lu-lista-check svg { flex: none; width: 22px; height: 22px; margin-top: 1px; color: var(--lu-ambar); }
@@ -325,7 +327,7 @@
 .lu-tarjeta:hover .lu-media img + img { opacity: 1; }
 .lu-tarjeta:hover .lu-media img:only-of-type { transform: scale(1.05); }
 .lu-tarjeta__info { display: flex; justify-content: space-between; gap: 12px; padding: 16px 4px 0; }
-.lu-tarjeta__titulo { font-family: var(--lu-fuente-titulo); font-size: 20px; line-height: 1.25; margin: 0; }
+.lu-tarjeta__titulo { font-family: var(--lu-fuente-titulo); font-weight: var(--font-heading-weight, 700); letter-spacing: -0.02em; font-size: 19px; line-height: 1.25; margin: 0; }
 .lu-tarjeta__precio { white-space: nowrap; font-weight: 600; }
 .lu-tarjeta__precio s { font-weight: 400; opacity: 0.6; margin-right: 6px; }
 .lu-tarjeta .lu-etiqueta { position: absolute; top: 14px; left: 14px; z-index: 2; }
@@ -345,6 +347,8 @@
 .lu-paso:hover { transform: translateY(-6px); box-shadow: var(--lu-sombra); }
 .lu-paso__num {
   font-family: var(--lu-fuente-titulo);
+  font-weight: var(--font-heading-weight, 700);
+  letter-spacing: -0.04em;
   font-size: 64px;
   line-height: 1;
   color: var(--lu-miel);
@@ -435,7 +439,7 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: rgba(196, 112, 44, 0.1);
+  background: rgba(144, 87, 20, 0.1);
   color: var(--lu-ambar);
   display: grid;
   place-items: center;
@@ -465,6 +469,8 @@
   gap: 20px;
   padding: 24px 0;
   font-family: var(--lu-fuente-titulo);
+  font-weight: var(--font-heading-weight, 700);
+  letter-spacing: -0.02em;
   font-size: 20px;
   line-height: 1.3;
 }
@@ -512,7 +518,7 @@
   right: -20vmax;
   top: -30vmax;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(233, 184, 124, 0.45), transparent 60%);
+  background: radial-gradient(circle, rgba(234, 216, 192, 0.45), transparent 60%);
   z-index: -1;
   animation: lu-latido 9s ease-in-out infinite;
 }
@@ -565,8 +571,8 @@
   margin-top: 22px;
   padding: 14px 18px;
   border-radius: var(--lu-radio-sm);
-  background: rgba(196, 112, 44, 0.1);
-  border: 1px dashed rgba(196, 112, 44, 0.5);
+  background: rgba(144, 87, 20, 0.1);
+  border: 1px dashed rgba(144, 87, 20, 0.5);
   font-size: 15px;
   line-height: 1.45;
 }
@@ -659,7 +665,7 @@
   background: rgba(255, 252, 248, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 16px 40px -12px rgba(42, 31, 26, 0.35);
+  box-shadow: 0 16px 40px -12px rgba(22, 21, 19, 0.35);
   transform: translateY(140%);
   transition: transform 0.5s var(--lu-ease);
 }
@@ -676,7 +682,7 @@
    ========================================================================== */
 .lu-footer { font-family: var(--lu-fuente-texto); }
 .lu-footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 40px; }
-.lu-footer__marca { font-family: var(--lu-fuente-titulo); font-size: 40px; line-height: 1; margin: 0 0 16px; }
+.lu-footer__marca { margin: 0 0 16px; }
 .lu-footer__marca a { color: inherit; text-decoration: none; }
 .lu-footer__logo img { display: block; height: auto; }
 .lu-footer h2 { font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin: 6px 0 18px; opacity: 0.7; font-family: var(--lu-fuente-texto); }
@@ -716,15 +722,9 @@
 .lu-footer__localizacion { display: flex; gap: 12px; flex-wrap: wrap; }
 
 /* ==========================================================================
-   Wordmark del header cuando no hay logo
+   Logo de Lume en header/footer (imagen por defecto de la marca)
    ========================================================================== */
-.header__heading-link .lu-wordmark {
-  font-family: var(--lu-fuente-titulo);
-  font-size: 34px;
-  line-height: 1;
-  letter-spacing: -0.01em;
-}
-.header__heading-link .lu-wordmark::after { content: '.'; color: var(--lu-ambar); }
+.lu-logo-img { display: block; height: auto; max-width: 100%; }
 
 /* ==========================================================================
    Responsive

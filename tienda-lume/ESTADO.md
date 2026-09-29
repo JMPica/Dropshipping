@@ -3,30 +3,32 @@
 - Tienda: lume-es.myshopify.com (plan Basic, EUR, España)
 - Carpeta: `tienda-lume/tema` (este repositorio es la copia de trabajo; Shopify guarda la copia buena)
 - Tema base: Dawn 16.0.0 (clonado de GitHub el 29/09/2026)
-- Tema de trabajo: **«Lume (Claude)»** — `gid://shopify/OnlineStoreTheme/202589864200` — NO publicado
+- Tema de trabajo: **«Lume (Claude)»** — `gid://shopify/OnlineStoreTheme/202590814472` — NO publicado
+- Tema viejo (versión cabello, error): «Lume (Claude) – versión cabello, BORRAR» — `202589864200` (el conector no deja borrarlo; borrar desde el panel)
 - Tema publicado ahora mismo: «Horizon» (sin tocar)
-- Vista previa: https://lume-es.myshopify.com/?preview_theme_id=202589864200
-- Editor: https://admin.shopify.com/store/lume-es/themes/202589864200/editor
+- Vista previa: https://lume-es.myshopify.com/?preview_theme_id=202590814472
+- Editor: https://admin.shopify.com/store/lume-es/themes/202590814472/editor
 - Método de subida (sesión en la nube, sin Shopify CLI con login): ZIP → `stagedUploadsCreate` → `themeCreate`;
   cambios sueltos con `themeFilesUpsert` (solo en temas no publicados).
-- Última subida: 29/09/2026 — tema completo + `config/settings_data.json` corregido (page_width 1200).
+- Última subida: 29/09/2026 (tarde) — v2 corregida: nicho PIES (lima de pies) y logo real de Lume.
 
 ## Fases
 - [x] 0 Entorno (nube: Node 22, Shopify CLI 4.8.2 solo para `theme check`)
 - [x] 1 Conexión (conector de Shopify) — sondeo: 0 productos activos; 1 archivado («Recortador de Puntas Abiertas», handle `recortador-de-puntas-abiertas-lume`, no tocado)
 - [x] 2 Proyecto
-- [x] 3 Diseño (rama «sin producto»: brief deducido de los documentos de Lume del Drive)
+- [x] 3 Diseño (rama «sin producto»). ⚠️ Error de la v1: se dedujo «cabello» del doc «reset» del Drive; el usuario aclara que el producto que se valora es una **lima de pies**. Corregido en la v2.
 - [x] 4 Construcción
 - [x] 5 Páginas (faltan datos del titular para el aviso legal)
 - [~] 6 Publicación — subido como tema NO publicado; falta revisión visual y OK para publicar
 
-## Brief
-- Nicho (doc «Lume — reset», 29/09): cuidado del cabello SIN fórmulas (herramientas). Test de 3 productos: recortador de puntas abiertas, cepillo térmico rizador 32 mm, rizador sin calor (2 uds).
-- Marca: «Lume — Pequeñas cosas que mejoran tu día». Logo = «L» mayúscula. Tono cálido y cercano, tú, español de España.
-- Paleta: crema `#F6EFE7` (fondo), arena `#ECDFCF`, blanco roto `#FFFCF8`, cacao `#2A1F1A` (texto/botones), ámbar `#C4702C` (acento), miel `#E9B87C`.
-- Tipografía: Playfair Display (títulos, cursiva ámbar para resaltar) + DM Sans (texto). Servidas por Shopify (sin Google Fonts → sin problema RGPD).
-- Forma: botones píldora, esquinas 18-28 px, sombras suaves, reveals al hacer scroll, parallax suave, cinta animada.
-- Fotos: no hay fotos todavía (CDN de Shopify bloqueado desde la nube y sin clave de imágenes). Todos los huecos llevan un fondo de marca con la «L» y son `image_picker` editables.
+## Brief (v2)
+- Producto en valoración: **lima de pies** (sin ficha todavía: modelo, precio y si es eléctrica, pendientes). Textos genéricos válidos para lima manual o eléctrica.
+- Nicho de la tienda: cuidado de pies (durezas, talones, piel seca). Marca: «Lume — Pequeñas cosas que mejoran tu día».
+- Logo REAL (el publicado por el usuario): punto ámbar `#905714` con anillo arena `#EAD8C0` + «Lume» en sans negrita `#161513` sobre `#F9F8F4`.
+  Extraído a `assets/lume-logo.png` (oscuro) y `assets/lume-logo-claro.png` (para el pie oscuro); favicon = el punto.
+- Paleta: fondo `#F9F8F4`, alterno `#F1EBE1`, blanco `#FFFFFF`, texto `#161513`, acento `#905714`, arena `#EAD8C0`.
+- Tipografía: Inter 700 (títulos, interletraje ajustado, como el logo) + Inter 400 (texto), servidas por Shopify.
+- Fotos: sin fotos todavía; huecos con fondo de marca y el punto del logo, editables.
 
 ## Secciones creadas (prefijo `lu-`)
 | Archivo | Qué hace |
@@ -43,10 +45,11 @@
 | `sections/lu-cta.liquid` | Llamada final oscura con luz animada |
 | `sections/lu-producto.liquid` | Página de producto: galería con miniaturas, precio/tachado/% ahorro, variantes en píldoras, cantidad, carrito lateral de Dawn, pago rápido, garantías, descripción del catálogo, desplegables, características, «qué incluye», barra de compra fija |
 | `sections/footer.liquid` | Pie propio (reescrito): marca, 2 columnas de enlaces, contacto, legales, iconos de pago |
-| `sections/header.liquid` | Dawn + logo propio por sección (`lu_logo`, `lu_logo_width`) y nombre de marca en Playfair con punto ámbar si no hay logo |
+| `sections/header.liquid` | Dawn + logo propio por sección (`lu_logo`, `lu_logo_width`); si no hay, usa `assets/lume-logo.png` |
 | `snippets/lu-icono.liquid`, `lu-imagen.liquid`, `lu-hueco.liquid` | Iconos SVG, imagen con respaldo y hueco de marca |
 | `assets/lu-styles.css`, `assets/lu-scripts.js` | Todo el CSS y JS propios |
-| `assets/lu-favicon.png`, `lu-favicon-180.png` | Favicon «L.» (se usa si no hay favicon en la configuración del tema) |
+| `assets/lume-logo.png`, `lume-logo-claro.png` | Logo real de Lume (header y pie) |
+| `assets/lu-favicon.png`, `lu-favicon-180.png` | Favicon: el punto del logo (se usa si no hay favicon en la configuración del tema) |
 
 ## Plantillas
 - `templates/index.json`: hero → cinta → destacado → beneficios → pasos → antes/después → productos → nuestra idea → FAQ → llamada final.
@@ -65,5 +68,7 @@
 - ⬜ Usuario: cambiar el idioma principal a español (Configuración → Idiomas) para que el pago y los emails salgan en español.
 - ⬜ Usuario: rellenar titular, NIF y email en «Aviso legal» y publicarla.
 - ⬜ Políticas de envío, devoluciones y términos (Configuración → Políticas; la de privacidad existe en inglés).
-- ⬜ Cuando se elijan los 3 productos: subirlos (AutoDS), escribir título/descripción, fotos, etiqueta de oferta, crear el descuento real (2.ª al 50 % / 3x2), colección «Esenciales», fotos del hero, beneficios, antes/después.
+- ⬜ Ficha de la lima de pies (enlace AutoDS): título, descripción, fotos, precio, oferta; ajustar textos si es eléctrica.
+- ⬜ Borrar el tema viejo «versión cabello, BORRAR» desde el panel.
+- ⬜ Cuando se elijan los productos: subirlos (AutoDS), escribir título/descripción, fotos, etiqueta de oferta, crear el descuento real (2.ª al 50 % / 3x2), colección «Esenciales», fotos del hero, beneficios, antes/después.
 - ⬜ Publicar el tema «Lume (Claude)» solo con el OK del usuario (el conector no permite publicar: se hace en Tienda online → Temas → Publicar).

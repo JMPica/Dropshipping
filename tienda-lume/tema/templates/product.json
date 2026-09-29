@@ -14,7 +14,7 @@
           "type": "acordeon",
           "settings": {
             "titulo": "Devoluciones",
-            "contenido": "<p>Tienes 14 días naturales desde que lo recibes para devolverlo. Escríbenos y te explicamos cómo.</p>"
+            "contenido": "<p>Tienes 14 días naturales desde que la recibes para devolverla. Por higiene, debe estar sin usar y en su embalaje. Escríbenos y te explicamos cómo.</p>"
           }
         },
         "acordeon-3": {
@@ -24,28 +24,35 @@
             "contenido": "<p>Garantía legal de 3 años frente a defectos de fabricación.</p>"
           }
         },
-        "caracteristica-4": {
-          "type": "caracteristica",
+        "acordeon-4": {
+          "type": "acordeon",
           "settings": {
-            "icono": "reloj",
-            "titulo": "Rápido",
-            "texto": "Pensado para rutinas de pocos minutos, sin complicaciones."
+            "titulo": "Precauciones",
+            "contenido": "<p>Úsala solo sobre durezas y piel seca, nunca sobre heridas o piel irritada. Si tienes diabetes o problemas de circulación, consulta antes con tu podólogo.</p>"
           }
         },
         "caracteristica-5": {
           "type": "caracteristica",
           "settings": {
-            "icono": "mano",
-            "titulo": "Fácil de usar",
-            "texto": "Sin experiencia previa: lo coges y funciona."
+            "icono": "reloj",
+            "titulo": "Rápida",
+            "texto": "Unos minutos por pie, una o dos veces por semana."
           }
         },
         "caracteristica-6": {
           "type": "caracteristica",
           "settings": {
+            "icono": "mano",
+            "titulo": "Fácil de usar",
+            "texto": "Sin experiencia previa: la coges y funciona."
+          }
+        },
+        "caracteristica-7": {
+          "type": "caracteristica",
+          "settings": {
             "icono": "casa",
             "titulo": "En tu casa",
-            "texto": "Cuida tu pelo entre visitas a la peluquería, cuando te venga bien."
+            "texto": "Talones suaves entre pedicura y pedicura, cuando te venga bien."
           }
         }
       },
@@ -53,9 +60,10 @@
         "acordeon-1",
         "acordeon-2",
         "acordeon-3",
-        "caracteristica-4",
+        "acordeon-4",
         "caracteristica-5",
-        "caracteristica-6"
+        "caracteristica-6",
+        "caracteristica-7"
       ],
       "settings": {}
     },
@@ -65,7 +73,7 @@
         "eyebrow": "Completa tu rutina",
         "titulo": "También te puede <em>gustar</em>",
         "texto": "",
-        "color_fondo": "#FFFCF8",
+        "color_fondo": "#FFFFFF",
         "padding_top": 88,
         "padding_bottom": 88
       }
@@ -83,36 +91,36 @@
         "pregunta-2": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Cuánto cuesta el envío?",
-            "respuesta": "<p>Verás el coste exacto antes de pagar, en el carrito. Nunca hay cargos sorpresa ni aduanas que pagar al recibirlo.</p>"
+            "pregunta": "¿Duele usar la lima?",
+            "respuesta": "<p>No, si la usas con suavidad y sin apretar. Trabaja solo sobre durezas y piel seca, nunca sobre heridas o piel irritada. Si tienes diabetes, problemas de circulación o la piel muy sensible, consulta antes con tu podólogo.</p>"
           }
         },
         "pregunta-3": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Puedo devolverlo si no me convence?",
-            "respuesta": "<p>Sí. Tienes 14 días naturales desde que lo recibes para devolverlo sin dar explicaciones. Escríbenos y te indicamos cómo hacerlo.</p>"
+            "pregunta": "¿Cada cuánto la uso?",
+            "respuesta": "<p>Con una o dos veces por semana suele bastar para mantener los talones suaves. Después, aplica tu crema hidratante de siempre.</p>"
           }
         },
         "pregunta-4": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Puedo devolverla si no me convence?",
+            "respuesta": "<p>Sí. Tienes 14 días naturales desde que la recibes para devolverla sin dar explicaciones. Por higiene, el producto debe estar sin usar y en su embalaje. Escríbenos y te indicamos cómo hacerlo.</p>"
+          }
+        },
+        "pregunta-5": {
           "type": "pregunta",
           "settings": {
             "pregunta": "¿Qué formas de pago aceptáis?",
             "respuesta": "<p>Tarjeta de crédito o débito y los métodos que ves al pagar. El pago es 100 % seguro y nunca vemos los datos de tu tarjeta.</p>"
           }
         },
-        "pregunta-5": {
+        "pregunta-6": {
           "type": "pregunta",
           "settings": {
             "pregunta": "¿Tiene garantía?",
             "respuesta": "<p>Sí, todos nuestros productos tienen la garantía legal de 3 años frente a defectos de fabricación.</p>"
-          }
-        },
-        "pregunta-6": {
-          "type": "pregunta",
-          "settings": {
-            "pregunta": "¿Cómo contacto con vosotros?",
-            "respuesta": "<p>Escríbenos desde la página de contacto y te respondemos en menos de 24 horas laborables.</p>"
           }
         }
       },

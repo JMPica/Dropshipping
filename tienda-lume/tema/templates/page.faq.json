@@ -13,36 +13,36 @@
         "pregunta-2": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Cuánto cuesta el envío?",
-            "respuesta": "<p>Verás el coste exacto antes de pagar, en el carrito. Nunca hay cargos sorpresa ni aduanas que pagar al recibirlo.</p>"
+            "pregunta": "¿Duele usar la lima?",
+            "respuesta": "<p>No, si la usas con suavidad y sin apretar. Trabaja solo sobre durezas y piel seca, nunca sobre heridas o piel irritada. Si tienes diabetes, problemas de circulación o la piel muy sensible, consulta antes con tu podólogo.</p>"
           }
         },
         "pregunta-3": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Puedo devolverlo si no me convence?",
-            "respuesta": "<p>Sí. Tienes 14 días naturales desde que lo recibes para devolverlo sin dar explicaciones. Escríbenos y te indicamos cómo hacerlo.</p>"
+            "pregunta": "¿Cada cuánto la uso?",
+            "respuesta": "<p>Con una o dos veces por semana suele bastar para mantener los talones suaves. Después, aplica tu crema hidratante de siempre.</p>"
           }
         },
         "pregunta-4": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Puedo devolverla si no me convence?",
+            "respuesta": "<p>Sí. Tienes 14 días naturales desde que la recibes para devolverla sin dar explicaciones. Por higiene, el producto debe estar sin usar y en su embalaje. Escríbenos y te indicamos cómo hacerlo.</p>"
+          }
+        },
+        "pregunta-5": {
           "type": "pregunta",
           "settings": {
             "pregunta": "¿Qué formas de pago aceptáis?",
             "respuesta": "<p>Tarjeta de crédito o débito y los métodos que ves al pagar. El pago es 100 % seguro y nunca vemos los datos de tu tarjeta.</p>"
           }
         },
-        "pregunta-5": {
+        "pregunta-6": {
           "type": "pregunta",
           "settings": {
             "pregunta": "¿Tiene garantía?",
             "respuesta": "<p>Sí, todos nuestros productos tienen la garantía legal de 3 años frente a defectos de fabricación.</p>"
-          }
-        },
-        "pregunta-6": {
-          "type": "pregunta",
-          "settings": {
-            "pregunta": "¿Cómo contacto con vosotros?",
-            "respuesta": "<p>Escríbenos desde la página de contacto y te respondemos en menos de 24 horas laborables.</p>"
           }
         }
       },

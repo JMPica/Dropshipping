@@ -10,13 +10,13 @@
         "frase-1": {
           "type": "frase",
           "settings": {
-            "texto": "Cuida tu pelo en casa"
+            "texto": "Adiós a las durezas"
           }
         },
         "frase-2": {
           "type": "frase",
           "settings": {
-            "texto": "Resultados en minutos"
+            "texto": "Talones suaves en minutos"
           }
         },
         "frase-3": {
@@ -60,8 +60,8 @@
           "type": "beneficio",
           "settings": {
             "icono": "reloj",
-            "titulo": "Resultados en minutos",
-            "texto": "Rutinas cortas que encajan en una mañana con prisas."
+            "titulo": "Unos minutos",
+            "texto": "Una rutina corta que encaja en cualquier día."
           }
         },
         "beneficio-2": {
@@ -69,7 +69,7 @@
           "settings": {
             "icono": "casa",
             "titulo": "Desde tu casa",
-            "texto": "Mantén tu pelo cuidado entre visita y visita a la peluquería."
+            "texto": "Mantén los pies cuidados entre pedicura y pedicura."
           }
         },
         "beneficio-3": {
@@ -77,7 +77,7 @@
           "settings": {
             "icono": "mano",
             "titulo": "Fácil de verdad",
-            "texto": "Sin experiencia ni trucos: si sabes peinarte, sabes usarlo."
+            "texto": "Sin experiencia ni trucos: la coges y funciona."
           }
         },
         "beneficio-4": {
@@ -103,22 +103,22 @@
         "paso-1": {
           "type": "paso",
           "settings": {
-            "titulo": "Elige",
-            "texto": "Escoge la herramienta que encaja con tu pelo y tu rutina."
+            "titulo": "Prepara la piel",
+            "texto": "Lava y seca bien tus pies antes de empezar."
           }
         },
         "paso-2": {
           "type": "paso",
           "settings": {
-            "titulo": "Úsala en casa",
-            "texto": "Sin cita ni experiencia: unos minutos delante del espejo."
+            "titulo": "Lima con suavidad",
+            "texto": "Pasa la lima por talones y durezas sin apretar, unos minutos basta."
           }
         },
         "paso-3": {
           "type": "paso",
           "settings": {
-            "titulo": "Disfruta el resultado",
-            "texto": "Un pelo más cuidado, cada día, sin esfuerzo."
+            "titulo": "Hidrata y listo",
+            "texto": "Aplica tu crema de siempre y disfruta de unos pies más suaves."
           }
         }
       },
@@ -128,27 +128,25 @@
         "paso-3"
       ],
       "settings": {
-        "color_fondo": "#ECDFCF",
-        "padding_top": 96,
-        "padding_bottom": 96
+        "color_fondo": "#F1EBE1"
       }
     },
     "comparador": {
       "type": "lu-comparador",
       "settings": {
-        "color_fondo": "#F6EFE7"
+        "color_fondo": "#F9F8F4"
       }
     },
     "esenciales": {
       "type": "lu-esenciales",
       "settings": {
-        "color_fondo": "#FFFCF8"
+        "color_fondo": "#FFFFFF"
       }
     },
     "manifiesto": {
       "type": "lu-manifiesto",
       "settings": {
-        "color_fondo": "#F6EFE7"
+        "color_fondo": "#F9F8F4"
       }
     },
     "faq": {
@@ -164,36 +162,36 @@
         "pregunta-2": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Cuánto cuesta el envío?",
-            "respuesta": "<p>Verás el coste exacto antes de pagar, en el carrito. Nunca hay cargos sorpresa ni aduanas que pagar al recibirlo.</p>"
+            "pregunta": "¿Duele usar la lima?",
+            "respuesta": "<p>No, si la usas con suavidad y sin apretar. Trabaja solo sobre durezas y piel seca, nunca sobre heridas o piel irritada. Si tienes diabetes, problemas de circulación o la piel muy sensible, consulta antes con tu podólogo.</p>"
           }
         },
         "pregunta-3": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Puedo devolverlo si no me convence?",
-            "respuesta": "<p>Sí. Tienes 14 días naturales desde que lo recibes para devolverlo sin dar explicaciones. Escríbenos y te indicamos cómo hacerlo.</p>"
+            "pregunta": "¿Cada cuánto la uso?",
+            "respuesta": "<p>Con una o dos veces por semana suele bastar para mantener los talones suaves. Después, aplica tu crema hidratante de siempre.</p>"
           }
         },
         "pregunta-4": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Puedo devolverla si no me convence?",
+            "respuesta": "<p>Sí. Tienes 14 días naturales desde que la recibes para devolverla sin dar explicaciones. Por higiene, el producto debe estar sin usar y en su embalaje. Escríbenos y te indicamos cómo hacerlo.</p>"
+          }
+        },
+        "pregunta-5": {
           "type": "pregunta",
           "settings": {
             "pregunta": "¿Qué formas de pago aceptáis?",
             "respuesta": "<p>Tarjeta de crédito o débito y los métodos que ves al pagar. El pago es 100 % seguro y nunca vemos los datos de tu tarjeta.</p>"
           }
         },
-        "pregunta-5": {
+        "pregunta-6": {
           "type": "pregunta",
           "settings": {
             "pregunta": "¿Tiene garantía?",
             "respuesta": "<p>Sí, todos nuestros productos tienen la garantía legal de 3 años frente a defectos de fabricación.</p>"
-          }
-        },
-        "pregunta-6": {
-          "type": "pregunta",
-          "settings": {
-            "pregunta": "¿Cómo contacto con vosotros?",
-            "respuesta": "<p>Escríbenos desde la página de contacto y te respondemos en menos de 24 horas laborables.</p>"
           }
         }
       },

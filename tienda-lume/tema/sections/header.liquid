@@ -212,7 +212,14 @@
             }}
           </div>
         {%- else -%}
-          <span class="h2 lu-wordmark">{{ shop.name }}</span>
+          <img
+            src="{{ 'lume-logo.png' | asset_url }}"
+            alt="{{ shop.name | escape }}"
+            width="{{ section.settings.lu_logo_width }}"
+            height="{{ section.settings.lu_logo_width | times: 428 | divided_by: 1760 }}"
+            class="lu-logo-img"
+            style="width: {{ section.settings.lu_logo_width }}px"
+          >
         {%- endif -%}
       </a>
       {%- if request.page_type == 'index' -%}
@@ -255,7 +262,14 @@
             }}
           </div>
         {%- else -%}
-          <span class="h2 lu-wordmark">{{ shop.name }}</span>
+          <img
+            src="{{ 'lume-logo.png' | asset_url }}"
+            alt="{{ shop.name | escape }}"
+            width="{{ section.settings.lu_logo_width }}"
+            height="{{ section.settings.lu_logo_width | times: 428 | divided_by: 1760 }}"
+            class="lu-logo-img"
+            style="width: {{ section.settings.lu_logo_width }}px"
+          >
         {%- endif -%}
       </a>
       {%- if request.page_type == 'index' -%}
@@ -519,7 +533,7 @@
       "type": "image_picker",
       "id": "lu_logo",
       "label": "Logo (solo cabecera)",
-      "info": "Si lo dejas vacío, se usa el logo general o, si no hay, el nombre de la tienda con la tipografía de la marca."
+      "info": "Si lo dejas vacío, se usa el logo general del tema o, si no hay, el logo de Lume incluido en el diseño."
     },
     {
       "type": "range",
@@ -529,7 +543,7 @@
       "max": 300,
       "step": 5,
       "unit": "px",
-      "default": 110
+      "default": 120
     },
     {
       "type": "select",

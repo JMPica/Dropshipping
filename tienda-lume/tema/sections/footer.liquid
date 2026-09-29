@@ -11,8 +11,6 @@
     background: {{ section.settings.color_fondo }};
     color: {{ section.settings.color_texto }};
   }
-  .section-{{ section.id }}-padding .lu-footer__marca { font-size: {{ section.settings.marca_size }}px; }
-  .section-{{ section.id }}-padding .lu-footer__marca::after { content: '.'; color: {{ section.settings.color_acento }}; }
   .section-{{ section.id }}-padding .lu-footer ul a,
   .section-{{ section.id }}-padding .lu-footer__texto { font-size: {{ section.settings.body_size }}px; }
   .section-{{ section.id }}-padding .lu-footer ul a { text-decoration: none; opacity: 0.85; }
@@ -28,7 +26,11 @@
             {{ section.settings.logo | image_url: width: 600 | image_tag: width: section.settings.logo_width, loading: 'lazy', alt: shop.name }}
           </a>
         {%- else -%}
-          <p class="lu-footer__marca"><a href="{{ routes.root_url }}">{{ shop.name }}</a></p>
+          <p class="lu-footer__marca">
+            <a href="{{ routes.root_url }}">
+              <img src="{{ 'lume-logo-claro.png' | asset_url }}" alt="{{ shop.name | escape }}" width="{{ section.settings.logo_width }}" height="{{ section.settings.logo_width | times: 428 | divided_by: 1760 }}" class="lu-logo-img" style="width: {{ section.settings.logo_width }}px" loading="lazy">
+            </a>
+          </p>
         {%- endif -%}
         {%- if section.settings.tagline != blank -%}
           <p class="lu-footer__texto" style="margin-top: 14px">{{ section.settings.tagline | newline_to_br }}</p>
@@ -110,9 +112,8 @@
   "class": "footer",
   "settings": [
     { "type": "header", "content": "Marca" },
-    { "type": "image_picker", "id": "logo", "label": "Logo (opcional)", "info": "Sin logo se muestra el nombre de la tienda con la tipografía de la marca." },
-    { "type": "range", "id": "logo_width", "label": "Ancho del logo (px)", "min": 60, "max": 300, "step": 5, "unit": "px", "default": 140 },
-    { "type": "range", "id": "marca_size", "label": "Tamaño del nombre de la tienda (px)", "min": 24, "max": 80, "step": 2, "unit": "px", "default": 44 },
+    { "type": "image_picker", "id": "logo", "label": "Logo (opcional)", "info": "Vacío = logo de Lume en versión clara, incluido en el diseño." },
+    { "type": "range", "id": "logo_width", "label": "Ancho del logo (px)", "min": 60, "max": 300, "step": 5, "unit": "px", "default": 160 },
     { "type": "textarea", "id": "tagline", "label": "Frase de la marca", "default": "Pequeñas cosas que mejoran tu día." },
     { "type": "checkbox", "id": "mostrar_redes", "label": "Mostrar redes sociales", "default": true, "info": "Los enlaces se ponen en Configuración del tema → Redes sociales." },
     { "type": "header", "content": "Columna 1" },
@@ -151,9 +152,8 @@
     { "type": "header", "content": "Tipografía" },
     { "type": "range", "id": "body_size", "label": "Tamaño del texto (px)", "min": 12, "max": 20, "step": 1, "unit": "px", "default": 15 },
     { "type": "header", "content": "Colores" },
-    { "type": "color", "id": "color_fondo", "label": "Fondo", "default": "#2A1F1A" },
-    { "type": "color", "id": "color_texto", "label": "Texto", "default": "#F6EFE7" },
-    { "type": "color", "id": "color_acento", "label": "Acento (punto del nombre)", "default": "#E9B87C" },
+    { "type": "color", "id": "color_fondo", "label": "Fondo", "default": "#161513" },
+    { "type": "color", "id": "color_texto", "label": "Texto", "default": "#F9F8F4" },
     { "type": "header", "content": "Espaciado" },
     { "type": "range", "id": "padding_top", "label": "Espacio superior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 88 },
     { "type": "range", "id": "padding_bottom", "label": "Espacio inferior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 40 }

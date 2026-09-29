@@ -5,7 +5,7 @@
       "settings": {
         "eyebrow": "Sobre Lume",
         "titulo": "Pequeñas cosas que <em>mejoran tu día</em>",
-        "texto": "Lume nace en España con una idea sencilla: reunir herramientas prácticas para cuidar el pelo en casa y quedarnos solo con las que de verdad merecen la pena.",
+        "texto": "Lume nace en España con una idea sencilla: reunir herramientas prácticas para el cuidado personal en casa y quedarnos solo con las que de verdad merecen la pena.",
         "boton_1": "Ver productos",
         "boton_2": "",
         "sello_grande": "",
@@ -18,7 +18,7 @@
       "settings": {
         "eyebrow": "Lo que nos importa",
         "titulo": "Menos cosas, <em>mejor elegidas</em>. Cada producto de Lume tiene que resolver un problema real de tu rutina.",
-        "color_fondo": "#FFFCF8"
+        "color_fondo": "#FFFFFF"
       }
     },
     "beneficios": {
@@ -28,8 +28,8 @@
           "type": "beneficio",
           "settings": {
             "icono": "reloj",
-            "titulo": "Resultados en minutos",
-            "texto": "Rutinas cortas que encajan en una mañana con prisas."
+            "titulo": "Unos minutos",
+            "texto": "Una rutina corta que encaja en cualquier día."
           }
         },
         "beneficio-2": {
@@ -37,7 +37,7 @@
           "settings": {
             "icono": "casa",
             "titulo": "Desde tu casa",
-            "texto": "Mantén tu pelo cuidado entre visita y visita a la peluquería."
+            "texto": "Mantén los pies cuidados entre pedicura y pedicura."
           }
         },
         "beneficio-3": {
@@ -45,7 +45,7 @@
           "settings": {
             "icono": "mano",
             "titulo": "Fácil de verdad",
-            "texto": "Sin experiencia ni trucos: si sabes peinarte, sabes usarlo."
+            "texto": "Sin experiencia ni trucos: la coges y funciona."
           }
         },
         "beneficio-4": {
