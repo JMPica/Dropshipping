@@ -27,3 +27,13 @@ Ningún producto cumple MC ≥ 35 € con precios creíbles y envío real a Espa
 reservas: «Regalos» (collar de proyección, rosa 24K sin luz y babero de afeitado), con una media de
 17,6 €/pedido con envío CJ. Antes de invertir, el siguiente paso es verificar el envío de AliExpress a
 España cambiando la región de AutoDS.
+
+## Actualización 29 sept: región España (AutoDS ES, sin CJ)
+
+Carpeta `espana/`. Se descarta CJ Dropshipping: se trabaja solo con AutoDS en región España con el proveedor AliExpress ES.
+
+- 1.397 ganadores → 276 llegan en ≤ 10 días → 84 pasan el filtro duro (`f1.py`) → 62 cumplen el brief tras juicio manual (`judg_es.tsv`).
+- Coste puesto = variante que se venderá + envío AutoDS a España (1,75 €/ud.) + 3 € de arancel UE por paquete desde China.
+- Resultado (`D_es.json`, `score_es.py`): **ninguno llega a 35 € por pedido**. Mejor: mochila portaperros, 19,41 € (2.ª al 50 %). Margen mediano: 2,57 €. ROAS de equilibrio mediano: 6,4.
+- Nicho recomendado: **Mascotas** (mochila portaperros, cama plátano para gatos y peluca de león como contenido y complemento).
+- Dashboard: `radar/radar.html` (versión anterior en el historial de git).
