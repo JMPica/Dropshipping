@@ -9,7 +9,7 @@ Página de Facebook «Lume» · cuenta publicitaria «Lume Ads» (EUR, Madrid) �
 | Campaña de calentamiento (España, 2 €/día, hasta el 5 oct) | **Desactivarla ya.** Está atrayendo seguidores españoles a una tienda que ahora vende en EE. UU. |
 | Cuenta publicitaria «Lume Ads» en EUR y hora de Madrid | **Dejarla como está.** Se pueden hacer anuncios para EE. UU. pagando en euros (tu tarjeta es en euros, así evitas comisiones de cambio). La hora de Madrid solo afecta a los informes. |
 | Nombre de la página, categoría, logo | Se quedan igual. |
-| Portada con «Pequeñas cosas que mejoran tu día» | Cambiar por `portada-lume-usa.jpg` (sin texto encima). |
+| Portada con «Pequeñas cosas que mejoran tu día» | Misma foto de la caja kraft, sin la frase: `portada-lume-caja-kraft.jpg`. |
 | Bio / descripción, sitio web | Poner los textos de abajo. |
 | Las 2 publicaciones en español | Editar el texto a inglés (la foto sirve). |
 | Shopify ↔ Meta | Instalar la app «Facebook & Instagram» de Shopify y conectar el portfolio «Lume» (píxel y API de conversiones para medir ventas en EE. UU.). |
