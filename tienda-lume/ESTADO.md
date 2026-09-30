@@ -1,10 +1,10 @@
 # Estado del proyecto — Lume (EE. UU., «spa en casa»)
 
-- Tienda: lume-es.myshopify.com (dominio interno wsyxgf-w3.myshopify.com) · plan Basic · moneda base EUR
+- Tienda: lume-us.myshopify.com (antes lume-es; cambiado el 30 sept; AutoDS sigue conectado por wsyxgf-w3) (dominio interno wsyxgf-w3.myshopify.com) · plan Basic · moneda base EUR
 - Mercado: Estados Unidos (principal, USD) con lista de precios fija «Lume US (USD)»; España desactivada
-- Tema publicado: «Lume (Claude)» (id 202590814472). Copia con arreglos: **«Lume (Claude) v2»** (id 202646782216, pendiente de publicar):
+- Tema publicado: **«Lume (Claude) v2»** (id 202646782216). La anterior «Lume (Claude)» (id 202590814472) queda sin publicar. Arreglos de la v2:
   textos del sistema (carrito, etc.) en inglés en `locales/en.default.json` y etiqueta «You save 0%» oculta.
-  Vista previa: https://lume-es.myshopify.com/?preview_theme_id=202590814472
+  Vista previa: https://lume-us.myshopify.com/?preview_theme_id=202590814472
 - Carpeta: `tienda-lume/` (tema descargado en `tema/`, textos en `plantillas.py`, fichas en `productos.json`,
   políticas en `politicas/`)
 - Última subida: 30 sept 2026 (plantillas, cabecera y pie; las secciones `lu-*` no se han tocado)

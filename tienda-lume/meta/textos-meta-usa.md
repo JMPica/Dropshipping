@@ -24,7 +24,7 @@ Lume brings the spa feeling home. We test cordless massagers and self-care tools
 
 ## Sitio web
 
-https://lume-es.myshopify.com (cambiar por el dominio propio si se compra uno)
+https://lume-us.myshopify.com (cambiar por el dominio propio si se compra uno)
 
 ## Publicación 1 (logo) — traducción del texto original
 
