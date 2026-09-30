@@ -295,6 +295,8 @@
 .lu-precio { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; margin: 18px 0 0; }
 .lu-precio__actual { font-size: 26px; font-weight: 600; color: var(--lu-cacao); }
 .lu-precio__antes { font-size: 17px; color: var(--lu-cacao-suave); text-decoration: line-through; opacity: 0.8; }
+.lu-etiqueta[hidden],
+.lu-precio__antes[hidden] { display: none !important; }
 .lu-etiqueta {
   display: inline-flex;
   align-items: center;

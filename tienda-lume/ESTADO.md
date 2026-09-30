@@ -2,7 +2,8 @@
 
 - Tienda: lume-es.myshopify.com (dominio interno wsyxgf-w3.myshopify.com) · plan Basic · moneda base EUR
 - Mercado: Estados Unidos (principal, USD) con lista de precios fija «Lume US (USD)»; España desactivada
-- Tema de trabajo: **«Lume (Claude)»** (id 202590814472, NO publicado). Tema activo: Horizon.
+- Tema publicado: «Lume (Claude)» (id 202590814472). Copia con arreglos: **«Lume (Claude) v2»** (id 202646782216, pendiente de publicar):
+  textos del sistema (carrito, etc.) en inglés en `locales/en.default.json` y etiqueta «You save 0%» oculta.
   Vista previa: https://lume-es.myshopify.com/?preview_theme_id=202590814472
 - Carpeta: `tienda-lume/` (tema descargado en `tema/`, textos en `plantillas.py`, fichas en `productos.json`,
   políticas en `politicas/`)
