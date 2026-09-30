@@ -1,6 +1,6 @@
 # Estado del proyecto — Lume (EE. UU., «spa en casa»)
 
-- Tienda: lume-us.myshopify.com (antes lume-es; cambiado el 30 sept; AutoDS sigue conectado por wsyxgf-w3) (dominio interno wsyxgf-w3.myshopify.com) · plan Basic · moneda base EUR
+- Tienda: lume-us.myshopify.com (antes lume-es; cambiado el 30 sept; AutoDS sigue conectado por wsyxgf-w3) (dominio interno wsyxgf-w3.myshopify.com) · plan Basic · moneda base USD (cambiada por el usuario; AutoDS sigue en EUR)
 - Mercado: Estados Unidos (principal, USD) con lista de precios fija «Lume US (USD)»; España desactivada
 - Tema publicado: **«Lume (Claude) v2»** (id 202646782216). La anterior «Lume (Claude)» (id 202590814472) queda sin publicar. Arreglos de la v2:
   textos del sistema (carrito, etc.) en inglés en `locales/en.default.json` y etiqueta «You save 0%» oculta.
@@ -60,3 +60,13 @@ Archivos de Shopify y colocadas como primeras fotos de cada producto:
   Páginas antiguas «aviso-legal» y «politica-de-cookies» (España, con NIF y domicilio) ocultadas, no borradas.
 - Suscripción de AutoDS: el usuario paga un mes.
 - Pedido de prueba para confirmar costes reales, aranceles y plazos.
+
+## Revisión de lanzamiento EE. UU. (30 sept)
+- OK: mercado US activo (USD, impuestos al pagar), España en borrador; 9 precios fijos USD; 4 productos activos en
+  tienda online y Facebook; envío gratis a los 50 estados con las 9 variantes (perfil AutoDS, ubicación AutoDS);
+  AutoDS: 4 productos activos, con stock, proveedor AliExpress almacén US; 5 políticas con lume.support.us@gmail.com.
+- Arreglado: precios base igualados a los de EE. UU. (89,99 / 109,99 / 89,99 / 49,99 / 29,99) y sin precio «antes»,
+  para que el catálogo de Meta coincida con la web.
+- Pendiente de comprobar el usuario: Shopify Payments activo y sin modo de prueba; aranceles en EE. UU. sin cobrar
+  al cliente; dirección personal en la política de privacidad automática; AutoDS con pedidos automáticos, método de
+  pago y sin cambio automático de precios; checkout de prueba hasta la pantalla de pago.
