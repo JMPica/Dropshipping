@@ -43,3 +43,22 @@ Free shipping across the US and easy returns… stress-free! 📦
 - Sin «antes/después» corporales ni alusiones a defectos físicos del lector («Do you have wrinkles?» está prohibido; «smoother-looking skin» sí).
 - No prometer embalaje ni plazos que no controlamos: 7–12 business days, free tracked shipping.
 - Público: Estados Unidos, inglés, 25-65+, Advantage+.
+
+## Primera campaña EE. UU. (30 sept)
+
+- Tipo: campaña de ventas Advantage+ · píxel «Lume's Pixel» · evento: Compra (Purchase)
+- Presupuesto: 15 €/día durante 7 días, sin tocar nada; después se decide
+- País: Estados Unidos · idioma inglés · 25-65+ · ubicaciones Advantage+
+- Imagen: `anuncio-cuello-sofa.jpg` (1080×1350) · URL: https://lume-us.myshopify.com/products/cordless-neck-shoulder-massager
+
+Texto principal:
+
+Ten minutes that feel like an hour at the spa. ✨
+Drape it over your shoulders, press one button and let the 3D kneading heads work like a pair of hands. Cordless, so you can unwind on the sofa, at your desk or in bed.
+✔ 10-minute sessions with auto shut-off
+✔ Rechargeable, no cables in the way
+✔ Free tracked US shipping + 30-day money-back guarantee
+
+Título: Your daily spa, at home
+Descripción: Free US shipping · 30-day guarantee
+Botón: Shop now
