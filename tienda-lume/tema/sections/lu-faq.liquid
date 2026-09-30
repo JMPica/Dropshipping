@@ -1,0 +1,116 @@
+{{ 'lu-styles.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'lu-scripts.js' | asset_url }}" defer></script>
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.color_fondo }};
+    color: {{ section.settings.color_texto }};
+  }
+  #shopify-section-{{ section.id }} .lu-h2 { font-size: {{ section.settings.heading_size }}px; }
+  #shopify-section-{{ section.id }} .lu-pregunta summary { font-size: {{ section.settings.pregunta_size }}px; }
+  #shopify-section-{{ section.id }} .lu-body { font-size: {{ section.settings.body_size }}px; }
+  #shopify-section-{{ section.id }} .lu-faq__intro { text-align: {{ section.settings.text_align }}; }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .lu-h2 { font-size: {{ section.settings.heading_size | times: 0.72 | round }}px; }
+    #shopify-section-{{ section.id }} .lu-pregunta summary { font-size: {{ section.settings.pregunta_size | times: 0.9 | round }}px; }
+  }
+{% endstyle %}
+
+<section class="lu-section lu-faq" id="preguntas">
+  <div class="lu-container lu-faq__grid">
+    <div class="lu-faq__intro{% if section.settings.text_align == 'center' %} lu-center{% endif %}">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="lu-eyebrow lu-reveal">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="lu-h2 lu-reveal" style="--lu-i: 1">{{ section.settings.titulo }}</h2>
+      {%- if section.settings.texto != blank -%}
+        <p class="lu-body lu-reveal" style="--lu-i: 2; margin-top: 18px">{{ section.settings.texto | newline_to_br }}</p>
+      {%- endif -%}
+      {%- if section.settings.boton != blank -%}
+        <div class="lu-hero__acciones lu-reveal" style="--lu-i: 3">
+          <a class="lu-btn lu-btn--claro" href="{{ section.settings.boton_url | default: '/pages/contact' }}"><span>{{ section.settings.boton }}</span></a>
+        </div>
+      {%- endif -%}
+    </div>
+    <div class="lu-faq__lista lu-reveal" style="--lu-i: 1">
+      {%- for block in section.blocks -%}
+        <details class="lu-pregunta" {{ block.shopify_attributes }}{% if forloop.first and section.settings.abrir_primera %} open{% endif %}>
+          <summary>{{ block.settings.pregunta }}<span class="lu-pregunta__signo" aria-hidden="true"></span></summary>
+          <div class="lu-pregunta__respuesta lu-body">{{ block.settings.respuesta }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- if section.settings.datos_google -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for block in section.blocks -%}
+          {
+            "@type": "Question",
+            "name": {{ block.settings.pregunta | json }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ block.settings.respuesta | strip_html | json }} }
+          }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Lume – FAQ",
+  "tag": "div",
+  "max_blocks": 14,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Texto pequeño superior", "default": "Dudas" },
+    { "type": "inline_richtext", "id": "titulo", "label": "Título", "default": "Preguntas <em>frecuentes</em>" },
+    { "type": "textarea", "id": "texto", "label": "Texto", "default": "¿No encuentras tu respuesta? Escríbenos y te contestamos en menos de 24 horas laborables." },
+    { "type": "text", "id": "boton", "label": "Texto del botón", "default": "Contactar" },
+    { "type": "url", "id": "boton_url", "label": "Enlace del botón" },
+    { "type": "checkbox", "id": "abrir_primera", "label": "Primera pregunta abierta", "default": true },
+    { "type": "checkbox", "id": "datos_google", "label": "Enviar las preguntas a Google (datos estructurados)", "default": true },
+    { "type": "header", "content": "Tipografía" },
+    { "type": "select", "id": "text_align", "label": "Alineación de la introducción", "default": "left", "options": [
+      { "value": "left", "label": "Izquierda" }, { "value": "center", "label": "Centro" }, { "value": "right", "label": "Derecha" }
+    ] },
+    { "type": "range", "id": "heading_size", "label": "Tamaño del título (px)", "min": 24, "max": 80, "step": 2, "unit": "px", "default": 52 },
+    { "type": "range", "id": "pregunta_size", "label": "Tamaño de las preguntas (px)", "min": 14, "max": 32, "step": 1, "unit": "px", "default": 20 },
+    { "type": "range", "id": "body_size", "label": "Tamaño de las respuestas (px)", "min": 13, "max": 22, "step": 1, "unit": "px", "default": 16 },
+    { "type": "header", "content": "Colores" },
+    { "type": "color", "id": "color_fondo", "label": "Fondo", "default": "#F9F8F4" },
+    { "type": "color", "id": "color_texto", "label": "Texto", "default": "#161513" },
+    { "type": "header", "content": "Espaciado" },
+    { "type": "range", "id": "padding_top", "label": "Espacio superior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "label": "Espacio inferior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    {
+      "type": "pregunta",
+      "name": "Pregunta",
+      "settings": [
+        { "type": "text", "id": "pregunta", "label": "Pregunta", "default": "¿Pregunta?" },
+        { "type": "richtext", "id": "respuesta", "label": "Respuesta", "default": "<p>Respuesta.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lume – FAQ",
+      "blocks": [
+        { "type": "pregunta", "settings": { "pregunta": "¿Cuánto tarda en llegar mi pedido?", "respuesta": "<p>Preparamos tu pedido en 1-2 días laborables y te enviamos el número de seguimiento por email. La entrega en España peninsular suele tardar entre 7 y 12 días laborables.</p>" } },
+        { "type": "pregunta", "settings": { "pregunta": "¿Puedo devolverlo si no me convence?", "respuesta": "<p>Sí. Tienes 14 días naturales desde que lo recibes para devolverlo sin dar explicaciones. Escríbenos y te indicamos cómo hacerlo.</p>" } },
+        { "type": "pregunta", "settings": { "pregunta": "¿Qué formas de pago aceptáis?", "respuesta": "<p>Tarjeta de crédito o débito y los métodos que ves al pagar. El pago es 100 % seguro y nunca vemos los datos de tu tarjeta.</p>" } },
+        { "type": "pregunta", "settings": { "pregunta": "¿Tiene garantía?", "respuesta": "<p>Sí, todos nuestros productos tienen la garantía legal de 3 años frente a defectos de fabricación.</p>" } },
+        { "type": "pregunta", "settings": { "pregunta": "¿Cómo contacto con vosotros?", "respuesta": "<p>Escríbenos desde la página de contacto y te respondemos en menos de 24 horas laborables.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,95 @@
+{{ 'lu-styles.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'lu-scripts.js' | asset_url }}" defer></script>
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.color_fondo }};
+    color: {{ section.settings.color_texto }};
+  }
+  #shopify-section-{{ section.id }} .lu-h2 { font-size: {{ section.settings.heading_size }}px; }
+  #shopify-section-{{ section.id }} .lu-paso .lu-h3 { font-size: {{ section.settings.paso_titulo_size }}px; }
+  #shopify-section-{{ section.id }} .lu-body { font-size: {{ section.settings.body_size }}px; }
+  #shopify-section-{{ section.id }} .lu-cabecera,
+  #shopify-section-{{ section.id }} .lu-paso { text-align: {{ section.settings.text_align }}; }
+  #shopify-section-{{ section.id }} .lu-pasos__lista { --lu-hueco: {{ section.settings.separacion }}px; }
+  #shopify-section-{{ section.id }} .lu-paso { background: {{ section.settings.color_tarjeta }}; }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .lu-h2 { font-size: {{ section.settings.heading_size | times: 0.72 | round }}px; }
+  }
+{% endstyle %}
+
+<section class="lu-section lu-pasos" id="como-funciona">
+  <div class="lu-container">
+    <div class="lu-cabecera{% if section.settings.text_align == 'center' %} lu-center{% endif %}">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="lu-eyebrow lu-reveal">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h2 class="lu-h2 lu-reveal" style="--lu-i: 1">{{ section.settings.titulo }}</h2>
+      </div>
+    </div>
+    <div class="lu-pasos__lista">
+      {%- for block in section.blocks -%}
+        <div class="lu-paso lu-reveal" style="--lu-i: {{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          {%- if block.settings.imagen != blank -%}
+            <div class="lu-media">{%- render 'lu-imagen', imagen: block.settings.imagen, ancho: 900, sizes: '(min-width: 990px) 33vw, 100vw' -%}</div>
+          {%- else -%}
+            <span class="lu-paso__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+          {%- endif -%}
+          <h3 class="lu-h3">{{ block.settings.titulo }}</h3>
+          <p class="lu-body">{{ block.settings.texto | newline_to_br }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lume – Cómo funciona",
+  "tag": "div",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Texto pequeño superior", "default": "Así de fácil" },
+    { "type": "inline_richtext", "id": "titulo", "label": "Título", "default": "Tres pasos. <em>Cero complicaciones.</em>" },
+    { "type": "range", "id": "separacion", "label": "Separación entre tarjetas (px)", "min": 8, "max": 48, "step": 2, "unit": "px", "default": 20 },
+    { "type": "header", "content": "Tipografía" },
+    { "type": "select", "id": "text_align", "label": "Alineación", "default": "left", "options": [
+      { "value": "left", "label": "Izquierda" }, { "value": "center", "label": "Centro" }, { "value": "right", "label": "Derecha" }
+    ] },
+    { "type": "range", "id": "heading_size", "label": "Tamaño del título (px)", "min": 24, "max": 80, "step": 2, "unit": "px", "default": 52 },
+    { "type": "range", "id": "paso_titulo_size", "label": "Tamaño del título de cada paso (px)", "min": 16, "max": 40, "step": 1, "unit": "px", "default": 24 },
+    { "type": "range", "id": "body_size", "label": "Tamaño del texto (px)", "min": 13, "max": 22, "step": 1, "unit": "px", "default": 16 },
+    { "type": "header", "content": "Colores" },
+    { "type": "color", "id": "color_fondo", "label": "Fondo", "default": "#F9F8F4" },
+    { "type": "color", "id": "color_tarjeta", "label": "Fondo de las tarjetas", "default": "#FFFFFF" },
+    { "type": "color", "id": "color_texto", "label": "Texto", "default": "#161513" },
+    { "type": "header", "content": "Espaciado" },
+    { "type": "range", "id": "padding_top", "label": "Espacio superior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "label": "Espacio inferior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    {
+      "type": "paso",
+      "name": "Paso",
+      "settings": [
+        { "type": "image_picker", "id": "imagen", "label": "Imagen (opcional)", "info": "Sin imagen se muestra el número del paso." },
+        { "type": "text", "id": "titulo", "label": "Título", "default": "Paso" },
+        { "type": "textarea", "id": "texto", "label": "Texto", "default": "Explica este paso en una o dos frases." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lume – Cómo funciona",
+      "blocks": [
+        { "type": "paso", "settings": { "titulo": "Prepara la piel", "texto": "Lava y seca bien tus pies antes de empezar." } },
+        { "type": "paso", "settings": { "titulo": "Lima con suavidad", "texto": "Pasa la lima por talones y durezas sin apretar, unos minutos basta." } },
+        { "type": "paso", "settings": { "titulo": "Hidrata y listo", "texto": "Aplica tu crema de siempre y disfruta de unos pies más suaves." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

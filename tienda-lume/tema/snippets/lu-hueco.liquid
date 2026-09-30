@@ -1,0 +1,10 @@
+{%- comment -%}
+  Hueco de imagen con estilo de marca (se ve mientras no haya foto).
+  Uso: {% render 'lu-hueco', nota: 'Foto del producto' %}
+{%- endcomment -%}
+<div class="lu-hueco" aria-hidden="true">
+  <span class="lu-hueco__marca">{{ marca | default: 'L' }}</span>
+  {%- if request.design_mode and nota != blank -%}
+    <span class="lu-hueco__nota">{{ nota }}</span>
+  {%- endif -%}
+</div>

@@ -1,0 +1,22 @@
+{%- comment -%}
+  Imagen editable con respaldo: imagen del editor → asset por defecto → hueco de marca.
+  Parámetros: imagen (image_picker), ancho (px máx.), eager (true en la primera imagen de la página), nota (texto del hueco),
+  sizes (atributo sizes).
+{%- endcomment -%}
+{%- liquid
+  assign ancho_max = ancho | default: 1600
+  assign tam = sizes | default: '(min-width: 990px) 50vw, 100vw'
+  assign texto_alt = alt | default: ''
+  if imagen != blank and imagen.alt != blank
+    assign texto_alt = imagen.alt
+  endif
+-%}
+{%- if imagen != blank -%}
+  {%- if eager -%}
+    {{ imagen | image_url: width: ancho_max | image_tag: widths: '400, 700, 1000, 1400, 1800', sizes: tam, loading: 'eager', fetchpriority: 'high', alt: texto_alt }}
+  {%- else -%}
+    {{ imagen | image_url: width: ancho_max | image_tag: widths: '400, 700, 1000, 1400, 1800', sizes: tam, loading: 'lazy', alt: texto_alt }}
+  {%- endif -%}
+{%- else -%}
+  {%- render 'lu-hueco', nota: nota -%}
+{%- endif -%}

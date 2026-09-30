@@ -1,0 +1,367 @@
+{{ 'lu-styles.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'lu-scripts.js' | asset_url }}" defer></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer></script>
+
+{%- liquid
+  assign variante = product.selected_or_first_available_variant
+  assign form_id = 'lu-form-' | append: section.id
+  assign oferta = section.settings.oferta
+  for tag in product.tags
+    assign tag_min = tag | downcase
+    if tag_min contains 'oferta:'
+      assign oferta = tag | split: ':' | last | strip
+    endif
+  endfor
+-%}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.color_fondo }};
+    color: {{ section.settings.color_texto }};
+  }
+  #shopify-section-{{ section.id }} .lu-compra .lu-h1 { font-size: {{ section.settings.heading_size }}px; }
+  #shopify-section-{{ section.id }} .lu-body { font-size: {{ section.settings.body_size }}px; }
+  #shopify-section-{{ section.id }} .lu-compra { text-align: {{ section.settings.text_align }}; }
+  #shopify-section-{{ section.id }} .lu-galeria .lu-media { border-radius: {{ section.settings.radio }}px; }
+  #shopify-section-{{ section.id }} .lu-galeria__principal { aspect-ratio: {{ section.settings.proporcion }}; }
+  #shopify-section-{{ section.id }} .lu-caracteristicas { --lu-columnas: {{ section.settings.columnas }}; }
+  #shopify-section-{{ section.id }} .lu-pdp-extra .lu-h2 { font-size: {{ section.settings.extra_heading_size }}px; }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} { padding-top: {{ section.settings.padding_top | times: 0.4 | round }}px; }
+    #shopify-section-{{ section.id }} .lu-compra .lu-h1 { font-size: {{ section.settings.heading_size | times: 0.78 | round }}px; }
+    #shopify-section-{{ section.id }} .lu-pdp-extra .lu-h2 { font-size: {{ section.settings.extra_heading_size | times: 0.75 | round }}px; }
+  }
+{% endstyle %}
+
+<section
+  class="lu-section lu-producto"
+  data-lu-producto
+  data-actualizar-url
+  data-money-format="{{ shop.money_format | escape }}"
+  data-texto-comprar="{{ section.settings.boton_texto | escape }}"
+  data-texto-agotado="{{ section.settings.texto_agotado | escape }}"
+  data-texto-no-disponible="{{ section.settings.texto_no_disponible | escape }}"
+  data-texto-ahorro="{{ section.settings.texto_ahorro | escape }}"
+>
+  <script type="application/json" data-lu-variantes>{{ product.variants | json }}</script>
+
+  <div class="lu-container lu-pdp">
+    {%- comment -%} ===== Galería (sigue las fotos del catálogo) ===== {%- endcomment -%}
+    <div class="lu-galeria">
+      {%- assign media_inicial = variante.featured_media | default: product.featured_media -%}
+      <div class="lu-media lu-galeria__principal" data-lu-principal>
+        {%- if media_inicial != blank -%}
+          {{ media_inicial | image_url: width: 1400 | image_tag: widths: '500, 800, 1100, 1400', sizes: '(min-width: 990px) 55vw, 100vw', loading: 'eager', fetchpriority: 'high', alt: product.title }}
+        {%- else -%}
+          {%- render 'lu-hueco', nota: 'Sube fotos al producto en Shopify y aparecerán aquí' -%}
+        {%- endif -%}
+      </div>
+      {%- assign imagenes = product.media | where: 'media_type', 'image' -%}
+      {%- if imagenes.size > 1 -%}
+        <div class="lu-galeria__miniaturas" role="list">
+          {%- for media in imagenes -%}
+            <button
+              type="button"
+              class="lu-miniatura"
+              role="listitem"
+              data-lu-miniatura
+              data-media-id="{{ media.id }}"
+              data-src="{{ media | image_url: width: 1400 }}"
+              data-srcset="{{ media | image_url: width: 800 }} 800w, {{ media | image_url: width: 1400 }} 1400w"
+              data-alt="{{ media.alt | default: product.title | escape }}"
+              aria-label="{{ section.settings.texto_ver_foto | escape }} {{ forloop.index }}"
+              aria-current="{% if media.id == media_inicial.id %}true{% else %}false{% endif %}"
+            >
+              {{ media | image_url: width: 180 | image_tag: loading: 'lazy', alt: '' }}
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} ===== Columna de compra ===== {%- endcomment -%}
+    <div class="lu-compra">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="lu-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h1 class="lu-h1">{{ product.title }}</h1>
+
+      <div class="lu-precio">
+        <span class="lu-precio__actual" data-lu-precio>{{ variante.price | money }}</span>
+        <s class="lu-precio__antes" data-lu-antes{% unless variante.compare_at_price > variante.price %} hidden{% endunless %}>
+          {%- if variante.compare_at_price > variante.price -%}{{ variante.compare_at_price | money }}{%- endif -%}
+        </s>
+        {%- liquid
+          assign pct = 0
+          if variante.compare_at_price > variante.price
+            assign pct = variante.compare_at_price | minus: variante.price | times: 100 | divided_by: variante.compare_at_price
+          endif
+        -%}
+        <span class="lu-etiqueta" data-lu-ahorro{% if pct == 0 %} hidden{% endif %}>{{ section.settings.texto_ahorro | replace: '[pct]', pct }}</span>
+      </div>
+      {%- if section.settings.texto_impuestos != blank -%}
+        <p style="margin: 6px 0 0; font-size: 13px; opacity: 0.7">{{ section.settings.texto_impuestos }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.intro != blank -%}
+        <p class="lu-body lu-compra__intro">{{ section.settings.intro | newline_to_br }}</p>
+      {%- endif -%}
+
+      {%- if oferta != blank -%}
+        <div class="lu-oferta">{% render 'lu-icono', nombre: 'regalo' %}<span>{{ oferta }}</span></div>
+      {%- endif -%}
+
+      {%- unless product.has_only_default_variant -%}
+        {%- for option in product.options_with_values -%}
+          <fieldset class="lu-opcion" data-lu-opcion>
+            <legend>{{ option.name }}: <span data-lu-opcion-valor>{{ option.selected_value }}</span></legend>
+            <div class="lu-pildoras">
+              {%- for value in option.values -%}
+                <label class="lu-pildora{% if value.available == false %} lu-agotada{% endif %}">
+                  <input type="radio" name="lu-opcion-{{ section.id }}-{{ forloop.parentloop.index }}" value="{{ value | escape }}"{% if value.selected %} checked{% endif %}>
+                  <span>{{ value }}</span>
+                </label>
+              {%- endfor -%}
+            </div>
+          </fieldset>
+        {%- endfor -%}
+      {%- endunless -%}
+
+      <div class="lu-cantidad-fila">
+        {%- if section.settings.mostrar_cantidad -%}
+          <div class="lu-cantidad" data-lu-cantidad>
+            <button type="button" data-paso="-" aria-label="{{ section.settings.texto_menos | escape }}">−</button>
+            <input type="number" name="quantity" form="{{ form_id }}" value="1" min="1" aria-label="{{ section.settings.texto_cantidad | escape }}">
+            <button type="button" data-paso="+" aria-label="{{ section.settings.texto_mas | escape }}">+</button>
+          </div>
+        {%- endif -%}
+        <product-form class="product-form" data-section-id="{{ section.id }}">
+          {%- form 'product', product, id: form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+            <input type="hidden" name="id" value="{{ variante.id }}" class="product-variant-id"{% if variante == null %} disabled{% endif %}>
+            <button
+              type="submit"
+              name="add"
+              class="lu-btn lu-btn--full product-form__submit"
+              data-lu-boton
+              {% if variante == null or variante.available == false %}disabled{% endif %}
+            >
+              <span>
+                {%- if variante == null -%}
+                  {{ section.settings.texto_no_disponible }}
+                {%- elsif variante.available == false -%}
+                  {{ section.settings.texto_agotado }}
+                {%- else -%}
+                  {{ section.settings.boton_texto }}
+                {%- endif -%}
+              </span>
+              {%- render 'loading-spinner' -%}
+            </button>
+            {%- if section.settings.pago_rapido -%}
+              {{ form | payment_button }}
+            {%- endif -%}
+            <div class="product-form__error-message-wrapper lu-error" role="alert" hidden>
+              <span class="product-form__error-message"></span>
+            </div>
+          {%- endform -%}
+        </product-form>
+      </div>
+
+      {%- if section.settings.confianza_1 != blank or section.settings.confianza_2 != blank or section.settings.confianza_3 != blank -%}
+        <ul class="lu-confianza">
+          {%- if section.settings.confianza_1 != blank -%}<li>{% render 'lu-icono', nombre: 'envio' %}{{ section.settings.confianza_1 }}</li>{%- endif -%}
+          {%- if section.settings.confianza_2 != blank -%}<li>{% render 'lu-icono', nombre: 'devolucion' %}{{ section.settings.confianza_2 }}</li>{%- endif -%}
+          {%- if section.settings.confianza_3 != blank -%}<li>{% render 'lu-icono', nombre: 'seguro' %}{{ section.settings.confianza_3 }}</li>{%- endif -%}
+        </ul>
+      {%- endif -%}
+
+      <div class="lu-acordeones">
+        {%- if section.settings.mostrar_descripcion and product.description != blank -%}
+          <details class="lu-pregunta"{% if section.settings.descripcion_abierta %} open{% endif %}>
+            <summary>{{ section.settings.titulo_descripcion }}<span class="lu-pregunta__signo" aria-hidden="true"></span></summary>
+            <div class="lu-pregunta__respuesta lu-body">{{ product.description }}</div>
+          </details>
+        {%- endif -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'acordeon' -%}
+            <details class="lu-pregunta" {{ block.shopify_attributes }}>
+              <summary>{{ block.settings.titulo }}<span class="lu-pregunta__signo" aria-hidden="true"></span></summary>
+              <div class="lu-pregunta__respuesta lu-body">{{ block.settings.contenido }}</div>
+            </details>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} ===== Características + qué incluye ===== {%- endcomment -%}
+  {%- assign hay_caracteristicas = false -%}
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'caracteristica' -%}{%- assign hay_caracteristicas = true -%}{%- endif -%}
+  {%- endfor -%}
+  {%- if hay_caracteristicas or section.settings.incluye != blank -%}
+    <div class="lu-container lu-pdp-extra">
+      {%- if hay_caracteristicas -%}
+        <div class="lu-center">
+          {%- if section.settings.caracteristicas_eyebrow != blank -%}
+            <p class="lu-eyebrow lu-reveal">{{ section.settings.caracteristicas_eyebrow }}</p>
+          {%- endif -%}
+          <h2 class="lu-h2 lu-reveal" style="--lu-i: 1">{{ section.settings.caracteristicas_titulo }}</h2>
+        </div>
+        <div class="lu-caracteristicas">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'caracteristica' -%}
+              <div class="lu-caracteristica lu-reveal" style="--lu-i: {{ forloop.index0 | modulo: 3 }}" {{ block.shopify_attributes }}>
+                <span class="lu-icono">{% render 'lu-icono', nombre: block.settings.icono %}</span>
+                <h3 class="lu-h3" style="font-size: 22px">{{ block.settings.titulo }}</h3>
+                <p class="lu-body">{{ block.settings.texto | newline_to_br }}</p>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.incluye != blank -%}
+        <div class="lu-incluye">
+          <div class="lu-media lu-reveal">
+            {%- if section.settings.incluye_imagen != blank -%}
+              {%- render 'lu-imagen', imagen: section.settings.incluye_imagen, ancho: 1400 -%}
+            {%- elsif product.media[1] != blank -%}
+              {{ product.media[1] | image_url: width: 1400 | image_tag: widths: '500, 900, 1400', sizes: '(min-width: 990px) 50vw, 100vw', loading: 'lazy' }}
+            {%- else -%}
+              {%- render 'lu-hueco', nota: 'Foto de lo que incluye la caja' -%}
+            {%- endif -%}
+          </div>
+          <div>
+            <p class="lu-eyebrow lu-reveal">{{ section.settings.incluye_eyebrow }}</p>
+            <h2 class="lu-h2 lu-reveal" style="--lu-i: 1">{{ section.settings.incluye_titulo }}</h2>
+            {%- assign lineas = section.settings.incluye | newline_to_br | split: '<br />' -%}
+            <ul class="lu-lista-check lu-reveal" style="--lu-i: 2">
+              {%- for l in lineas -%}
+                {%- assign linea = l | strip -%}
+                {%- if linea != blank -%}<li>{% render 'lu-icono', nombre: 'check' %}<span>{{ linea }}</span></li>{%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</section>
+
+{%- if section.settings.barra_fija -%}
+  <div class="lu-barra" data-lu-barra>
+    <div class="lu-barra__info">
+      <strong>{{ product.title }}</strong>
+      <span data-lu-barra-precio>{{ variante.price | money }}</span>
+    </div>
+    <button type="button" class="lu-btn"><span>{{ section.settings.boton_texto }}</span></button>
+  </div>
+{%- endif -%}
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": {{ product.title | json }},
+    "description": {{ product.description | strip_html | truncate: 500 | json }},
+    {%- if product.featured_media -%}
+      "image": {{ product.featured_media | image_url: width: 1200 | prepend: 'https:' | json }},
+    {%- endif -%}
+    "url": {{ request.origin | append: product.url | json }},
+    "offers": {
+      "@type": "Offer",
+      "price": {{ variante.price | divided_by: 100.0 | json }},
+      "priceCurrency": {{ cart.currency.iso_code | json }},
+      "availability": "https://schema.org/{% if variante.available %}InStock{% else %}OutOfStock{% endif %}"
+    }
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Lume – Página de producto",
+  "tag": "div",
+  "settings": [
+    { "type": "header", "content": "Galería" },
+    { "type": "select", "id": "proporcion", "label": "Forma de la foto principal", "default": "1 / 1", "options": [
+      { "value": "1 / 1", "label": "Cuadrada" }, { "value": "4 / 5", "label": "Vertical" }, { "value": "4 / 3", "label": "Horizontal" }
+    ] },
+    { "type": "range", "id": "radio", "label": "Redondeo de esquinas (px)", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 22 },
+    { "type": "text", "id": "texto_ver_foto", "label": "Texto accesible de las miniaturas", "default": "Ver foto" },
+    { "type": "header", "content": "Textos de compra" },
+    { "type": "text", "id": "eyebrow", "label": "Texto pequeño sobre el título", "default": "Lume · Cuidado de los pies" },
+    { "type": "textarea", "id": "intro", "label": "Frase de introducción (opcional)", "info": "Sale en TODOS los productos que usen esta plantilla. Para textos propios de cada producto usa su descripción." },
+    { "type": "text", "id": "oferta", "label": "Recuadro de oferta", "info": "Vacío = no se muestra. Para un producto concreto, añade al producto la etiqueta «oferta: tu texto» y se usará esa." },
+    { "type": "text", "id": "texto_ahorro", "label": "Etiqueta de ahorro ([pct] = porcentaje)", "default": "Ahorras un [pct] %" },
+    { "type": "text", "id": "texto_impuestos", "label": "Texto bajo el precio", "default": "IVA incluido." },
+    { "type": "text", "id": "boton_texto", "label": "Botón de compra", "default": "Añadir al carrito" },
+    { "type": "text", "id": "texto_agotado", "label": "Texto si está agotado", "default": "Agotado" },
+    { "type": "text", "id": "texto_no_disponible", "label": "Texto si la combinación no existe", "default": "No disponible" },
+    { "type": "checkbox", "id": "pago_rapido", "label": "Mostrar botón de pago rápido (Shop Pay, Google Pay…)", "default": true },
+    { "type": "checkbox", "id": "mostrar_cantidad", "label": "Mostrar selector de cantidad", "default": true },
+    { "type": "text", "id": "texto_cantidad", "label": "Texto accesible: cantidad", "default": "Cantidad" },
+    { "type": "text", "id": "texto_menos", "label": "Texto accesible: restar", "default": "Quitar una unidad" },
+    { "type": "text", "id": "texto_mas", "label": "Texto accesible: sumar", "default": "Añadir una unidad" },
+    { "type": "checkbox", "id": "barra_fija", "label": "Barra de compra fija al bajar", "default": true },
+    { "type": "header", "content": "Garantías bajo el botón" },
+    { "type": "text", "id": "confianza_1", "label": "Garantía 1 (icono envío)", "default": "Envío con seguimiento" },
+    { "type": "text", "id": "confianza_2", "label": "Garantía 2 (icono devolución)", "default": "14 días para devolver" },
+    { "type": "text", "id": "confianza_3", "label": "Garantía 3 (icono candado)", "default": "Pago 100 % seguro" },
+    { "type": "header", "content": "Descripción" },
+    { "type": "checkbox", "id": "mostrar_descripcion", "label": "Mostrar la descripción del producto", "default": true },
+    { "type": "checkbox", "id": "descripcion_abierta", "label": "Descripción abierta al cargar", "default": true },
+    { "type": "text", "id": "titulo_descripcion", "label": "Título de la descripción", "default": "Descripción" },
+    { "type": "header", "content": "Características (bloques «Característica»)" },
+    { "type": "text", "id": "caracteristicas_eyebrow", "label": "Texto pequeño superior", "default": "Pensado al detalle" },
+    { "type": "inline_richtext", "id": "caracteristicas_titulo", "label": "Título", "default": "Por qué te va a <em>encantar</em>" },
+    { "type": "range", "id": "columnas", "label": "Columnas en ordenador", "min": 2, "max": 4, "step": 1, "default": 3 },
+    { "type": "range", "id": "extra_heading_size", "label": "Tamaño de los títulos inferiores (px)", "min": 24, "max": 72, "step": 2, "unit": "px", "default": 46 },
+    { "type": "header", "content": "Qué incluye" },
+    { "type": "text", "id": "incluye_eyebrow", "label": "Texto pequeño superior", "default": "En la caja" },
+    { "type": "inline_richtext", "id": "incluye_titulo", "label": "Título", "default": "Qué <em>incluye</em>" },
+    { "type": "textarea", "id": "incluye", "label": "Contenido (una línea por elemento)", "info": "Vacío = no se muestra este bloque." },
+    { "type": "image_picker", "id": "incluye_imagen", "label": "Imagen (vacío = 2.ª foto del producto)" },
+    { "type": "header", "content": "Tipografía" },
+    { "type": "select", "id": "text_align", "label": "Alineación de la columna de compra", "default": "left", "options": [
+      { "value": "left", "label": "Izquierda" }, { "value": "center", "label": "Centro" }
+    ] },
+    { "type": "range", "id": "heading_size", "label": "Tamaño del título (px)", "min": 24, "max": 72, "step": 2, "unit": "px", "default": 44 },
+    { "type": "range", "id": "body_size", "label": "Tamaño del texto (px)", "min": 13, "max": 22, "step": 1, "unit": "px", "default": 16 },
+    { "type": "header", "content": "Colores" },
+    { "type": "color", "id": "color_fondo", "label": "Fondo", "default": "#F9F8F4" },
+    { "type": "color", "id": "color_texto", "label": "Texto", "default": "#161513" },
+    { "type": "header", "content": "Espaciado" },
+    { "type": "range", "id": "padding_top", "label": "Espacio superior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "label": "Espacio inferior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    {
+      "type": "acordeon",
+      "name": "Desplegable",
+      "settings": [
+        { "type": "text", "id": "titulo", "label": "Título", "default": "Envío" },
+        { "type": "richtext", "id": "contenido", "label": "Contenido", "default": "<p>Escribe aquí el contenido.</p>" }
+      ]
+    },
+    {
+      "type": "caracteristica",
+      "name": "Característica",
+      "settings": [
+        { "type": "select", "id": "icono", "label": "Icono", "default": "check", "options": [
+          { "value": "check", "label": "Check" }, { "value": "reloj", "label": "Reloj" }, { "value": "casa", "label": "Casa" },
+          { "value": "tijeras", "label": "Tijeras" }, { "value": "gota", "label": "Gota" }, { "value": "hoja", "label": "Hoja" },
+          { "value": "chispa", "label": "Brillo" }, { "value": "corazon", "label": "Corazón" }, { "value": "mano", "label": "Mano" },
+          { "value": "escudo", "label": "Escudo" }, { "value": "estrella", "label": "Estrella" }, { "value": "regalo", "label": "Regalo" },
+          { "value": "envio", "label": "Envío" }, { "value": "devolucion", "label": "Devolución" }, { "value": "etiqueta", "label": "Etiqueta" }
+        ] },
+        { "type": "text", "id": "titulo", "label": "Título", "default": "Característica" },
+        { "type": "textarea", "id": "texto", "label": "Texto", "default": "Explica la característica en una o dos frases." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Lume – Página de producto" }],
+  "enabled_on": { "templates": ["product"] }
+}
+{% endschema %}

@@ -1,0 +1,236 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "lu-hero",
+      "settings": {}
+    },
+    "cinta": {
+      "type": "lu-marquesina",
+      "blocks": {
+        "frase-1": {
+          "type": "frase",
+          "settings": {
+            "texto": "Adiós a las durezas"
+          }
+        },
+        "frase-2": {
+          "type": "frase",
+          "settings": {
+            "texto": "Talones suaves en minutos"
+          }
+        },
+        "frase-3": {
+          "type": "frase",
+          "settings": {
+            "texto": "Envío con seguimiento"
+          }
+        },
+        "frase-4": {
+          "type": "frase",
+          "settings": {
+            "texto": "14 días para devolver"
+          }
+        },
+        "frase-5": {
+          "type": "frase",
+          "settings": {
+            "texto": "Pago 100 % seguro"
+          }
+        }
+      },
+      "block_order": [
+        "frase-1",
+        "frase-2",
+        "frase-3",
+        "frase-4",
+        "frase-5"
+      ],
+      "settings": {}
+    },
+    "destacado": {
+      "type": "lu-destacado",
+      "settings": {
+        "oferta": ""
+      }
+    },
+    "beneficios": {
+      "type": "lu-beneficios",
+      "blocks": {
+        "beneficio-1": {
+          "type": "beneficio",
+          "settings": {
+            "icono": "reloj",
+            "titulo": "Unos minutos",
+            "texto": "Una rutina corta que encaja en cualquier día."
+          }
+        },
+        "beneficio-2": {
+          "type": "beneficio",
+          "settings": {
+            "icono": "casa",
+            "titulo": "Desde tu casa",
+            "texto": "Mantén los pies cuidados entre pedicura y pedicura."
+          }
+        },
+        "beneficio-3": {
+          "type": "beneficio",
+          "settings": {
+            "icono": "mano",
+            "titulo": "Fácil de verdad",
+            "texto": "Sin experiencia ni trucos: la coges y funciona."
+          }
+        },
+        "beneficio-4": {
+          "type": "beneficio",
+          "settings": {
+            "icono": "escudo",
+            "titulo": "Compra tranquila",
+            "texto": "Pago seguro, envío con seguimiento y 14 días para devolver."
+          }
+        }
+      },
+      "block_order": [
+        "beneficio-1",
+        "beneficio-2",
+        "beneficio-3",
+        "beneficio-4"
+      ],
+      "settings": {}
+    },
+    "pasos": {
+      "type": "lu-pasos",
+      "blocks": {
+        "paso-1": {
+          "type": "paso",
+          "settings": {
+            "titulo": "Prepara la piel",
+            "texto": "Lava y seca bien tus pies antes de empezar."
+          }
+        },
+        "paso-2": {
+          "type": "paso",
+          "settings": {
+            "titulo": "Lima con suavidad",
+            "texto": "Pasa la lima por talones y durezas sin apretar, unos minutos basta."
+          }
+        },
+        "paso-3": {
+          "type": "paso",
+          "settings": {
+            "titulo": "Hidrata y listo",
+            "texto": "Aplica tu crema de siempre y disfruta de unos pies más suaves."
+          }
+        }
+      },
+      "block_order": [
+        "paso-1",
+        "paso-2",
+        "paso-3"
+      ],
+      "settings": {
+        "color_fondo": "#F1EBE1"
+      }
+    },
+    "comparador": {
+      "type": "lu-comparador",
+      "settings": {
+        "color_fondo": "#F9F8F4"
+      }
+    },
+    "esenciales": {
+      "type": "lu-esenciales",
+      "settings": {
+        "color_fondo": "#FFFFFF"
+      }
+    },
+    "manifiesto": {
+      "type": "lu-manifiesto",
+      "settings": {
+        "color_fondo": "#F9F8F4"
+      }
+    },
+    "faq": {
+      "type": "lu-faq",
+      "blocks": {
+        "pregunta-1": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Cuánto tarda en llegar mi pedido?",
+            "respuesta": "<p>Preparamos tu pedido en 1-2 días laborables y te enviamos el número de seguimiento por email. La entrega en España peninsular suele tardar entre 7 y 12 días laborables.</p>"
+          }
+        },
+        "pregunta-2": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Duele usar la lima?",
+            "respuesta": "<p>No, si la usas con suavidad y sin apretar. Trabaja solo sobre durezas y piel seca, nunca sobre heridas o piel irritada. Si tienes diabetes, problemas de circulación o la piel muy sensible, consulta antes con tu podólogo.</p>"
+          }
+        },
+        "pregunta-3": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Cada cuánto la uso?",
+            "respuesta": "<p>Con una o dos veces por semana suele bastar para mantener los talones suaves. Después, aplica tu crema hidratante de siempre.</p>"
+          }
+        },
+        "pregunta-4": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Puedo devolverla si no me convence?",
+            "respuesta": "<p>Sí. Tienes 14 días naturales desde que la recibes para devolverla sin dar explicaciones. Por higiene, el producto debe estar sin usar y en su embalaje. Escríbenos y te indicamos cómo hacerlo.</p>"
+          }
+        },
+        "pregunta-5": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Qué formas de pago aceptáis?",
+            "respuesta": "<p>Tarjeta de crédito o débito y los métodos que ves al pagar. El pago es 100 % seguro y nunca vemos los datos de tu tarjeta.</p>"
+          }
+        },
+        "pregunta-6": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Tiene garantía?",
+            "respuesta": "<p>Sí, todos nuestros productos tienen la garantía legal de 3 años frente a defectos de fabricación.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "pregunta-1",
+        "pregunta-2",
+        "pregunta-3",
+        "pregunta-4",
+        "pregunta-5",
+        "pregunta-6"
+      ],
+      "settings": {
+        "boton_url": "shopify://pages/contact"
+      }
+    },
+    "cta": {
+      "type": "lu-cta",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "cinta",
+    "destacado",
+    "beneficios",
+    "pasos",
+    "comparador",
+    "esenciales",
+    "manifiesto",
+    "faq",
+    "cta"
+  ]
+}

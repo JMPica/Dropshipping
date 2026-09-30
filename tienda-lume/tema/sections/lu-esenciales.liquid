@@ -1,0 +1,124 @@
+{{ 'lu-styles.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'lu-scripts.js' | asset_url }}" defer></script>
+
+{%- liquid
+  assign coleccion = section.settings.coleccion
+  if coleccion == blank
+    assign coleccion = collections.all
+  endif
+-%}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.color_fondo }};
+    color: {{ section.settings.color_texto }};
+  }
+  #shopify-section-{{ section.id }} .lu-h2 { font-size: {{ section.settings.heading_size }}px; }
+  #shopify-section-{{ section.id }} .lu-body { font-size: {{ section.settings.body_size }}px; }
+  #shopify-section-{{ section.id }} .lu-cabecera { text-align: {{ section.settings.text_align }}; }
+  #shopify-section-{{ section.id }} .lu-rejilla { --lu-columnas: {{ section.settings.columnas }}; --lu-hueco: {{ section.settings.separacion }}px; }
+  #shopify-section-{{ section.id }} .lu-tarjeta .lu-media { aspect-ratio: {{ section.settings.proporcion }}; }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .lu-h2 { font-size: {{ section.settings.heading_size | times: 0.72 | round }}px; }
+  }
+{% endstyle %}
+
+<section class="lu-section lu-esenciales">
+  <div class="lu-container">
+    <div class="lu-cabecera{% if section.settings.text_align == 'center' %} lu-center{% endif %}">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="lu-eyebrow lu-reveal">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h2 class="lu-h2 lu-reveal" style="--lu-i: 1">{{ section.settings.titulo }}</h2>
+        {%- if section.settings.texto != blank -%}
+          <p class="lu-body lu-reveal" style="--lu-i: 2; margin-top: 14px; max-width: 560px">{{ section.settings.texto | newline_to_br }}</p>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.enlace_texto != blank -%}
+        <a class="lu-link lu-reveal" href="{{ coleccion.url }}">{{ section.settings.enlace_texto }}</a>
+      {%- endif -%}
+    </div>
+
+    <div class="lu-rejilla">
+      {%- for producto in coleccion.products limit: section.settings.limite -%}
+        {%- assign v = producto.selected_or_first_available_variant -%}
+        <a class="lu-tarjeta lu-reveal" style="--lu-i: {{ forloop.index0 | modulo: 4 }}" href="{{ producto.url }}">
+          <div class="lu-media">
+            {%- if producto.featured_media != blank -%}
+              {{ producto.featured_media | image_url: width: 900 | image_tag: widths: '300, 500, 700, 900', sizes: '(min-width: 990px) 33vw, 50vw', loading: 'lazy' }}
+              {%- if section.settings.segunda_imagen and producto.media[1] != blank -%}
+                {{ producto.media[1] | image_url: width: 900 | image_tag: widths: '300, 500, 700, 900', sizes: '(min-width: 990px) 33vw, 50vw', loading: 'lazy' }}
+              {%- endif -%}
+            {%- else -%}
+              {%- render 'lu-hueco' -%}
+            {%- endif -%}
+          </div>
+          {%- if producto.available == false -%}
+            <span class="lu-etiqueta" style="background: var(--lu-cacao)">{{ section.settings.texto_agotado }}</span>
+          {%- elsif v.compare_at_price > v.price and section.settings.texto_oferta != blank -%}
+            <span class="lu-etiqueta">{{ section.settings.texto_oferta }}</span>
+          {%- endif -%}
+          <div class="lu-tarjeta__info">
+            <h3 class="lu-tarjeta__titulo">{{ producto.title }}</h3>
+            <span class="lu-tarjeta__precio">
+              {%- if v.compare_at_price > v.price -%}<s>{{ v.compare_at_price | money }}</s>{%- endif -%}
+              {%- if producto.price_varies -%}{{ section.settings.texto_desde }} {% endif -%}{{ producto.price_min | money }}
+            </span>
+          </div>
+        </a>
+      {%- else -%}
+        {%- for i in (1..3) -%}
+          <div class="lu-tarjeta lu-reveal" style="--lu-i: {{ forloop.index0 }}">
+            <div class="lu-media">{%- render 'lu-hueco', nota: 'Tus productos aparecerán aquí' -%}</div>
+            <div class="lu-tarjeta__info">
+              <h3 class="lu-tarjeta__titulo">{{ section.settings.texto_proximamente }}</h3>
+              <span class="lu-tarjeta__precio">—</span>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lume – Productos",
+  "tag": "div",
+  "settings": [
+    { "type": "collection", "id": "coleccion", "label": "Colección", "info": "Si la dejas vacía, se muestran todos los productos." },
+    { "type": "range", "id": "limite", "label": "Número máximo de productos", "min": 2, "max": 12, "step": 1, "default": 3 },
+    { "type": "range", "id": "columnas", "label": "Columnas en ordenador", "min": 2, "max": 4, "step": 1, "default": 3 },
+    { "type": "range", "id": "separacion", "label": "Separación entre tarjetas (px)", "min": 8, "max": 48, "step": 2, "unit": "px", "default": 24 },
+    { "type": "select", "id": "proporcion", "label": "Forma de las fotos", "default": "4 / 5", "options": [
+      { "value": "1 / 1", "label": "Cuadrada" }, { "value": "4 / 5", "label": "Vertical" }, { "value": "3 / 4", "label": "Muy vertical" }, { "value": "4 / 3", "label": "Horizontal" }
+    ] },
+    { "type": "checkbox", "id": "segunda_imagen", "label": "Mostrar segunda foto al pasar el ratón", "default": true },
+    { "type": "header", "content": "Textos" },
+    { "type": "text", "id": "eyebrow", "label": "Texto pequeño superior", "default": "Los esenciales" },
+    { "type": "inline_richtext", "id": "titulo", "label": "Título", "default": "Todo para unos pies <em>de diez</em>" },
+    { "type": "textarea", "id": "texto", "label": "Texto", "default": "Pocas cosas, bien elegidas. Cada producto de Lume resuelve un problema real de tu rutina." },
+    { "type": "text", "id": "enlace_texto", "label": "Texto del enlace a la colección", "default": "Ver todo" },
+    { "type": "text", "id": "texto_oferta", "label": "Etiqueta cuando hay rebaja", "default": "Oferta" },
+    { "type": "text", "id": "texto_agotado", "label": "Etiqueta de agotado", "default": "Agotado" },
+    { "type": "text", "id": "texto_desde", "label": "Texto antes del precio si hay varios", "default": "Desde" },
+    { "type": "text", "id": "texto_proximamente", "label": "Texto mientras no haya productos", "default": "Muy pronto" },
+    { "type": "header", "content": "Tipografía" },
+    { "type": "select", "id": "text_align", "label": "Alineación de la cabecera", "default": "left", "options": [
+      { "value": "left", "label": "Izquierda" }, { "value": "center", "label": "Centro" }, { "value": "right", "label": "Derecha" }
+    ] },
+    { "type": "range", "id": "heading_size", "label": "Tamaño del título (px)", "min": 24, "max": 80, "step": 2, "unit": "px", "default": 52 },
+    { "type": "range", "id": "body_size", "label": "Tamaño del texto (px)", "min": 13, "max": 24, "step": 1, "unit": "px", "default": 17 },
+    { "type": "header", "content": "Colores" },
+    { "type": "color", "id": "color_fondo", "label": "Fondo", "default": "#F9F8F4" },
+    { "type": "color", "id": "color_texto", "label": "Texto", "default": "#161513" },
+    { "type": "header", "content": "Espaciado" },
+    { "type": "range", "id": "padding_top", "label": "Espacio superior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "label": "Espacio inferior (px)", "min": 0, "max": 160, "step": 8, "unit": "px", "default": 96 }
+  ],
+  "presets": [{ "name": "Lume – Productos" }]
+}
+{% endschema %}

@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "principal": {
+      "type": "lu-producto",
+      "blocks": {
+        "acordeon-1": {
+          "type": "acordeon",
+          "settings": {
+            "titulo": "Envío",
+            "contenido": "<p>Preparamos tu pedido en 1-2 días laborables. Entrega en España peninsular en 7-12 días laborables, con número de seguimiento por email.</p>"
+          }
+        },
+        "acordeon-2": {
+          "type": "acordeon",
+          "settings": {
+            "titulo": "Devoluciones",
+            "contenido": "<p>Tienes 14 días naturales desde que la recibes para devolverla. Por higiene, debe estar sin usar y en su embalaje. Escríbenos y te explicamos cómo.</p>"
+          }
+        },
+        "acordeon-3": {
+          "type": "acordeon",
+          "settings": {
+            "titulo": "Garantía",
+            "contenido": "<p>Garantía legal de 3 años frente a defectos de fabricación.</p>"
+          }
+        },
+        "acordeon-4": {
+          "type": "acordeon",
+          "settings": {
+            "titulo": "Precauciones",
+            "contenido": "<p>Úsala solo sobre durezas y piel seca, nunca sobre heridas o piel irritada. Si tienes diabetes o problemas de circulación, consulta antes con tu podólogo.</p>"
+          }
+        },
+        "caracteristica-5": {
+          "type": "caracteristica",
+          "settings": {
+            "icono": "reloj",
+            "titulo": "Rápida",
+            "texto": "Unos minutos por pie, una o dos veces por semana."
+          }
+        },
+        "caracteristica-6": {
+          "type": "caracteristica",
+          "settings": {
+            "icono": "mano",
+            "titulo": "Fácil de usar",
+            "texto": "Sin experiencia previa: la coges y funciona."
+          }
+        },
+        "caracteristica-7": {
+          "type": "caracteristica",
+          "settings": {
+            "icono": "casa",
+            "titulo": "En tu casa",
+            "texto": "Talones suaves entre pedicura y pedicura, cuando te venga bien."
+          }
+        }
+      },
+      "block_order": [
+        "acordeon-1",
+        "acordeon-2",
+        "acordeon-3",
+        "acordeon-4",
+        "caracteristica-5",
+        "caracteristica-6",
+        "caracteristica-7"
+      ],
+      "settings": {}
+    },
+    "rutina": {
+      "type": "lu-esenciales",
+      "settings": {
+        "eyebrow": "Completa tu rutina",
+        "titulo": "También te puede <em>gustar</em>",
+        "texto": "",
+        "color_fondo": "#FFFFFF",
+        "padding_top": 88,
+        "padding_bottom": 88
+      }
+    },
+    "faq": {
+      "type": "lu-faq",
+      "blocks": {
+        "pregunta-1": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Cuánto tarda en llegar mi pedido?",
+            "respuesta": "<p>Preparamos tu pedido en 1-2 días laborables y te enviamos el número de seguimiento por email. La entrega en España peninsular suele tardar entre 7 y 12 días laborables.</p>"
+          }
+        },
+        "pregunta-2": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Duele usar la lima?",
+            "respuesta": "<p>No, si la usas con suavidad y sin apretar. Trabaja solo sobre durezas y piel seca, nunca sobre heridas o piel irritada. Si tienes diabetes, problemas de circulación o la piel muy sensible, consulta antes con tu podólogo.</p>"
+          }
+        },
+        "pregunta-3": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Cada cuánto la uso?",
+            "respuesta": "<p>Con una o dos veces por semana suele bastar para mantener los talones suaves. Después, aplica tu crema hidratante de siempre.</p>"
+          }
+        },
+        "pregunta-4": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Puedo devolverla si no me convence?",
+            "respuesta": "<p>Sí. Tienes 14 días naturales desde que la recibes para devolverla sin dar explicaciones. Por higiene, el producto debe estar sin usar y en su embalaje. Escríbenos y te indicamos cómo hacerlo.</p>"
+          }
+        },
+        "pregunta-5": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Qué formas de pago aceptáis?",
+            "respuesta": "<p>Tarjeta de crédito o débito y los métodos que ves al pagar. El pago es 100 % seguro y nunca vemos los datos de tu tarjeta.</p>"
+          }
+        },
+        "pregunta-6": {
+          "type": "pregunta",
+          "settings": {
+            "pregunta": "¿Tiene garantía?",
+            "respuesta": "<p>Sí, todos nuestros productos tienen la garantía legal de 3 años frente a defectos de fabricación.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "pregunta-1",
+        "pregunta-2",
+        "pregunta-3",
+        "pregunta-4",
+        "pregunta-5",
+        "pregunta-6"
+      ],
+      "settings": {
+        "boton_url": "shopify://pages/contact"
+      }
+    }
+  },
+  "order": [
+    "principal",
+    "rutina",
+    "faq"
+  ]
+}
