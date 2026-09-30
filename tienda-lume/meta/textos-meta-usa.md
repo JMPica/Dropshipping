@@ -26,20 +26,16 @@ Lume brings the spa feeling home. We test cordless massagers and self-care tools
 
 https://lume-es.myshopify.com (cambiar por el dominio propio si se compra uno)
 
-## Publicación 1 (bienvenida, con el logo) — texto nuevo
+## Publicación 1 (logo) — traducción del texto original
 
-Hi, we're Lume. ✨
-We believe the best self-care is the one you actually do: ten minutes, at home, with tools that work.
-Cordless massagers and simple rituals for your evenings — no appointments, no waiting.
-Free tracked shipping across the US.
+Hi 👋 I'm Lume: useful products to solve the little dramas of everyday life (you know, the ones that drive you crazy). Free shipping across the US and easy returns. Our first launch is coming very soon… don't miss it! ✨
 
-## Publicación 2 (manos abriendo la caja) — texto nuevo
+## Publicación 2 (manos abriendo la caja) — traducción del texto original
 
-Something calm is on its way. 📦
-Our first rituals are ready: a cordless neck & shoulder massager, a heated knee massager, smart cupping and reusable smoothing patches.
-Your daily spa, at home.
+Lume was born for this: finding ways to make your day a little less boring 😵‍💫. We'll show you the first one very soon. ✨
+Free shipping across the US and easy returns… stress-free! 📦
 
-(Mantener la etiqueta de «contenido generado con IA» en la foto.)
+(La foto lleva texto en español dentro de la imagen: «Envío gratis a la península». Mantener la etiqueta de contenido IA.)
 
 ## Reglas para anuncios en EE. UU.
 
