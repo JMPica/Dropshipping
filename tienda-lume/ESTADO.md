@@ -45,7 +45,14 @@ Archivos de Shopify y colocadas como primeras fotos de cada producto:
 - `lume-cupping-massager-spa.png` → ventosas
 - `lume-silicone-patches-tray.png` y `lume-silicone-patches-bedtime.png` → parches (la de la bandeja también en «About»)
 
+## Meta (30 sept)
+- Página «Lume» pasada a EE. UU.: presentación, 2 publicaciones en inglés, portada caja kraft sin texto,
+  campaña de calentamiento de España eliminada. Archivos y textos en `meta/`.
+- Siguiente: app «Facebook & Instagram» de Shopify (píxel, portfolio Lume, cuenta Lume Ads).
+
 ## Pendiente
+- TikTok: crear la cuenta más adelante (el usuario lo deja para cuando la tienda esté en marcha en EE. UU.);
+  luego app «TikTok» de Shopify para el píxel. El orgánico publicado desde España apenas llega a EE. UU.: vender con anuncios.
 - Publicar el tema «Lume (Claude)» y quitar la contraseña cuando se quiera vender.
 - Pegar `politicas/*.html` en Configuración → Políticas (el conector no tiene permiso `write_legal_policies`).
 - Pedido de prueba para confirmar costes reales, aranceles y plazos.
