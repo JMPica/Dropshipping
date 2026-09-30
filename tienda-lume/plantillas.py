@@ -198,11 +198,12 @@ f['sections']['footer']['settings'] = {
     'col1_enlace_2': 'FAQ', 'col1_url_2': 'shopify://pages/faq',
     'col1_enlace_3': 'About Lume', 'col1_url_3': 'shopify://pages/about-lume',
     'col2_url_1': 'shopify://pages/contact',
-    'col2_url_2': 'shopify://policies/shipping-policy',
-    'col2_url_3': 'shopify://policies/refund-policy',
+    'col2_url_2': 'shopify://pages/shipping-policy',
+    'col2_url_3': 'shopify://pages/refund-policy',
     'col2_enlace_4': '',
     'email': '',
-    'aviso_legal_texto': '',
+    # Las políticas oficiales de Shopify no se pueden escribir por API (sin permiso): van como páginas
+    'aviso_legal_texto': 'Terms of service', 'aviso_legal_url': 'shopify://pages/terms-of-service',
     'cookies_texto': '',
 }
 escribir('sections/footer-group.json', rellenar(f))
