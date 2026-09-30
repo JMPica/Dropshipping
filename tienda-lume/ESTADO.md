@@ -71,4 +71,6 @@ Archivos de Shopify y colocadas como primeras fotos de cada producto:
   (sin registro); política de privacidad sin dirección personal (ya no automática); AutoDS: Fulfilled by AutoDS y
   pedidos automáticos activos, «No automation» en precios, envío a United States, máx. 20 días de envío.
 - AutoDS: plan con primer cobro el 1 oct; «Fulfilled by AutoDS» en prueba hasta el 3 oct.
-- Queda: checkout de prueba sin pagar (opcional) y lanzar la primera campaña (textos en meta/textos-meta-usa.md).
+- Checkout de prueba (sin pagar) OK: envío FREE, total USD 89,99, sin aranceles. Perfil «AutoDS Free Shipping»:
+  solo zona United States, 9 variantes, ubicaciones AutoDS + Shop location. Perfil general sin productos.
+- Queda: lanzar la primera campaña (textos en meta/textos-meta-usa.md).
