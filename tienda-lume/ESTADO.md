@@ -54,7 +54,8 @@ Archivos de Shopify y colocadas como primeras fotos de cada producto:
 ## Pendiente
 - TikTok: crear la cuenta más adelante (el usuario lo deja para cuando la tienda esté en marcha en EE. UU.);
   luego app «TikTok» de Shopify para el píxel. El orgánico publicado desde España apenas llega a EE. UU.: vender con anuncios.
-- Publicar el tema «Lume (Claude)» y quitar la contraseña cuando se quiera vender.
-- Pegar `politicas/*.html` en Configuración → Políticas (el conector no tiene permiso `write_legal_policies`).
+- Hecho (30 sept): tema «Lume (Claude)» publicado, contraseña quitada, políticas pegadas en Configuración → Políticas,
+  devoluciones por defecto a 30 días, correo de atención lume.support.us@gmail.com (tienda, remitente, políticas).
+  Páginas antiguas «aviso-legal» y «politica-de-cookies» (España, con NIF y domicilio) ocultadas, no borradas.
+- Suscripción de AutoDS: el usuario paga un mes.
 - Pedido de prueba para confirmar costes reales, aranceles y plazos.
-- Suscripción de AutoDS (la prueba acaba el 1 oct 2026) para los pedidos automáticos.
