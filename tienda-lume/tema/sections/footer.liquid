@@ -1,0 +1,383 @@
+{%- comment -%}
+  Footer de Lume: sección propia sencilla (sustituye al footer de Dawn).
+  Todo editable desde el editor: textos, enlaces, colores y espaciado.
+{%- endcomment -%}
+{{ 'lu-styles.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.color_fondo }};
+    color: {{ section.settings.color_texto }};
+  }
+  .section-{{ section.id }}-padding .lu-footer ul a,
+  .section-{{ section.id }}-padding .lu-footer__texto { font-size: {{ section.settings.body_size }}px; }
+  .section-{{ section.id }}-padding .lu-footer ul a { text-decoration: none; opacity: 0.85; }
+  .section-{{ section.id }}-padding .lu-footer ul a:hover { opacity: 1; text-decoration: underline; }
+{% endstyle %}
+
+<footer class="lu-footer section-{{ section.id }}-padding">
+  <div class="lu-container">
+    <div class="lu-footer__grid">
+      <div>
+        {%- if section.settings.logo != blank -%}
+          <a class="lu-footer__logo" href="{{ routes.root_url }}">
+            {{ section.settings.logo | image_url: width: 600 | image_tag: width: section.settings.logo_width, loading: 'lazy', alt: shop.name }}
+          </a>
+        {%- else -%}
+          <p class="lu-footer__marca">
+            <a href="{{ routes.root_url }}">
+              <img src="{{ 'lume-logo-claro.png' | asset_url }}" alt="{{ shop.name | escape }}" width="{{ section.settings.logo_width }}" height="{{ section.settings.logo_width | times: 428 | divided_by: 1760 }}" class="lu-logo-img" style="width: {{ section.settings.logo_width }}px" loading="lazy">
+            </a>
+          </p>
+        {%- endif -%}
+        {%- if section.settings.tagline != blank -%}
+          <p class="lu-footer__texto" style="margin-top: 14px">{{ section.settings.tagline | newline_to_br }}</p>
+        {%- endif -%}
+        {%- if section.settings.mostrar_redes -%}
+          <div class="lu-footer__redes">
+            {%- if settings.social_instagram_link != blank -%}<a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener" aria-label="Instagram">{% render 'lu-icono', nombre: 'instagram' %}</a>{%- endif -%}
+            {%- if settings.social_tiktok_link != blank -%}<a href="{{ settings.social_tiktok_link }}" target="_blank" rel="noopener" aria-label="TikTok">{% render 'lu-icono', nombre: 'tiktok' %}</a>{%- endif -%}
+            {%- if settings.social_facebook_link != blank -%}<a href="{{ settings.social_facebook_link }}" target="_blank" rel="noopener" aria-label="Facebook">{% render 'lu-icono', nombre: 'facebook' %}</a>{%- endif -%}
+            {%- if settings.social_youtube_link != blank -%}<a href="{{ settings.social_youtube_link }}" target="_blank" rel="noopener" aria-label="YouTube">{% render 'lu-icono', nombre: 'youtube' %}</a>{%- endif -%}
+            {%- if settings.social_pinterest_link != blank -%}<a href="{{ settings.social_pinterest_link }}" target="_blank" rel="noopener" aria-label="Pinterest">{% render 'lu-icono', nombre: 'pinterest' %}</a>{%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <nav aria-label="{{ section.settings.col1_titulo | escape }}">
+        <h2>{{ section.settings.col1_titulo }}</h2>
+        <ul>
+          {%- for i in (1..3) -%}
+            {%- assign k_texto = 'col1_enlace_' | append: i -%}
+            {%- assign k_url = 'col1_url_' | append: i -%}
+            {%- if section.settings[k_texto] != blank -%}
+              <li><a href="{{ section.settings[k_url] | default: '#' }}">{{ section.settings[k_texto] }}</a></li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </nav>
+
+      <nav aria-label="{{ section.settings.col2_titulo | escape }}">
+        <h2>{{ section.settings.col2_titulo }}</h2>
+        <ul>
+          {%- for i in (1..4) -%}
+            {%- assign k_texto = 'col2_enlace_' | append: i -%}
+            {%- assign k_url = 'col2_url_' | append: i -%}
+            {%- if section.settings[k_texto] != blank -%}
+              <li><a href="{{ section.settings[k_url] | default: '#' }}">{{ section.settings[k_texto] }}</a></li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </nav>
+
+      <div>
+        <h2>{{ section.settings.col3_titulo }}</h2>
+        {%- if section.settings.col3_texto != blank -%}
+          <p class="lu-footer__texto">{{ section.settings.col3_texto | newline_to_br }}</p>
+        {%- endif -%}
+        {%- if section.settings.email != blank -%}
+          <p class="lu-footer__texto" style="margin-top: 12px"><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></p>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="lu-footer__base">
+      <div>
+        <p style="margin: 0 0 10px">© {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ section.settings.copyright }}</p>
+        <div class="lu-footer__legal">
+          {%- if shop.privacy_policy -%}<a href="{{ shop.privacy_policy.url }}">{{ section.settings.texto_privacidad }}</a>{%- endif -%}
+          {%- if shop.terms_of_service -%}<a href="{{ shop.terms_of_service.url }}">{{ section.settings.texto_terminos }}</a>{%- endif -%}
+          {%- if shop.refund_policy -%}<a href="{{ shop.refund_policy.url }}">{{ section.settings.texto_devoluciones }}</a>{%- endif -%}
+          {%- if shop.shipping_policy -%}<a href="{{ shop.shipping_policy.url }}">{{ section.settings.texto_envios }}</a>{%- endif -%}
+          {%- if section.settings.aviso_legal_texto != blank -%}<a href="{{ section.settings.aviso_legal_url | default: '#' }}">{{ section.settings.aviso_legal_texto }}</a>{%- endif -%}
+          {%- if section.settings.cookies_texto != blank -%}<a href="{{ section.settings.cookies_url | default: '#' }}">{{ section.settings.cookies_texto }}</a>{%- endif -%}
+        </div>
+      </div>
+      {%- if section.settings.mostrar_pagos -%}
+        <ul class="lu-footer__pagos" role="list" aria-label="Payment methods">
+          {%- for type in shop.enabled_payment_types -%}
+            <li>{{ type | payment_type_svg_tag }}</li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Lume – Pie de página",
+  "class": "footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Marca"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo (opcional)",
+      "info": "Vacío = logo de Lume en versión clara, incluido en el diseño."
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Ancho del logo (px)",
+      "min": 60,
+      "max": 300,
+      "step": 5,
+      "unit": "px",
+      "default": 160
+    },
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Frase de la marca",
+      "default": "Your daily spa, at home."
+    },
+    {
+      "type": "checkbox",
+      "id": "mostrar_redes",
+      "label": "Mostrar redes sociales",
+      "default": true,
+      "info": "Los enlaces se ponen en Configuración del tema → Redes sociales."
+    },
+    {
+      "type": "header",
+      "content": "Columna 1"
+    },
+    {
+      "type": "text",
+      "id": "col1_titulo",
+      "label": "Título",
+      "default": "Shop"
+    },
+    {
+      "type": "text",
+      "id": "col1_enlace_1",
+      "label": "Enlace 1 – texto",
+      "default": "All products"
+    },
+    {
+      "type": "url",
+      "id": "col1_url_1",
+      "label": "Enlace 1 – dirección"
+    },
+    {
+      "type": "text",
+      "id": "col1_enlace_2",
+      "label": "Enlace 2 – texto",
+      "default": "FAQ"
+    },
+    {
+      "type": "url",
+      "id": "col1_url_2",
+      "label": "Enlace 2 – dirección"
+    },
+    {
+      "type": "text",
+      "id": "col1_enlace_3",
+      "label": "Enlace 3 – texto",
+      "default": "About Lume"
+    },
+    {
+      "type": "url",
+      "id": "col1_url_3",
+      "label": "Enlace 3 – dirección"
+    },
+    {
+      "type": "header",
+      "content": "Columna 2"
+    },
+    {
+      "type": "text",
+      "id": "col2_titulo",
+      "label": "Título",
+      "default": "Help"
+    },
+    {
+      "type": "text",
+      "id": "col2_enlace_1",
+      "label": "Enlace 1 – texto",
+      "default": "Contact"
+    },
+    {
+      "type": "url",
+      "id": "col2_url_1",
+      "label": "Enlace 1 – dirección"
+    },
+    {
+      "type": "text",
+      "id": "col2_enlace_2",
+      "label": "Enlace 2 – texto",
+      "default": "Shipping"
+    },
+    {
+      "type": "url",
+      "id": "col2_url_2",
+      "label": "Enlace 2 – dirección"
+    },
+    {
+      "type": "text",
+      "id": "col2_enlace_3",
+      "label": "Enlace 3 – texto",
+      "default": "Returns"
+    },
+    {
+      "type": "url",
+      "id": "col2_url_3",
+      "label": "Enlace 3 – dirección"
+    },
+    {
+      "type": "text",
+      "id": "col2_enlace_4",
+      "label": "Enlace 4 – texto",
+      "default": "FAQ"
+    },
+    {
+      "type": "url",
+      "id": "col2_url_4",
+      "label": "Enlace 4 – dirección"
+    },
+    {
+      "type": "header",
+      "content": "Columna 3"
+    },
+    {
+      "type": "text",
+      "id": "col3_titulo",
+      "label": "Título",
+      "default": "Let's talk"
+    },
+    {
+      "type": "textarea",
+      "id": "col3_texto",
+      "label": "Texto",
+      "default": "Questions about your order? We reply within one business day."
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email de contacto"
+    },
+    {
+      "type": "header",
+      "content": "Barra inferior"
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Texto tras el copyright",
+      "default": "All rights reserved."
+    },
+    {
+      "type": "text",
+      "id": "texto_privacidad",
+      "label": "Texto: privacidad",
+      "default": "Privacy"
+    },
+    {
+      "type": "text",
+      "id": "texto_terminos",
+      "label": "Texto: términos",
+      "default": "Terms of service"
+    },
+    {
+      "type": "text",
+      "id": "texto_devoluciones",
+      "label": "Texto: devoluciones",
+      "default": "Returns"
+    },
+    {
+      "type": "text",
+      "id": "texto_envios",
+      "label": "Texto: envíos",
+      "default": "Shipping"
+    },
+    {
+      "type": "text",
+      "id": "aviso_legal_texto",
+      "label": "Aviso legal – texto",
+      "default": "Legal notice"
+    },
+    {
+      "type": "url",
+      "id": "aviso_legal_url",
+      "label": "Aviso legal – dirección"
+    },
+    {
+      "type": "text",
+      "id": "cookies_texto",
+      "label": "Cookies – texto",
+      "default": "Cookies"
+    },
+    {
+      "type": "url",
+      "id": "cookies_url",
+      "label": "Cookies – dirección"
+    },
+    {
+      "type": "checkbox",
+      "id": "mostrar_pagos",
+      "label": "Mostrar iconos de pago",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Tipografía"
+    },
+    {
+      "type": "range",
+      "id": "body_size",
+      "label": "Tamaño del texto (px)",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Colores"
+    },
+    {
+      "type": "color",
+      "id": "color_fondo",
+      "label": "Fondo",
+      "default": "#161513"
+    },
+    {
+      "type": "color",
+      "id": "color_texto",
+      "label": "Texto",
+      "default": "#F9F8F4"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Espacio superior (px)",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 88
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Espacio inferior (px)",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 40
+    }
+  ]
+}
+{% endschema %}

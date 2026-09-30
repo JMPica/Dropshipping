@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "name": "t:sections.footer.name",
   "type": "footer",
@@ -15,16 +6,31 @@
       "type": "footer",
       "settings": {
         "col1_url_1": "shopify://collections/all",
-        "col1_enlace_2": "Preguntas frecuentes",
-        "col1_url_2": "shopify://pages/preguntas-frecuentes",
-        "col1_url_3": "shopify://pages/sobre-lume",
+        "col1_enlace_2": "FAQ",
+        "col1_url_2": "shopify://pages/faq",
+        "col1_enlace_3": "About Lume",
+        "col1_url_3": "shopify://pages/about-lume",
         "col2_url_1": "shopify://pages/contact",
         "col2_url_2": "shopify://policies/shipping-policy",
         "col2_url_3": "shopify://policies/refund-policy",
         "col2_enlace_4": "",
         "email": "",
-        "aviso_legal_url": "shopify://pages/aviso-legal",
-        "cookies_url": "shopify://pages/politica-de-cookies"
+        "aviso_legal_texto": "",
+        "cookies_texto": "",
+        "tagline": "Your daily spa, at home.",
+        "col1_titulo": "Shop",
+        "col1_enlace_1": "All products",
+        "col2_titulo": "Help",
+        "col2_enlace_1": "Contact",
+        "col2_enlace_2": "Shipping",
+        "col2_enlace_3": "Returns",
+        "col3_titulo": "Let's talk",
+        "col3_texto": "Questions about your order? We reply within one business day.",
+        "copyright": "All rights reserved.",
+        "texto_privacidad": "Privacy",
+        "texto_terminos": "Terms of service",
+        "texto_devoluciones": "Returns",
+        "texto_envios": "Shipping"
       }
     }
   },

@@ -1,17 +1,25 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
       "type": "lu-hero",
-      "settings": {}
+      "settings": {
+        "eyebrow": "At-home spa rituals",
+        "titulo": "Ten minutes that feel like <em>an hour at the spa</em>.",
+        "texto": "Cordless massagers and self-care tools that turn any evening into a reset. No appointments, no waiting, no cords.",
+        "boton_1": "Shop the massager",
+        "boton_1_url": "shopify://products/cordless-neck-shoulder-massager",
+        "boton_2": "Explore the collection",
+        "boton_2_url": "shopify://collections/all",
+        "garantia_1": "Free US shipping",
+        "garantia_1_icono": "envio",
+        "garantia_2": "30-day guarantee",
+        "garantia_2_icono": "devolucion",
+        "garantia_3": "Secure checkout",
+        "garantia_3_icono": "seguro",
+        "imagen": "shopify://shop_images/4d80b542f94b7ed0927c57192f48fe90.jpg",
+        "sello_grande": "10 min",
+        "sello_texto": "a day"
+      }
     },
     "cinta": {
       "type": "lu-marquesina",
@@ -19,31 +27,31 @@
         "frase-1": {
           "type": "frase",
           "settings": {
-            "texto": "Adiós a las durezas"
+            "texto": "Free US shipping"
           }
         },
         "frase-2": {
           "type": "frase",
           "settings": {
-            "texto": "Talones suaves en minutos"
+            "texto": "Cordless & rechargeable"
           }
         },
         "frase-3": {
           "type": "frase",
           "settings": {
-            "texto": "Envío con seguimiento"
+            "texto": "30-day money-back guarantee"
           }
         },
         "frase-4": {
           "type": "frase",
           "settings": {
-            "texto": "14 días para devolver"
+            "texto": "Your ten-minute reset"
           }
         },
         "frase-5": {
           "type": "frase",
           "settings": {
-            "texto": "Pago 100 % seguro"
+            "texto": "Secure checkout"
           }
         }
       },
@@ -54,12 +62,20 @@
         "frase-4",
         "frase-5"
       ],
-      "settings": {}
+      "settings": {
+        "etiqueta": "Lume perks"
+      }
     },
     "destacado": {
       "type": "lu-destacado",
       "settings": {
-        "oferta": ""
+        "producto": "cordless-neck-shoulder-massager",
+        "eyebrow": "The Lume favorite",
+        "oferta": "",
+        "texto": "Two sets of 3D kneading heads grip, knead and release the knots between your neck and shoulders, the way a pair of hands would. Cordless, rechargeable and ready whenever you need ten minutes for yourself.",
+        "puntos": "Hand-like kneading, not just vibration\nCordless: sofa, desk or passenger seat\nWear it hands-free with the clip-on straps\nAuto-off after every 10-minute session",
+        "boton_comprar": "Add to cart",
+        "boton_ver": "View details"
       }
     },
     "beneficios": {
@@ -69,32 +85,32 @@
           "type": "beneficio",
           "settings": {
             "icono": "reloj",
-            "titulo": "Unos minutos",
-            "texto": "Una rutina corta que encaja en cualquier día."
+            "titulo": "Ten minutes is enough",
+            "texto": "Short, easy rituals that fit into a busy evening."
           }
         },
         "beneficio-2": {
           "type": "beneficio",
           "settings": {
             "icono": "casa",
-            "titulo": "Desde tu casa",
-            "texto": "Mantén los pies cuidados entre pedicura y pedicura."
+            "titulo": "Spa feeling at home",
+            "texto": "No appointments, no commute, no tipping. Just you and your sofa."
           }
         },
         "beneficio-3": {
           "type": "beneficio",
           "settings": {
             "icono": "mano",
-            "titulo": "Fácil de verdad",
-            "texto": "Sin experiencia ni trucos: la coges y funciona."
+            "titulo": "Made to be easy",
+            "texto": "One button, cordless, rechargeable. Nothing to learn."
           }
         },
         "beneficio-4": {
           "type": "beneficio",
           "settings": {
             "icono": "escudo",
-            "titulo": "Compra tranquila",
-            "texto": "Pago seguro, envío con seguimiento y 14 días para devolver."
+            "titulo": "Shop with confidence",
+            "texto": "Free tracked shipping and a 30-day money-back guarantee."
           }
         }
       },
@@ -104,7 +120,11 @@
         "beneficio-3",
         "beneficio-4"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "Why Lume",
+        "titulo": "Self-care you will <em>actually use</em>.",
+        "imagen": "shopify://shop_images/cef270bdd35fc0840f5ef04d86ae4731.jpg"
+      }
     },
     "pasos": {
       "type": "lu-pasos",
@@ -112,22 +132,22 @@
         "paso-1": {
           "type": "paso",
           "settings": {
-            "titulo": "Prepara la piel",
-            "texto": "Lava y seca bien tus pies antes de empezar."
+            "titulo": "Charge it",
+            "texto": "Plug in the USB cable. One full charge covers about a week of evening sessions."
           }
         },
         "paso-2": {
           "type": "paso",
           "settings": {
-            "titulo": "Lima con suavidad",
-            "texto": "Pasa la lima por talones y durezas sin apretar, unos minutos basta."
+            "titulo": "Drape it on",
+            "texto": "Rest it on your shoulders and hold the straps, or clip them behind your back to go hands-free."
           }
         },
         "paso-3": {
           "type": "paso",
           "settings": {
-            "titulo": "Hidrata y listo",
-            "texto": "Aplica tu crema de siempre y disfruta de unos pies más suaves."
+            "titulo": "Switch off for 10 minutes",
+            "texto": "Pick the mode and intensity, then let it knead. It turns itself off when the session ends."
           }
         }
       },
@@ -137,24 +157,32 @@
         "paso-3"
       ],
       "settings": {
+        "eyebrow": "How it works",
+        "titulo": "Three steps. <em>Zero effort.</em>",
         "color_fondo": "#F1EBE1"
-      }
-    },
-    "comparador": {
-      "type": "lu-comparador",
-      "settings": {
-        "color_fondo": "#F9F8F4"
       }
     },
     "esenciales": {
       "type": "lu-esenciales",
       "settings": {
-        "color_fondo": "#FFFFFF"
+        "eyebrow": "The ritual collection",
+        "titulo": "Everything for your <em>at-home spa</em>",
+        "texto": "A few tools, carefully chosen. Each one earns its place in your evening routine.",
+        "color_fondo": "#FFFFFF",
+        "enlace_texto": "Shop all",
+        "texto_oferta": "Sale",
+        "texto_agotado": "Sold out",
+        "texto_desde": "From",
+        "texto_proximamente": "Coming soon"
       }
     },
     "manifiesto": {
       "type": "lu-manifiesto",
       "settings": {
+        "eyebrow": "Our idea",
+        "titulo": "We believe the best self-care is the one you <em>actually do</em>: a few minutes, at home, with tools that work.",
+        "firma": "— The Lume team",
+        "mostrar_imagen": false,
         "color_fondo": "#F9F8F4"
       }
     },
@@ -164,43 +192,43 @@
         "pregunta-1": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Cuánto tarda en llegar mi pedido?",
-            "respuesta": "<p>Preparamos tu pedido en 1-2 días laborables y te enviamos el número de seguimiento por email. La entrega en España peninsular suele tardar entre 7 y 12 días laborables.</p>"
+            "pregunta": "How long does shipping take?",
+            "respuesta": "<p>We process orders within 1–3 business days and email you a tracking number as soon as your order ships. Delivery within the contiguous US usually takes 7–12 business days.</p>"
           }
         },
         "pregunta-2": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Duele usar la lima?",
-            "respuesta": "<p>No, si la usas con suavidad y sin apretar. Trabaja solo sobre durezas y piel seca, nunca sobre heridas o piel irritada. Si tienes diabetes, problemas de circulación o la piel muy sensible, consulta antes con tu podólogo.</p>"
+            "pregunta": "Is shipping really free?",
+            "respuesta": "<p>Yes. Standard tracked shipping is free on every order to the United States. No minimum.</p>"
           }
         },
         "pregunta-3": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Cada cuánto la uso?",
-            "respuesta": "<p>Con una o dos veces por semana suele bastar para mantener los talones suaves. Después, aplica tu crema hidratante de siempre.</p>"
+            "pregunta": "What if it's not for me?",
+            "respuesta": "<p>You're covered by our 30-day money-back guarantee. If you're not happy, contact us within 30 days of delivery and we'll help you return it for a refund. Items that arrive damaged or defective are replaced or refunded at no cost to you.</p>"
           }
         },
         "pregunta-4": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Puedo devolverla si no me convence?",
-            "respuesta": "<p>Sí. Tienes 14 días naturales desde que la recibes para devolverla sin dar explicaciones. Por higiene, el producto debe estar sin usar y en su embalaje. Escríbenos y te indicamos cómo hacerlo.</p>"
+            "pregunta": "Are the massagers safe to use?",
+            "respuesta": "<p>Our massagers are designed for relaxation and everyday comfort. They are not medical devices. If you are pregnant, have a pacemaker, a medical condition or recent injury, please ask your doctor before using them. Start on the lowest setting and never use them on broken or irritated skin.</p>"
           }
         },
         "pregunta-5": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Qué formas de pago aceptáis?",
-            "respuesta": "<p>Tarjeta de crédito o débito y los métodos que ves al pagar. El pago es 100 % seguro y nunca vemos los datos de tu tarjeta.</p>"
+            "pregunta": "How do I charge them?",
+            "respuesta": "<p>Every massager is rechargeable and comes with a USB charging cable. Plug it into any USB wall adapter or laptop. Charge fully before first use.</p>"
           }
         },
         "pregunta-6": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Tiene garantía?",
-            "respuesta": "<p>Sí, todos nuestros productos tienen la garantía legal de 3 años frente a defectos de fabricación.</p>"
+            "pregunta": "Which payment methods do you accept?",
+            "respuesta": "<p>All major credit and debit cards and the express options you see at checkout. Payments are processed securely and we never see or store your card details.</p>"
           }
         }
       },
@@ -213,12 +241,21 @@
         "pregunta-6"
       ],
       "settings": {
-        "boton_url": "shopify://pages/contact"
+        "boton_url": "shopify://pages/contact",
+        "eyebrow": "Questions",
+        "titulo": "Frequently asked <em>questions</em>",
+        "texto": "Can't find your answer? Email us and we'll reply within one business day.",
+        "boton": "Contact us"
       }
     },
     "cta": {
       "type": "lu-cta",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Your moment",
+        "titulo": "Your daily spa is <em>one click away</em>",
+        "texto": "Free tracked shipping across the US and a 30-day money-back guarantee. Zero risk.",
+        "boton": "Shop the collection"
+      }
     }
   },
   "order": [
@@ -227,7 +264,6 @@
     "destacado",
     "beneficios",
     "pasos",
-    "comparador",
     "esenciales",
     "manifiesto",
     "faq",

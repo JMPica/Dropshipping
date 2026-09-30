@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "principal": {
@@ -15,53 +6,46 @@
         "acordeon-1": {
           "type": "acordeon",
           "settings": {
-            "titulo": "Envío",
-            "contenido": "<p>Preparamos tu pedido en 1-2 días laborables. Entrega en España peninsular en 7-12 días laborables, con número de seguimiento por email.</p>"
+            "titulo": "Shipping",
+            "contenido": "<p>Free tracked shipping on every US order. We process orders within 1–3 business days; delivery usually takes 7–12 business days. You will get a tracking number by email.</p>"
           }
         },
         "acordeon-2": {
           "type": "acordeon",
           "settings": {
-            "titulo": "Devoluciones",
-            "contenido": "<p>Tienes 14 días naturales desde que la recibes para devolverla. Por higiene, debe estar sin usar y en su embalaje. Escríbenos y te explicamos cómo.</p>"
+            "titulo": "30-day money-back guarantee",
+            "contenido": "<p>Not in love with it? Contact us within 30 days of delivery and we'll help you return it for a refund. Damaged or defective items are replaced or refunded at no cost to you.</p>"
           }
         },
         "acordeon-3": {
           "type": "acordeon",
           "settings": {
-            "titulo": "Garantía",
-            "contenido": "<p>Garantía legal de 3 años frente a defectos de fabricación.</p>"
+            "titulo": "Safety",
+            "contenido": "<p>Designed for relaxation, not a medical device. If you are pregnant, have a pacemaker, a medical condition or a recent injury, ask your doctor before use. Start on the lowest setting and never use on broken or irritated skin.</p>"
           }
         },
-        "acordeon-4": {
-          "type": "acordeon",
+        "caracteristica-4": {
+          "type": "caracteristica",
           "settings": {
-            "titulo": "Precauciones",
-            "contenido": "<p>Úsala solo sobre durezas y piel seca, nunca sobre heridas o piel irritada. Si tienes diabetes o problemas de circulación, consulta antes con tu podólogo.</p>"
+            "icono": "reloj",
+            "titulo": "Minutes, not hours",
+            "texto": "A short ritual that fits into any evening."
           }
         },
         "caracteristica-5": {
           "type": "caracteristica",
           "settings": {
-            "icono": "reloj",
-            "titulo": "Rápida",
-            "texto": "Unos minutos por pie, una o dos veces por semana."
+            "icono": "casa",
+            "titulo": "Spa feeling at home",
+            "texto": "No appointments, no waiting, no commute."
           }
         },
         "caracteristica-6": {
           "type": "caracteristica",
           "settings": {
-            "icono": "mano",
-            "titulo": "Fácil de usar",
-            "texto": "Sin experiencia previa: la coges y funciona."
-          }
-        },
-        "caracteristica-7": {
-          "type": "caracteristica",
-          "settings": {
-            "icono": "casa",
-            "titulo": "En tu casa",
-            "texto": "Talones suaves entre pedicura y pedicura, cuando te venga bien."
+            "icono": "escudo",
+            "titulo": "Risk-free",
+            "texto": "Free US shipping and a 30-day money-back guarantee."
           }
         }
       },
@@ -69,22 +53,45 @@
         "acordeon-1",
         "acordeon-2",
         "acordeon-3",
-        "acordeon-4",
+        "caracteristica-4",
         "caracteristica-5",
-        "caracteristica-6",
-        "caracteristica-7"
+        "caracteristica-6"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "Lume · At-home spa",
+        "texto_impuestos": "Taxes calculated at checkout.",
+        "texto_ver_foto": "View photo",
+        "texto_ahorro": "You save [pct]%",
+        "boton_texto": "Add to cart",
+        "texto_agotado": "Sold out",
+        "texto_no_disponible": "Unavailable",
+        "texto_cantidad": "Quantity",
+        "texto_menos": "Remove one",
+        "texto_mas": "Add one",
+        "confianza_1": "Free tracked US shipping",
+        "confianza_2": "30-day money-back guarantee",
+        "confianza_3": "Secure checkout",
+        "titulo_descripcion": "Description",
+        "caracteristicas_eyebrow": "Made for your ritual",
+        "caracteristicas_titulo": "Why you'll <em>love it</em>",
+        "incluye_eyebrow": "In the box",
+        "incluye_titulo": "What's <em>included</em>"
+      }
     },
     "rutina": {
       "type": "lu-esenciales",
       "settings": {
-        "eyebrow": "Completa tu rutina",
-        "titulo": "También te puede <em>gustar</em>",
+        "eyebrow": "Complete your ritual",
+        "titulo": "You may also <em>like</em>",
         "texto": "",
         "color_fondo": "#FFFFFF",
         "padding_top": 88,
-        "padding_bottom": 88
+        "padding_bottom": 88,
+        "enlace_texto": "Shop all",
+        "texto_oferta": "Sale",
+        "texto_agotado": "Sold out",
+        "texto_desde": "From",
+        "texto_proximamente": "Coming soon"
       }
     },
     "faq": {
@@ -93,43 +100,43 @@
         "pregunta-1": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Cuánto tarda en llegar mi pedido?",
-            "respuesta": "<p>Preparamos tu pedido en 1-2 días laborables y te enviamos el número de seguimiento por email. La entrega en España peninsular suele tardar entre 7 y 12 días laborables.</p>"
+            "pregunta": "How long does shipping take?",
+            "respuesta": "<p>We process orders within 1–3 business days and email you a tracking number as soon as your order ships. Delivery within the contiguous US usually takes 7–12 business days.</p>"
           }
         },
         "pregunta-2": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Duele usar la lima?",
-            "respuesta": "<p>No, si la usas con suavidad y sin apretar. Trabaja solo sobre durezas y piel seca, nunca sobre heridas o piel irritada. Si tienes diabetes, problemas de circulación o la piel muy sensible, consulta antes con tu podólogo.</p>"
+            "pregunta": "Is shipping really free?",
+            "respuesta": "<p>Yes. Standard tracked shipping is free on every order to the United States. No minimum.</p>"
           }
         },
         "pregunta-3": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Cada cuánto la uso?",
-            "respuesta": "<p>Con una o dos veces por semana suele bastar para mantener los talones suaves. Después, aplica tu crema hidratante de siempre.</p>"
+            "pregunta": "What if it's not for me?",
+            "respuesta": "<p>You're covered by our 30-day money-back guarantee. If you're not happy, contact us within 30 days of delivery and we'll help you return it for a refund. Items that arrive damaged or defective are replaced or refunded at no cost to you.</p>"
           }
         },
         "pregunta-4": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Puedo devolverla si no me convence?",
-            "respuesta": "<p>Sí. Tienes 14 días naturales desde que la recibes para devolverla sin dar explicaciones. Por higiene, el producto debe estar sin usar y en su embalaje. Escríbenos y te indicamos cómo hacerlo.</p>"
+            "pregunta": "Are the massagers safe to use?",
+            "respuesta": "<p>Our massagers are designed for relaxation and everyday comfort. They are not medical devices. If you are pregnant, have a pacemaker, a medical condition or recent injury, please ask your doctor before using them. Start on the lowest setting and never use them on broken or irritated skin.</p>"
           }
         },
         "pregunta-5": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Qué formas de pago aceptáis?",
-            "respuesta": "<p>Tarjeta de crédito o débito y los métodos que ves al pagar. El pago es 100 % seguro y nunca vemos los datos de tu tarjeta.</p>"
+            "pregunta": "How do I charge them?",
+            "respuesta": "<p>Every massager is rechargeable and comes with a USB charging cable. Plug it into any USB wall adapter or laptop. Charge fully before first use.</p>"
           }
         },
         "pregunta-6": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Tiene garantía?",
-            "respuesta": "<p>Sí, todos nuestros productos tienen la garantía legal de 3 años frente a defectos de fabricación.</p>"
+            "pregunta": "Which payment methods do you accept?",
+            "respuesta": "<p>All major credit and debit cards and the express options you see at checkout. Payments are processed securely and we never see or store your card details.</p>"
           }
         }
       },
@@ -142,7 +149,11 @@
         "pregunta-6"
       ],
       "settings": {
-        "boton_url": "shopify://pages/contact"
+        "boton_url": "shopify://pages/contact",
+        "eyebrow": "Questions",
+        "titulo": "Frequently asked <em>questions</em>",
+        "texto": "Can't find your answer? Email us and we'll reply within one business day.",
+        "boton": "Contact us"
       }
     }
   },

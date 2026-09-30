@@ -1,32 +1,30 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
       "type": "lu-hero",
       "settings": {
-        "eyebrow": "Sobre Lume",
-        "titulo": "Pequeñas cosas que <em>mejoran tu día</em>",
-        "texto": "Lume nace en España con una idea sencilla: reunir herramientas prácticas para el cuidado personal en casa y quedarnos solo con las que de verdad merecen la pena.",
-        "boton_1": "Ver productos",
+        "eyebrow": "About Lume",
+        "titulo": "Small rituals that <em>change your evenings</em>",
+        "texto": "Lume started with a simple idea: the spa feeling should not require an appointment. We test at-home massage and self-care tools and only keep the ones that are easy, effective and a pleasure to use.",
+        "boton_1": "Shop the collection",
+        "boton_1_url": "shopify://collections/all",
         "boton_2": "",
+        "imagen": "shopify://shop_images/4d80b542f94b7ed0927c57192f48fe90.jpg",
         "sello_grande": "",
         "sello_texto": "",
-        "heading_size": 64
+        "heading_size": 64,
+        "garantia_1": "Free US shipping",
+        "garantia_2": "30-day guarantee",
+        "garantia_3": "Secure checkout"
       }
     },
     "manifiesto": {
       "type": "lu-manifiesto",
       "settings": {
-        "eyebrow": "Lo que nos importa",
-        "titulo": "Menos cosas, <em>mejor elegidas</em>. Cada producto de Lume tiene que resolver un problema real de tu rutina.",
+        "eyebrow": "What we care about",
+        "titulo": "Fewer things, <em>better chosen</em>. Every Lume product has to earn a place in your evening routine.",
+        "firma": "— The Lume team",
+        "mostrar_imagen": false,
         "color_fondo": "#FFFFFF"
       }
     },
@@ -37,32 +35,32 @@
           "type": "beneficio",
           "settings": {
             "icono": "reloj",
-            "titulo": "Unos minutos",
-            "texto": "Una rutina corta que encaja en cualquier día."
+            "titulo": "Ten minutes is enough",
+            "texto": "Short, easy rituals that fit into a busy evening."
           }
         },
         "beneficio-2": {
           "type": "beneficio",
           "settings": {
             "icono": "casa",
-            "titulo": "Desde tu casa",
-            "texto": "Mantén los pies cuidados entre pedicura y pedicura."
+            "titulo": "Spa feeling at home",
+            "texto": "No appointments, no commute, no tipping. Just you and your sofa."
           }
         },
         "beneficio-3": {
           "type": "beneficio",
           "settings": {
             "icono": "mano",
-            "titulo": "Fácil de verdad",
-            "texto": "Sin experiencia ni trucos: la coges y funciona."
+            "titulo": "Made to be easy",
+            "texto": "One button, cordless, rechargeable. Nothing to learn."
           }
         },
         "beneficio-4": {
           "type": "beneficio",
           "settings": {
             "icono": "escudo",
-            "titulo": "Compra tranquila",
-            "texto": "Pago seguro, envío con seguimiento y 14 días para devolver."
+            "titulo": "Shop with confidence",
+            "texto": "Free tracked shipping and a 30-day money-back guarantee."
           }
         }
       },
@@ -73,15 +71,20 @@
         "beneficio-4"
       ],
       "settings": {
-        "eyebrow": "Nuestra promesa",
-        "titulo": "Así trabajamos",
-        "imagen_derecha": true
+        "eyebrow": "Our promise",
+        "titulo": "How we <em>work</em>",
+        "imagen_derecha": true,
+        "imagen": "shopify://shop_images/cef270bdd35fc0840f5ef04d86ae4731.jpg"
       }
     },
     "cta": {
       "type": "lu-cta",
       "settings": {
-        "padding_top": 0
+        "padding_top": 0,
+        "eyebrow": "Your moment",
+        "titulo": "Your daily spa is <em>one click away</em>",
+        "texto": "Free tracked shipping across the US and a 30-day money-back guarantee. Zero risk.",
+        "boton": "Shop the collection"
       }
     }
   },

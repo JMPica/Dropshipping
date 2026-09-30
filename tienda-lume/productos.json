@@ -1,0 +1,41 @@
+{
+  "gid://shopify/Product/12313877807368": {
+    "title": "Cordless Neck & Shoulder Massager",
+    "handle": "cordless-neck-shoulder-massager",
+    "productType": "Massager",
+    "seo": {"title": "Cordless Neck & Shoulder Massager | Lume", "description": "A kneading shoulder massager you can wear anywhere. Cordless, rechargeable and hands-free. Free tracked shipping across the US."},
+    "descriptionHtml": "<p><strong>The ten-minute reset for tight shoulders.</strong> Drape it over your neck, pull the straps (or clip them behind your back) and let two sets of 3D kneading heads grip, knead and release the muscles between your neck and shoulders, the way a pair of hands would.</p><h3>Why you'll reach for it every day</h3><ul><li><strong>Kneads like hands, not like a vibrator:</strong> six kneading contacts work the trapezius with a grasp-and-release motion.</li><li><strong>Truly cordless:</strong> rechargeable battery, so you can use it on the sofa, at your desk or in the car (as a passenger).</li><li><strong>Two ways to wear it:</strong> hold the straps to control the pressure, or clip them behind your back and go hands-free.</li><li><strong>Not just for the neck:</strong> also works on your lower back, thighs and calves.</li><li><strong>10-minute sessions:</strong> a built-in timer switches it off automatically.</li></ul><h3>Classic or Pro?</h3><ul><li><strong>Classic (20W):</strong> brushed motor, 1,800 mAh battery. Our everyday favorite.</li><li><strong>Pro (26W):</strong> quieter brushless motor, 2,000 mAh battery and a lighter body (about 1.1 kg).</li></ul><h3>Good to know</h3><ul><li>Charge fully before first use (about 3 hours). One charge lasts roughly 7–8 sessions of 10 minutes.</li><li>It doesn't run while charging.</li><li>In the box: massager, USB charging cable, user manual.</li></ul><p><em>This is a massager for relaxation. It is not a medical device and is not intended to diagnose or treat any condition. If you are pregnant, have a pacemaker or a medical condition, ask your doctor before using it.</em></p>",
+    "option": {"id": "gid://shopify/ProductOption/14964162363656", "name": "Style", "values": {
+      "gid://shopify/ProductOptionValue/17361476452616": "Classic 20W · Sand",
+      "gid://shopify/ProductOptionValue/17361476387080": "Classic 20W · White",
+      "gid://shopify/ProductOptionValue/17361476419848": "Classic 20W · Grey",
+      "gid://shopify/ProductOptionValue/17361476321544": "Pro 26W · White",
+      "gid://shopify/ProductOptionValue/17361476354312": "Pro 26W · Grey"}}
+  },
+  "gid://shopify/Product/12313877872904": {
+    "title": "Heated Knee Massager",
+    "handle": "heated-knee-massager",
+    "productType": "Massager",
+    "seo": {"title": "Heated Knee Massager | Lume", "description": "Cordless knee massager with soothing warmth, air compression and vibration. Rechargeable and easy to wrap on. Free tracked shipping across the US."},
+    "descriptionHtml": "<p><strong>Warmth and gentle pressure, wrapped around your knee.</strong> Slip it on, press start and let soothing heat, rhythmic air compression and vibration work together while you read, watch TV or rest after a long day on your feet.</p><h3>What it does</h3><ul><li><strong>Soothing warmth:</strong> adjustable heat that wraps around the joint.</li><li><strong>Air compression:</strong> built-in air chambers gently squeeze and release.</li><li><strong>Vibration massage:</strong> choose the intensity that feels right.</li><li><strong>Cordless & rechargeable:</strong> USB charging, no cable in the way while you use it.</li><li><strong>Adjustable wrap:</strong> also fits the elbow and shoulder.</li></ul><h3>Good to know</h3><ul><li>Charge fully before first use.</li><li>Use it over light clothing or directly on the skin, never on broken or irritated skin.</li><li>In the box: knee massager, USB charging cable, user manual.</li></ul><p><em>This is a massager for relaxation and comfort. It is not a medical device and is not intended to diagnose, treat or cure any condition. If you have a medical condition, circulation problems, a pacemaker or are pregnant, ask your doctor before using it.</em></p>",
+    "option": {"id": "gid://shopify/ProductOption/14964162429192", "name": "Color", "values": {}}
+  },
+  "gid://shopify/Product/12313877774600": {
+    "title": "Heated Smart Cupping Massager",
+    "handle": "heated-cupping-massager",
+    "productType": "Massager",
+    "seo": {"title": "Heated Smart Cupping Massager | Lume", "description": "Cordless electric cupping massager with gentle warmth and 3 suction levels. A spa-style ritual at home. Free tracked shipping across the US."},
+    "descriptionHtml": "<p><strong>The spa cupping ritual, minus the appointment.</strong> This cordless cupping massager combines gentle suction with warmth, so you can glide it over your back, shoulders, arms and legs in a few minutes, with one button.</p><h3>Why you'll love it</h3><ul><li><strong>3 suction levels:</strong> start soft and go deeper only when it feels good.</li><li><strong>Built-in warmth:</strong> a cozy heat that makes every session more relaxing.</li><li><strong>Cordless & compact:</strong> rechargeable, fits in your hand and your bag.</li><li><strong>Simple:</strong> one-button operation, no glass cups, no flames.</li></ul><h3>Good to know</h3><ul><li>Apply a little massage oil or body lotion first so the cup glides smoothly.</li><li>Cupping can leave temporary round marks on the skin; start on the lowest level.</li><li>Don't use on the face, on broken or irritated skin, or over varicose veins.</li><li>In the box: cupping massager, USB charging cable, user manual.</li></ul><p><em>For relaxation only. This is not a medical device and is not intended to diagnose, treat or cure any condition. If you are pregnant, take blood thinners or have a medical condition, ask your doctor before using it.</em></p>",
+    "option": {"id": "gid://shopify/ProductOption/14964162330888", "name": "Color", "values": {}}
+  },
+  "gid://shopify/Product/12313877840136": {
+    "title": "Reusable Silicone Smoothing Patches",
+    "handle": "silicone-smoothing-patches",
+    "productType": "Skin Care Tools",
+    "seo": {"title": "Reusable Silicone Smoothing Patches | Lume", "description": "Soft silicone patches you wear overnight to help smooth the look of forehead and expression lines. Washable and reusable. Free tracked shipping across the US."},
+    "descriptionHtml": "<p><strong>Wake up with a smoother-looking forehead.</strong> These soft silicone patches gently hold the skin still while you sleep, so you don't spend the night frowning, squinting or pressing your face into the pillow. In the morning, peel them off, rinse and use them again.</p><h3>Why they're in our ritual</h3><ul><li><strong>Helps smooth the look of expression lines</strong> on the forehead and around the eyes.</li><li><strong>Reusable:</strong> wash with water and mild soap, let them air-dry and they're ready for the next night.</li><li><strong>Nothing to absorb:</strong> no creams, no fragrance, just flexible silicone.</li><li><strong>Comfortable:</strong> thin, soft and made to follow the shape of your face.</li></ul><h3>How to use</h3><ol><li>Cleanse and fully dry your skin (no creams or oils where the patch goes).</li><li>Smooth the skin gently with your fingers and press the patch on.</li><li>Wear it overnight or for a few hours, then peel off and rinse.</li></ol><h3>Which set?</h3><ul><li><strong>Forehead + 4 Eye Patches:</strong> 1 forehead patch and 4 under-eye patches.</li><li><strong>Forehead + Smile Line Set:</strong> forehead patch plus patches for the smile-line and chin area.</li></ul><p><em>Results vary from person to person. Do not use on broken, irritated or sunburned skin. Stop using if you notice redness or irritation.</em></p>",
+    "option": {"id": "gid://shopify/ProductOption/14964162396424", "name": "Set", "values": {
+      "gid://shopify/ProductOptionValue/17361476518152": "Forehead + 4 Eye Patches",
+      "gid://shopify/ProductOptionValue/17361476485384": "Forehead + Eye + Chin Set"}}
+  }
+}

@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "faq": {
@@ -15,43 +6,43 @@
         "pregunta-1": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Cuánto tarda en llegar mi pedido?",
-            "respuesta": "<p>Preparamos tu pedido en 1-2 días laborables y te enviamos el número de seguimiento por email. La entrega en España peninsular suele tardar entre 7 y 12 días laborables.</p>"
+            "pregunta": "How long does shipping take?",
+            "respuesta": "<p>We process orders within 1–3 business days and email you a tracking number as soon as your order ships. Delivery within the contiguous US usually takes 7–12 business days.</p>"
           }
         },
         "pregunta-2": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Duele usar la lima?",
-            "respuesta": "<p>No, si la usas con suavidad y sin apretar. Trabaja solo sobre durezas y piel seca, nunca sobre heridas o piel irritada. Si tienes diabetes, problemas de circulación o la piel muy sensible, consulta antes con tu podólogo.</p>"
+            "pregunta": "Is shipping really free?",
+            "respuesta": "<p>Yes. Standard tracked shipping is free on every order to the United States. No minimum.</p>"
           }
         },
         "pregunta-3": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Cada cuánto la uso?",
-            "respuesta": "<p>Con una o dos veces por semana suele bastar para mantener los talones suaves. Después, aplica tu crema hidratante de siempre.</p>"
+            "pregunta": "What if it's not for me?",
+            "respuesta": "<p>You're covered by our 30-day money-back guarantee. If you're not happy, contact us within 30 days of delivery and we'll help you return it for a refund. Items that arrive damaged or defective are replaced or refunded at no cost to you.</p>"
           }
         },
         "pregunta-4": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Puedo devolverla si no me convence?",
-            "respuesta": "<p>Sí. Tienes 14 días naturales desde que la recibes para devolverla sin dar explicaciones. Por higiene, el producto debe estar sin usar y en su embalaje. Escríbenos y te indicamos cómo hacerlo.</p>"
+            "pregunta": "Are the massagers safe to use?",
+            "respuesta": "<p>Our massagers are designed for relaxation and everyday comfort. They are not medical devices. If you are pregnant, have a pacemaker, a medical condition or recent injury, please ask your doctor before using them. Start on the lowest setting and never use them on broken or irritated skin.</p>"
           }
         },
         "pregunta-5": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Qué formas de pago aceptáis?",
-            "respuesta": "<p>Tarjeta de crédito o débito y los métodos que ves al pagar. El pago es 100 % seguro y nunca vemos los datos de tu tarjeta.</p>"
+            "pregunta": "How do I charge them?",
+            "respuesta": "<p>Every massager is rechargeable and comes with a USB charging cable. Plug it into any USB wall adapter or laptop. Charge fully before first use.</p>"
           }
         },
         "pregunta-6": {
           "type": "pregunta",
           "settings": {
-            "pregunta": "¿Tiene garantía?",
-            "respuesta": "<p>Sí, todos nuestros productos tienen la garantía legal de 3 años frente a defectos de fabricación.</p>"
+            "pregunta": "Which payment methods do you accept?",
+            "respuesta": "<p>All major credit and debit cards and the express options you see at checkout. Payments are processed securely and we never see or store your card details.</p>"
           }
         }
       },
@@ -65,13 +56,21 @@
       ],
       "settings": {
         "boton_url": "shopify://pages/contact",
-        "padding_top": 72
+        "padding_top": 72,
+        "eyebrow": "Questions",
+        "titulo": "Frequently asked <em>questions</em>",
+        "texto": "Can't find your answer? Email us and we'll reply within one business day.",
+        "boton": "Contact us"
       }
     },
     "cta": {
       "type": "lu-cta",
       "settings": {
-        "padding_top": 0
+        "padding_top": 0,
+        "eyebrow": "Your moment",
+        "titulo": "Your daily spa is <em>one click away</em>",
+        "texto": "Free tracked shipping across the US and a 30-day money-back guarantee. Zero risk.",
+        "boton": "Shop the collection"
       }
     }
   },
