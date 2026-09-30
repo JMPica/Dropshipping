@@ -67,6 +67,8 @@ Archivos de Shopify y colocadas como primeras fotos de cada producto:
   AutoDS: 4 productos activos, con stock, proveedor AliExpress almacén US; 5 políticas con lume.support.us@gmail.com.
 - Arreglado: precios base igualados a los de EE. UU. (89,99 / 109,99 / 89,99 / 49,99 / 29,99) y sin precio «antes»,
   para que el catálogo de Meta coincida con la web.
-- Pendiente de comprobar el usuario: Shopify Payments activo y sin modo de prueba; aranceles en EE. UU. sin cobrar
-  al cliente; dirección personal en la política de privacidad automática; AutoDS con pedidos automáticos, método de
-  pago y sin cambio automático de precios; checkout de prueba hasta la pantalla de pago.
+- Comprobado con el usuario: pagos OK; aranceles sin cobrar al cliente (Duties sin configurar); impuestos US al 0 %
+  (sin registro); política de privacidad sin dirección personal (ya no automática); AutoDS: Fulfilled by AutoDS y
+  pedidos automáticos activos, «No automation» en precios, envío a United States, máx. 20 días de envío.
+- AutoDS: plan con primer cobro el 1 oct; «Fulfilled by AutoDS» en prueba hasta el 3 oct.
+- Queda: checkout de prueba sin pagar (opcional) y lanzar la primera campaña (textos en meta/textos-meta-usa.md).
