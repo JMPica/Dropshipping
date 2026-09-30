@@ -46,7 +46,7 @@ index = {
             'garantia_1': 'Free US shipping', 'garantia_1_icono': 'envio',
             'garantia_2': '30-day guarantee', 'garantia_2_icono': 'devolucion',
             'garantia_3': 'Secure checkout', 'garantia_3_icono': 'seguro',
-            'imagen': IMG + '4d80b542f94b7ed0927c57192f48fe90.jpg',
+            'imagen': IMG + 'lume-neck-massager-sofa.png',
             'sello_grande': '10 min', 'sello_texto': 'a day',
         }},
         'cinta': {'type': 'lu-marquesina', 'blocks': {
@@ -72,7 +72,7 @@ index = {
                                                               'texto': 'Free tracked shipping and a 30-day money-back guarantee.'}},
         }, 'block_order': ['beneficio-1', 'beneficio-2', 'beneficio-3', 'beneficio-4'], 'settings': {
             'eyebrow': 'Why Lume', 'titulo': 'Self-care you will <em>actually use</em>.',
-            'imagen': IMG + 'cef270bdd35fc0840f5ef04d86ae4731.jpg'}},
+            'imagen': IMG + 'lume-knee-massager-armchair.png'}},
         'pasos': {'type': 'lu-pasos', 'blocks': {
             'paso-1': {'type': 'paso', 'settings': {'titulo': 'Charge it', 'texto': 'Plug in the USB cable. One full charge covers about a week of evening sessions.'}},
             'paso-2': {'type': 'paso', 'settings': {'titulo': 'Drape it on', 'texto': 'Rest it on your shoulders and hold the straps, or clip them behind your back to go hands-free.'}},
@@ -124,7 +124,7 @@ sobre = {
             'eyebrow': 'About Lume', 'titulo': 'Small rituals that <em>change your evenings</em>',
             'texto': 'Lume started with a simple idea: the spa feeling should not require an appointment. We test at-home massage and self-care tools and only keep the ones that are easy, effective and a pleasure to use.',
             'boton_1': 'Shop the collection', 'boton_1_url': 'shopify://collections/all', 'boton_2': '',
-            'imagen': IMG + '4d80b542f94b7ed0927c57192f48fe90.jpg',
+            'imagen': IMG + 'lume-neck-massager-sofa.png',
             'sello_grande': '', 'sello_texto': '', 'heading_size': 64}},
         'manifiesto': {'type': 'lu-manifiesto', 'settings': {
             'eyebrow': 'What we care about',
@@ -133,7 +133,7 @@ sobre = {
         'beneficios': {'type': 'lu-beneficios', 'blocks': index['sections']['beneficios']['blocks'],
                        'block_order': index['sections']['beneficios']['block_order'], 'settings': {
             'eyebrow': 'Our promise', 'titulo': 'How we <em>work</em>', 'imagen_derecha': True,
-            'imagen': IMG + 'cef270bdd35fc0840f5ef04d86ae4731.jpg'}},
+            'imagen': IMG + 'lume-silicone-patches-tray.png'}},
         'cta': {'type': 'lu-cta', 'settings': {'padding_top': 0}},
     },
     'order': ['hero', 'manifiesto', 'beneficios', 'cta'],

@@ -36,9 +36,17 @@
 - Textos sin alegaciones médicas; aviso «not a medical device» en fichas, FAQ y condiciones.
 - Garantía de 30 días (devolución a cargo del cliente salvo defecto); envío 7–12 días hábiles.
 
+## Fotos (30 sept, Higgsfield · Nano Banana, 12 créditos)
+6 fotos de ambiente generadas a partir de las fotos del proveedor (copias ligeras en `fotos-ia/`), subidas a
+Archivos de Shopify y colocadas como primeras fotos de cada producto:
+- `lume-neck-massager-still-life.png` y `lume-neck-massager-sofa.png` → masajeador de cuello (la del sofá también en el hero
+  de la portada y de «About»)
+- `lume-knee-massager-armchair.png` → rodilla (y bloque «Why Lume» de la portada)
+- `lume-cupping-massager-spa.png` → ventosas
+- `lume-silicone-patches-tray.png` y `lume-silicone-patches-bedtime.png` → parches (la de la bandeja también en «About»)
+
 ## Pendiente
 - Publicar el tema «Lume (Claude)» y quitar la contraseña cuando se quiera vender.
 - Pegar `politicas/*.html` en Configuración → Políticas (el conector no tiene permiso `write_legal_policies`).
-- Fotos: las del proveedor llevan textos; sustituir por fotos de ambiente (IA o propias).
 - Pedido de prueba para confirmar costes reales, aranceles y plazos.
 - Suscripción de AutoDS (la prueba acaba el 1 oct 2026) para los pedidos automáticos.

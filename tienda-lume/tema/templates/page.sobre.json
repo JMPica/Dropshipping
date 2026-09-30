@@ -9,7 +9,7 @@
         "boton_1": "Shop the collection",
         "boton_1_url": "shopify://collections/all",
         "boton_2": "",
-        "imagen": "shopify://shop_images/4d80b542f94b7ed0927c57192f48fe90.jpg",
+        "imagen": "shopify://shop_images/lume-neck-massager-sofa.png",
         "sello_grande": "",
         "sello_texto": "",
         "heading_size": 64,
@@ -74,7 +74,7 @@
         "eyebrow": "Our promise",
         "titulo": "How we <em>work</em>",
         "imagen_derecha": true,
-        "imagen": "shopify://shop_images/cef270bdd35fc0840f5ef04d86ae4731.jpg"
+        "imagen": "shopify://shop_images/lume-silicone-patches-tray.png"
       }
     },
     "cta": {
