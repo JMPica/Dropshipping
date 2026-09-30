@@ -48,7 +48,8 @@ Archivos de Shopify y colocadas como primeras fotos de cada producto:
 ## Meta (30 sept)
 - Página «Lume» pasada a EE. UU.: presentación, 2 publicaciones en inglés, portada caja kraft sin texto,
   campaña de calentamiento de España eliminada. Archivos y textos en `meta/`.
-- Siguiente: app «Facebook & Instagram» de Shopify (píxel, portfolio Lume, cuenta Lume Ads).
+- App «Facebook & Instagram» conectada: portfolio Lume, catálogo nuevo, «Lume's Pixel», datos «Enhanced» (píxel + CAPI).
+  Los 4 productos publicados en el canal Facebook & Instagram (30 sept).
 
 ## Pendiente
 - TikTok: crear la cuenta más adelante (el usuario lo deja para cuando la tienda esté en marcha en EE. UU.);
